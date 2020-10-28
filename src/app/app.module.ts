@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AngularFireModule } from "angularfire2"
 import { AngularFireDatabaseModule} from "angularfire2/database"
 import { AngularFireAuthModule } from "angularfire2/auth"
+import { RouterModule } from "@angular/router"
 
 import { AppComponent } from './app.component';
 import { IconComponent } from './components/ui/icon/icon.component';
@@ -49,6 +50,68 @@ import { ListaProductosComponent } from './screens/lista-productos/lista-product
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: HomeComponent
+      },
+      {
+        path: 'bolsa',
+        component: BolsaComponent
+      },
+      {
+        path: 'carrito',
+        component: CarritoComponent
+      },
+      {
+        path: 'whishlist',
+        component: WishListComponent
+      },
+      {
+        path: 'tracking',
+        component: TrackingComponent
+      },
+      {
+        path: 'about',
+        component: AboutUsComponent
+      },
+      {
+        path: 'contacto',
+        component: ContactoComponent
+      },
+      {
+        path: 'check-out',
+        component: CheckOutComponent
+      },
+      {
+        path: 'order-success',
+        component: OrderSuccessComponent
+      },
+      {
+        path: 'producto',
+        component: ProductoComponent
+      },
+      {
+        path: 'lista-productos',
+        component: ListaProductosComponent
+      },
+      {
+        path: 'admin/productos',
+        component: AdminProductosComponent
+      },
+      {
+        path: 'admin/productos/nuevo',
+        component: ProductFormComponent
+      },
+      {
+        path: 'admin/ordenes',
+        component: AdminOrdenesComponent
+      },
+      {
+        path: 'admin/ordenes/nuevo',
+        component: OrderFormComponent
+      },
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
