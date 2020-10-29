@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { CategoryService } from 'src/app/services/category/category.service';
 import { ProductService } from 'src/app/services/product/product.service';
@@ -11,7 +12,10 @@ import { ProductService } from 'src/app/services/product/product.service';
 export class ProductFormComponent implements OnInit {
   categories$;
 
-  constructor(categoryService: CategoryService, private productService: ProductService) { 
+  constructor(
+    private router: Router,
+    private categoryService: CategoryService, 
+    private productService: ProductService) { 
     this.categories$ = categoryService.getCategories().snapshotChanges().pipe(
       map(changes => changes.map(c => ({key: c.payload.key, name: c.payload.val()})))
     )
@@ -19,6 +23,7 @@ export class ProductFormComponent implements OnInit {
 
   save(product) {
     this.productService.create(product);
+    this.router.navigate(['admin/productos']);
   }
 
   ngOnInit(): void {
