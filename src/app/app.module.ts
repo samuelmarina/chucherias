@@ -23,6 +23,7 @@ import { AdminOrdenesComponent } from './screens/admin/admin-ordenes/admin-orden
 import { ProductFormComponent } from './screens/admin/product-form/product-form.component';
 import { OrderFormComponent } from './screens/admin/order-form/order-form.component';
 import { ListaProductosComponent } from './screens/lista-productos/lista-productos.component';
+import { CategoryService } from './services/category/category.service';
 
 @NgModule({
   declarations: [
@@ -113,7 +114,9 @@ import { ListaProductosComponent } from './screens/lista-productos/lista-product
       },
     ])
   ],
-  providers: [],
+  providers: [
+    CategoryService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
