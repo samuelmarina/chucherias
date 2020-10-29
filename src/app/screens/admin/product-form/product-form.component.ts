@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { CategoryService } from 'src/app/services/category/category.service';
+import { ProductService } from 'src/app/services/product/product.service';
 
 @Component({
   selector: 'app-product-form',
@@ -10,10 +11,14 @@ import { CategoryService } from 'src/app/services/category/category.service';
 export class ProductFormComponent implements OnInit {
   categories$;
 
-  constructor(categoryService: CategoryService) { 
+  constructor(categoryService: CategoryService, private productService: ProductService) { 
     this.categories$ = categoryService.getCategories().snapshotChanges().pipe(
       map(changes => changes.map(c => ({key: c.payload.key, name: c.payload.val()})))
     )
+  }
+
+  save(product) {
+    this.productService.create(product);
   }
 
   ngOnInit(): void {
