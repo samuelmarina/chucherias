@@ -1,7 +1,10 @@
 <form #form="ngForm" (ngSubmit)="save(form.value)">
     <div class="form-group">
         <label for="title">Nombre Producto</label>
-        <input ngModel name="title" id="title" type="text" class="form-control">
+        <input #title="ngModel" ngModel name="title" id="title" type="text" class="form-control" required>
+        <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
+            El nombre del producto es obligatorio
+        </div>
     </div>
     <div class="form-group">
         <label for="price">Precio</label>
@@ -9,22 +12,32 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">$</span>
             </div>
-            <input ngModel name="price" id="price" type="number" class="form-control">
+            <input #price="ngModel" ngModel name="price" id="price" type="number" class="form-control" required [min]="0">
         </div>
-        
+        <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
+            <div *ngIf="price.errors.required">El precio es un campo obligatorio</div>
+            <div *ngIf="price.errors.min">El precio tiene que ser superior a 0 USD</div>
+        </div>   
     </div>
     <div class="form-group">
         <label for="category">Categoría</label>
-        <select ngModel name="category" id="category" class="form-control">
+        <select #category="ngModel" ngModel name="category" id="category" class="form-control" required>
             <option value=""></option>
             <option *ngFor="let c of categories$ | async" [value]="c.key">
                 {{ c.name.name }}
             </option>
         </select>
+        <div class="alert alert-danger" *ngIf="category.touched && category.invalid">
+            La categoría es obligatoria
+        </div>
     </div>
     <div class="form-group">
         <label for="imageUrl">URL de Imagen</label>
-        <input ngModel name="imageUrl" id="imageUrl" type="text" class="form-control">
-        <button class="btn btn-primary">Save</button>
+        <input #imageUrl="ngModel" ngModel name="imageUrl" id="imageUrl" type="text" class="form-control" required url>
+        <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">
+            <div *ngIf="imageUrl.errors.required">La URL de la imagen es obligatoria</div>
+            <div *ngIf="imageUrl.errors.url">Ingrese un URL válido</div>
+        </div>
     </div>
+    <button class="btn btn-primary">Save</button>
 </form>
