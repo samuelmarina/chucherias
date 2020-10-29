@@ -4,6 +4,7 @@ import { AngularFireModule } from "angularfire2"
 import { AngularFireDatabaseModule} from "angularfire2/database"
 import { AngularFireAuthModule } from "angularfire2/auth"
 import { RouterModule } from "@angular/router"
+import { FormsModule } from "@angular/forms"
 
 import { AppComponent } from './app.component';
 import { IconComponent } from './components/ui/icon/icon.component';
@@ -24,6 +25,7 @@ import { ProductFormComponent } from './screens/admin/product-form/product-form.
 import { OrderFormComponent } from './screens/admin/order-form/order-form.component';
 import { ListaProductosComponent } from './screens/lista-productos/lista-productos.component';
 import { CategoryService } from './services/category/category.service';
+import { ProductService } from './services/product/product.service';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { CategoryService } from './services/category/category.service';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
@@ -115,7 +118,8 @@ import { CategoryService } from './services/category/category.service';
     ])
   ],
   providers: [
-    CategoryService
+    CategoryService,
+    ProductService
   ],
   bootstrap: [AppComponent]
 })
