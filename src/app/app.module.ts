@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AngularFireModule } from "angularfire2"
-import { AngularFireDatabaseModule} from "angularfire2/database"
-import { AngularFireAuthModule } from "angularfire2/auth"
+import { AngularFireModule } from "@angular/fire"
+// import { AngularFireDatabaseModule} from "angularfire2/database"
+// import { AngularFireAuthModule } from "angularfire2/auth"
 import { RouterModule } from "@angular/router"
 import { FormsModule } from "@angular/forms"
 import { CustomFormsModule } from "ng2-validation"
@@ -54,8 +54,6 @@ import { ProductService } from './services/product/product.service';
     FormsModule,
     CustomFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
     RouterModule.forRoot([
       {
         path: '',
