@@ -8,8 +8,8 @@
     </thead>
     <tbody>
         <tr *ngFor="let p of products$ | async">
-            <td>{{ p.title }}</td>
-            <td>{{ p.price }}</td>
+            <td>{{ p.val.title }}</td>
+            <td>{{ p.val.price }}</td>
             <td>
                 <a [routerLink]="['/admin/productos/', p.key]">Editar</a>
             </td>

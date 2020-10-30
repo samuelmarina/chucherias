@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { map } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
+import { map, take } from 'rxjs/operators';
 import { CategoryService } from 'src/app/services/category/category.service';
 import { ProductService } from 'src/app/services/product/product.service';
 
@@ -11,14 +11,32 @@ import { ProductService } from 'src/app/services/product/product.service';
 })
 export class ProductFormComponent implements OnInit {
   categories$;
+  product = {
+    title: "",
+    price: 1,
+    category: "",
+    imageUrl: ""
+  };
 
   constructor(
     private router: Router,
+
     private categoryService: CategoryService, 
+    private route: ActivatedRoute,
     private productService: ProductService) { 
     this.categories$ = categoryService.getCategories().snapshotChanges().pipe(
       map(changes => changes.map(c => ({key: c.payload.key, name: c.payload.val()})))
     )
+
+    let id = this.route.snapshot.paramMap.get('id');
+    if(id){
+      this.productService.getProduct(id).pipe(take(1)).subscribe(p => {
+        this.product.title = p['title'];
+        this.product.price = p["price"];
+        this.product.category = p["category"]
+        this.product.imageUrl = p['imageUrl']
+      });
+    }
   }
 
   save(product) {

@@ -100,12 +100,16 @@ import { ProductService } from './services/product/product.service';
         component: ListaProductosComponent
       },
       {
-        path: 'admin/productos',
-        component: AdminProductosComponent
-      },
-      {
         path: 'admin/productos/nuevo',
         component: ProductFormComponent
+      },
+      {
+        path: 'admin/productos/:id',
+        component: ProductFormComponent
+      },
+      {
+        path: 'admin/productos',
+        component: AdminProductosComponent
       },
       {
         path: 'admin/ordenes',
