@@ -1,1 +1,18 @@
-<p>admin-productos works!</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of products$ | async">
+            <td>{{ p.title }}</td>
+            <td>{{ p.price }}</td>
+            <td>
+                <a [routerLink]="['/admin/productos/', p.key]">Editar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
