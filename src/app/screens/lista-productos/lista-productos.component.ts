@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { CategoryService } from 'src/app/services/category/category.service';
 import { ProductService } from 'src/app/services/product/product.service';
 
 @Component({
@@ -9,8 +10,9 @@ import { ProductService } from 'src/app/services/product/product.service';
 })
 export class ListaProductosComponent implements OnInit {
   products$;
+  categories$;
   
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private categoryService: CategoryService) {
     this.products$ = this.productService.getAll().snapshotChanges().pipe(
       map(changes => changes.map(c => (
         {
@@ -20,6 +22,12 @@ export class ListaProductosComponent implements OnInit {
           imageUrl: c.payload.val()['imageUrl']
         })))
     )
+
+    this.categories$ = categoryService.getCategories().snapshotChanges().pipe(
+      map(changes => changes.map(c => ({key: c.payload.key, name: c.payload.val()})))
+    )
+
+    console.log(this.categories$)
    }
 
   ngOnInit(): void {
