@@ -1,11 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from "@angular/fire"
-import { AngularFireDatabaseModule} from "angularfire2/database"
-import { AngularFireAuthModule } from "angularfire2/auth"
 import { RouterModule } from "@angular/router"
 import { FormsModule } from "@angular/forms"
 import { CustomFormsModule } from "ng2-validation"
+import { MatTableModule } from "@angular/material/table"
 
 import { AppComponent } from './app.component';
 import { IconComponent } from './components/ui/icon/icon.component';
@@ -27,6 +26,7 @@ import { OrderFormComponent } from './screens/admin/order-form/order-form.compon
 import { ListaProductosComponent } from './screens/lista-productos/lista-productos.component';
 import { CategoryService } from './services/category/category.service';
 import { ProductService } from './services/product/product.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -53,9 +53,8 @@ import { ProductService } from './services/product/product.service';
     BrowserModule,
     FormsModule,
     CustomFormsModule,
+    MatTableModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -121,7 +120,8 @@ import { ProductService } from './services/product/product.service';
         path: 'admin/ordenes/nuevo',
         component: OrderFormComponent
       },
-    ])
+    ]),
+    BrowserAnimationsModule
   ],
   providers: [
     CategoryService,
