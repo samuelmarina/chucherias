@@ -5,6 +5,7 @@ import { RouterModule } from "@angular/router"
 import { FormsModule } from "@angular/forms"
 import { CustomFormsModule } from "ng2-validation"
 import { MatTableModule } from "@angular/material/table"
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 import { AppComponent } from './app.component';
 import { IconComponent } from './components/ui/icon/icon.component';
@@ -54,6 +55,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     CustomFormsModule,
     MatTableModule,
+    MatPaginatorModule,
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot([
       {
