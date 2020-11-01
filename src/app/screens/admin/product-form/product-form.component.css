@@ -1,0 +1,20 @@
+#btn-save {
+  margin-right: 5px;
+  background-color: #ffadad;
+  border-color: #ffadad;
+  font-weight: bold;
+}
+
+#btn-save:hover {
+  background-color: #ff9393;
+}
+
+#btn-remove {
+  background-color: #ff437b;
+  border-color: #ff437b;
+  font-weight: bold;
+}
+
+#btn-remove:hover {
+  background-color: #ff155b;
+}
