@@ -28,6 +28,7 @@ import { ListaProductosComponent } from './screens/lista-productos/lista-product
 import { CategoryService } from './services/category/category.service';
 import { ProductService } from './services/product/product.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CategoryMenuComponent } from "./components/category-menu/category-menu.component"
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProductFormComponent,
     OrderFormComponent,
     ListaProductosComponent,
+    CategoryMenuComponent,
 
   ],
   imports: [
