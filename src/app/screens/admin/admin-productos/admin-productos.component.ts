@@ -13,6 +13,7 @@ export class AdminProductosComponent implements OnInit {
   products$;
   dataSource: MatTableDataSource<any>;
   elementData = [];
+  ids = [];
   displayedColumns: string[] = ["title", "price", "edit"]
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -26,11 +27,16 @@ export class AdminProductosComponent implements OnInit {
     //     })))
     // )
 
-    this.productService.getAll().valueChanges().pipe(
+    this.productService.getAll().snapshotChanges().pipe(
       map(changes => changes.map(c => c))
     )
     .subscribe(c => {
-      c.map(k => this.elementData.push(k))
+      c.map(k => {
+        this.elementData.push({
+          key: k.key,
+          ...k.payload.val() as any
+        })
+      })
       this.dataSource = new MatTableDataSource(this.elementData);
       this.dataSource.paginator = this.paginator;
     });
