@@ -1,3 +1,16 @@
+.btn-primary {
+  background-color: #ffadad;
+  border-color: #ffadad;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+#column-name {
+  font-weight: bold;
+  font-size: medium;
+  color: #000;
+}
+
 table {
   width: 100%;
 }
