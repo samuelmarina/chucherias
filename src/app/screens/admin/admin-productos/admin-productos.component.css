@@ -1,9 +1,17 @@
-.btn-primary {
+#btn-primary {
   background-color: #ffadad;
   border-color: #ffadad;
   margin-bottom: 10px;
   font-weight: bold;
 }
+
+#btn-primary:hover {
+  background-color: #ff9393;
+}
+
+/* #btn-primary:active {
+  background-color: #ff9393;
+} */
 
 #column-name {
   font-weight: bold;
