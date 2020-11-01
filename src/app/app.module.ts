@@ -28,7 +28,8 @@ import { ListaProductosComponent } from './screens/lista-productos/lista-product
 import { CategoryService } from './services/category/category.service';
 import { ProductService } from './services/product/product.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CategoryMenuComponent } from "./components/category-menu/category-menu.component"
+import { CategoryMenuComponent } from "./components/category-menu/category-menu.component";
+import { ProductCardComponent } from './components/product-card/product-card.component'
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { CategoryMenuComponent } from "./components/category-menu/category-menu.
     OrderFormComponent,
     ListaProductosComponent,
     CategoryMenuComponent,
+    ProductCardComponent,
 
   ],
   imports: [
