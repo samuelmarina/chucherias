@@ -27,6 +27,8 @@ import { OrderFormComponent } from './screens/admin/order-form/order-form.compon
 import { ListaProductosComponent } from './screens/lista-productos/lista-productos.component';
 import { CategoryService } from './services/category/category.service';
 import { ProductService } from './services/product/product.service';
+import { NavbarComponent } from './screens/navbar/navbar/navbar.component';
+import { LogoComponent } from './screens/logo/logo.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { ProductService } from './services/product/product.service';
     ProductFormComponent,
     OrderFormComponent,
     ListaProductosComponent,
+    NavbarComponent,
+    LogoComponent,
 
   ],
   imports: [
