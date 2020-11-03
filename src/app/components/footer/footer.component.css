@@ -9,12 +9,17 @@ footer{
 }
 .bx{
     color:#2e3a59;
-    margin-right: 20px;
-    margin-left: 20px;
+    
     font-size: 45px;
     border-radius: 40%;
-    text-align: center;
     
+}
+.icon-links{
+    margin-right: 20px;
+    margin-left: 20px;
+    
+    border-radius: 40%;
+    text-align: center;
 }
 .bx:hover{
     cursor: pointer;
@@ -30,4 +35,15 @@ footer{
     line-height: 30px;
     flex-wrap: wrap;
     font-family: 'Mukta', sans-serif;
+}
+.contacto-links{
+    padding: 10px;
+    line-height: 30px;
+    flex-wrap: wrap;
+    font-family: 'Mukta', sans-serif;
+    font-size: large;
+    margin-right: 40px;
+    margin-left: 40px;
+    color: #2e3a59;
+    font-weight: bold;
 }
