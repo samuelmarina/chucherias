@@ -29,7 +29,8 @@ import { CategoryService } from './services/category/category.service';
 import { ProductService } from './services/product/product.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CategoryMenuComponent } from "./components/category-menu/category-menu.component";
-import { ProductCardComponent } from './components/product-card/product-card.component'
+import { ProductCardComponent } from './components/product-card/product-card.component';
+import { HeaderComponent } from './components/header/header.component'
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     ListaProductosComponent,
     CategoryMenuComponent,
     ProductCardComponent,
+    HeaderComponent,
 
   ],
   imports: [
