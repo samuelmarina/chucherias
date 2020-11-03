@@ -27,10 +27,15 @@ import { OrderFormComponent } from './screens/admin/order-form/order-form.compon
 import { ListaProductosComponent } from './screens/lista-productos/lista-productos.component';
 import { CategoryService } from './services/category/category.service';
 import { ProductService } from './services/product/product.service';
+<<<<<<< HEAD
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CategoryMenuComponent } from "./components/category-menu/category-menu.component";
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { HeaderComponent } from './components/header/header.component'
+=======
+import { NavbarComponent } from './screens/navbar/navbar/navbar.component';
+import { LogoComponent } from './screens/logo/logo.component';
+>>>>>>> navbar
 
 @NgModule({
   declarations: [
@@ -51,9 +56,14 @@ import { HeaderComponent } from './components/header/header.component'
     ProductFormComponent,
     OrderFormComponent,
     ListaProductosComponent,
+<<<<<<< HEAD
     CategoryMenuComponent,
     ProductCardComponent,
     HeaderComponent,
+=======
+    NavbarComponent,
+    LogoComponent,
+>>>>>>> navbar
 
   ],
   imports: [
