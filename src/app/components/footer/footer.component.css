@@ -1,0 +1,32 @@
+footer{
+    background-color: #BDB2FF;
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 30%;
+    padding: 20px;
+}
+.bx{
+    color:#2e3a59;
+    margin-right: 20px;
+    margin-left: 20px;
+    font-size: 45px;
+
+    border-radius: 40%;
+    text-align: center;
+}
+.bx:hover{
+    cursor: pointer;
+
+}
+.icons{
+    display: flex;
+    justify-content: center;
+    
+}
+.footer-text{
+    padding: 10px;
+    line-height: 30px;
+    flex-wrap: wrap;
+}
