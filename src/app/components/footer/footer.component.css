@@ -1,10 +1,11 @@
 footer{
     background-color: #BDB2FF;
     text-align: center;
-    position: absolute;
+    position: relative;
+
     bottom: 0px;
     width: 100%;
-    height: 30%;
+    height: 250px;
     padding: 20px;
 }
 .bx{
@@ -37,13 +38,15 @@ footer{
     font-family: 'Mukta', sans-serif;
 }
 .contacto-links{
-    padding: 10px;
     line-height: 30px;
     flex-wrap: wrap;
     font-family: 'Mukta', sans-serif;
     font-size: large;
-    margin-right: 40px;
-    margin-left: 40px;
-    color: #2e3a59;
+    margin-right: 80px;
+    margin-left: 80px;
+    color: #45588af1;
     font-weight: bold;
+}
+.contactos{
+    margin-top: 10px;
 }
