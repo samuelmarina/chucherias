@@ -12,9 +12,9 @@ footer{
     margin-right: 20px;
     margin-left: 20px;
     font-size: 45px;
-
     border-radius: 40%;
     text-align: center;
+    
 }
 .bx:hover{
     cursor: pointer;
@@ -29,4 +29,5 @@ footer{
     padding: 10px;
     line-height: 30px;
     flex-wrap: wrap;
+    font-family: 'Mukta', sans-serif;
 }
