@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;800&display=swap');
+
+
+
+
+
+#titulo{
+
+    margin-left: -3%;
+    font-size: 30px;
+    margin-top: 1%;
+}
+
+.navbar-brand{
+    font-family: 'Mukta', sans-serif;
+    
+}
+
+.navcategorias{
+
+}
+
+
+
+.noLogged{
+    background-color:pink;
+    margin-left: 36%;
+}
+
+
+
+#navbarbox{
+    /* background-color:white !important; */
+    width: 100%;
+    /* margin-left: -9%;  */
+}
+
+
+
+#iconsbarbox{
+    /* background-color: red; */
+    justify-content: flex-end;
+    /* margin-left: 2%; */
+    
+}
+
+#iconsbarbox a{
+    color: black;
+    margin-left: 25%;
+    
+}
+
+.icono {
+    margin-left: 16%;
+}
+
+.dropdown-toggle{
+    margin-top: -10%;
+    margin-left: 5%;
+}
+
+
+
+
+
+
+
