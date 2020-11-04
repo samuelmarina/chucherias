@@ -37,6 +37,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { BannerComponent } from './components/banner/banner.component';
 
+import { FooterComponent } from './components/footer/footer.component'
 
 @NgModule({
   declarations: [
@@ -63,8 +64,7 @@ import { BannerComponent } from './components/banner/banner.component';
     NavbarComponent,
     LogoComponent,
     BannerComponent,
-
-
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
