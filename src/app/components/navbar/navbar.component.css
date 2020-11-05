@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;800&display=swap');
 
 
+.dropdown-item{
+    background-color: white !important;
+
+}
 
 #titulo{
     font-size: 30px;
