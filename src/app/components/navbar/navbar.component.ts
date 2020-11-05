@@ -8,7 +8,8 @@ export class NavbarComponent implements OnInit {
 
   
   @Input() logged: boolean = true;
-  
+  @Input() user: string;
+
   constructor() { }
 
   ngOnInit(): void {

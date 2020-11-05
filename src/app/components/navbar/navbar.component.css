@@ -2,18 +2,14 @@
 
 
 
-#titulo-logged{
+#titulo{
     font-size: 30px;
-    margin-top: 1%;
+    margin-top: 10%;
     color:black;
-    margin-left: -3%;
+    margin-left: -10%;
 }
 
-#titulo-nologged{
-    font-size: 30px;
-    margin-top: 1%;
-    color:white;
-}
+
 
 .navbar-brand{
     font-family: 'Mukta', sans-serif;
@@ -25,7 +21,7 @@
 }
 
 #navbarbox-nologged{
-    background-color:pink !important;
+    background-color:white !important;
     
     
 }
@@ -35,7 +31,6 @@
 }
 
 #navbarTogglerDemo03{
-    /* margin-left: 30%; */
     margin-top: 1%;
 }
 #navbarbox-logged{
@@ -47,15 +42,13 @@
 
 
 #iconsbarbox{
-    /* background-color: red; */
     justify-content: flex-end;
-    /* margin-left: 2%; */
-    
+    margin-right: 8%;
+    margin-top: 1%;
 }
 
 #iconsbarbox a{
     color: black;
-    margin-left: 25%;
     
 }
 
@@ -65,7 +58,6 @@
 
 .dropdown-toggle{
     margin-top: -10%;
-    margin-left: 5%;
 }
 
 
