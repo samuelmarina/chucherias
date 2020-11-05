@@ -27,9 +27,16 @@ import { OrderFormComponent } from './screens/admin/order-form/order-form.compon
 import { ListaProductosComponent } from './screens/lista-productos/lista-productos.component';
 import { CategoryService } from './services/category/category.service';
 import { ProductService } from './services/product/product.service';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CategoryMenuComponent } from "./components/category-menu/category-menu.component";
 import { ProductCardComponent } from './components/product-card/product-card.component';
+import { HeaderComponent } from './components/header/header.component';
+
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { LogoComponent } from './components/logo/logo.component';
+import { BannerComponent } from './components/banner/banner.component';
+
 import { FooterComponent } from './components/footer/footer.component'
 
 @NgModule({
@@ -53,8 +60,11 @@ import { FooterComponent } from './components/footer/footer.component'
     ListaProductosComponent,
     CategoryMenuComponent,
     ProductCardComponent,
+    HeaderComponent,
+    NavbarComponent,
+    LogoComponent,
+    BannerComponent,
     FooterComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -138,3 +148,6 @@ import { FooterComponent } from './components/footer/footer.component'
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+
