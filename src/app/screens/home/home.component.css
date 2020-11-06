@@ -1,3 +1,26 @@
-.image {
+img {
   width: 100%;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+  width: 100%;
+  margin: 0;
+  max-width: 100%;
+  padding: 0;
+}
+
+.centered {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  font-size: 5vw;
+}
+
+.more {
+  color: #fff;
 }
