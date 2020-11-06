@@ -6,7 +6,7 @@ import { FormsModule } from "@angular/forms"
 import { CustomFormsModule } from "ng2-validation"
 import { MatTableModule } from "@angular/material/table"
 import { MatPaginatorModule} from '@angular/material/paginator';
-
+import { MatBadgeModule } from '@angular/material/badge';
 import { AppComponent } from './app.component';
 import { IconComponent } from './components/ui/icon/icon.component';
 import { environment } from 'src/environments/environment';
@@ -39,6 +39,8 @@ import { BannerComponent } from './components/banner/banner.component';
 
 import { FooterComponent } from './components/footer/footer.component'
 
+import {MaterialModule} from './material/material.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,6 +70,8 @@ import { FooterComponent } from './components/footer/footer.component'
   ],
   imports: [
     BrowserModule,
+    MaterialModule,
+    BrowserAnimationsModule,
     FormsModule,
     CustomFormsModule,
     MatTableModule,
