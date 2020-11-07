@@ -81,7 +81,7 @@ import { StatusService } from './services/status/status.service';
     RouterModule.forRoot([
       {
         path: '',
-        component: OrderFormComponent
+        component: HomeComponent
       },
       {
         path: 'bolsa',

@@ -9,9 +9,7 @@ export class AppComponent {
   title = 'chucherias';
 
   @Input() public static logged: boolean = true;
-  @Input() public static user: string='admin';
-
-
+  @Input() public static user: string='usuario';
 
 }
 
