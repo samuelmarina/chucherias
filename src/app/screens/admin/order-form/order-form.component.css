@@ -1,5 +1,5 @@
 #btn-save {
-  margin-right: 5px;
+  margin-left: 15px;
   background-color: #ffadad;
   border-color: #ffadad;
   font-weight: bold;
@@ -7,4 +7,11 @@
 
 #btn-save:hover {
   background-color: #ff9393;
+}
+
+.container {
+  max-width: 100%;
+  width: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
 }
