@@ -1,0 +1,10 @@
+#btn-save {
+  margin-right: 5px;
+  background-color: #ffadad;
+  border-color: #ffadad;
+  font-weight: bold;
+}
+
+#btn-save:hover {
+  background-color: #ff9393;
+}
