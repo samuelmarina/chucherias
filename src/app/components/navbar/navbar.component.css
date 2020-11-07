@@ -13,8 +13,21 @@
     margin-left: -10%;
 }
 
+#gostore{
+    margin-top: 7%;
+}
+
+
+#burgerbutton{
+    /* position: absolute !important; */
+}
+
 mat-icon{
     font-size: 35px;
+    margin-top: 3%;
+    display: inline;
+    margin-left: -40%;
+    color: black;
 }
 
 .material-box-icon{
