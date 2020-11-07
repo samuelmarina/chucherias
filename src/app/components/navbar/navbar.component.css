@@ -1,93 +1,100 @@
-@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;800&display=swap');
-
-
-.dropdown-item{
-    background-color: white !important;
-
+.dropdown-item {
+  background-color: white !important;
 }
 
-#titulo{
-    font-size: 30px;
-    margin-top: 10%;
-    color:black;
-    margin-left: -10%;
+#titulo {
+  font-size: 30px;
+  line-height: 30px;
+  margin-top: 10px;
+  color: black;
+  margin-left: -10%;
 }
 
-#gostore{
-    margin-top: 7%;
+#gostore {
+  margin-top: 7%;
 }
 
-
-#burgerbutton{
-    /* position: absolute !important; */
+#burgerbutton {
+  /* position: absolute !important; */
 }
 
-mat-icon{
-    font-size: 35px;
-    margin-top: 3%;
-    display: inline;
-    margin-left: -40%;
-    color: black;
+mat-icon {
+  font-size: 35px;
+  margin-top: 3%;
+  display: inline;
+  margin-left: -40%;
+  color: black;
 }
 
-.material-box-icon{
-    margin-left: 10%;    
-    display: inline;
+.material-box-icon {
+  margin-left: 10%;
+  display: inline;
 }
 
-
-.navbar-brand{
-    font-family: 'Mukta', sans-serif;
-    
+.navbar-brand {
+  font-family: "Mukta", sans-serif;
 }
 
-.navcategorias{
-
+.navcategorias {
 }
 
-#navbarbox-nologged{
-    background-color:white !important;
-    
-    
+#navbarbox-nologged {
+  background-color: white !important;
 }
 
-.no-logged{
-    color: white !important;
+.no-logged {
+  color: white !important;
 }
 
-#navbarTogglerDemo03{
-    margin-top: 1%;
+#navbarTogglerDemo03 {
+  margin-top: 1%;
 }
-#navbarbox-logged{
-    background-color:white !important;
-    
-    
+#navbarbox-logged {
+  background-color: white !important;
 }
 
-
-
-#iconsbarbox{
-    justify-content: flex-end;
-    margin-right: 11%;
-    margin-top: 1%;
+#iconsbarbox {
+  justify-content: flex-end;
+  margin-right: 20px;
+  margin-top: 1%;
 }
 
-#iconsbarbox a{
-    color: black;
-    
+#iconsbarbox a {
+  color: black;
 }
 
 .icono {
-    margin-left: 16%;
+  margin-left: 16%;
 }
 
-.dropdown-toggle{
-    margin-top: -10%;
+.dropdown-toggle {
+  margin-top: -10%;
 }
 
+.dropdown-toggle::after {
+  content: none;
+}
 
+button.navbar-toggler {
+  position: fixed;
+  right: 15px;
+  top: 21px;
+}
 
+button.navbar-toggler.collapsed {
+  position: fixed;
+  right: 15px;
+}
 
+div.dropdown-menu.show {
+  margin-left: -135px;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+}
 
+.nav-item {
+  margin-bottom: 5px;
+}
 
-
+.dropdown-toggle {
+  margin: 0;
+}
