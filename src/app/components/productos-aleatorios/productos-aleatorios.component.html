@@ -1,0 +1,14 @@
+
+<div class="box">
+    <div class="col box-aleatory-products">
+        <div class="row">
+            <ng-container *ngFor="let p of productosHome; let i = index">
+                <div class="col">
+                    <product-card [product]="p"></product-card>
+                    <!-- {{p}} -->
+                </div>
+                <div *ngIf="(i+1)%3 == 0" class="w-100"></div> <!--CAMBIANDOLE EL MODULO CAMBIA LA CANTIDAD DE ELEMENTOS QUE PUEDE TENER UN DIV -->
+            </ng-container>
+        </div>
+    </div>
+</div>

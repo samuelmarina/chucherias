@@ -40,8 +40,10 @@ import { BannerComponent } from './components/banner/banner.component';
 import { FooterComponent } from './components/footer/footer.component'
 
 import {MaterialModule} from './material/material.module';
+import { ProductosAleatoriosComponent } from './components/productos-aleatorios/productos-aleatorios.component';
 import { StatusService } from './services/status/status.service';
 import { CategoryContainerComponent } from './components/category-container/category-container.component';
+
 
 @NgModule({
   declarations: [
@@ -69,7 +71,8 @@ import { CategoryContainerComponent } from './components/category-container/cate
     LogoComponent,
     BannerComponent,
     FooterComponent,
-    CategoryContainerComponent,
+    ProductosAleatoriosComponent,
+    CategoryContainerComponent
   ],
   imports: [
     BrowserModule,
