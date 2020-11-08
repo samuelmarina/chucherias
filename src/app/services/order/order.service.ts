@@ -8,7 +8,7 @@ export class OrderService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  getall() {
+  getAll() {
     return this.db.list("/orders");
   }
 }
