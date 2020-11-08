@@ -41,6 +41,7 @@ import { FooterComponent } from './components/footer/footer.component'
 
 import {MaterialModule} from './material/material.module';
 import { StatusService } from './services/status/status.service';
+import { CategoryContainerComponent } from './components/category-container/category-container.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { StatusService } from './services/status/status.service';
     LogoComponent,
     BannerComponent,
     FooterComponent,
+    CategoryContainerComponent,
   ],
   imports: [
     BrowserModule,

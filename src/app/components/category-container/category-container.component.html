@@ -1,0 +1,43 @@
+<div class="category-container">
+    <div class="icons-container">
+        <ul class="icons">
+            <li>
+                <a [routerLink]="['/lista-productos?category=chupetas']">
+                <div class="iconbox">
+                    <img src="../../../assets/Paleta.png" class="icon-cat">
+                </div>
+                <div class="iconletter">Chupetas</div>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/lista-productos?category=algodones']">
+                <div class="iconbox">
+                    <img src="../../../assets/algodon.png" class="icon-cat">
+                </div>
+                <div class="iconletter">Algodones</div>
+            </a>
+            </li>
+            <li>
+                <a [routerLink]="['/lista-productos?category=caramelos']" >
+                <div class="iconbox">
+                    <img src="../../../assets/candy.png" class="icon-cat">
+                </div>
+                <div class="iconletter">Caramelos</div>
+            </a>
+            </li>
+            <li>
+                <a [routerLink]="['/lista-productos?category=galletas']" >
+                <div class="iconbox">
+                    <img src="../../../assets/cookie.png" class="icon-cat">
+                </div>
+                <div class="iconletter">Galletas</div>
+            </a>
+            </li>
+        </ul>
+    </div>
+    <a [routerLink]="['/lista-productos?category=caramelos']" >   
+    <div class="texto">
+        <p>Ver todas las categorías</p>
+    </div>
+    </a>    
+</div>
