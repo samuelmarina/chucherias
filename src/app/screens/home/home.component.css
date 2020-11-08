@@ -2,8 +2,31 @@ img {
   width: 100%;
 }
 
+.background {
+  background-image: url("../../../assets//homeImage/chupetas.jpg");
+  background-color: #cccccc;
+  height: 200px;
+  background-position: center;
+  background-size: contain;
+}
+
+h1 {
+  font-family: "Mukta", sans-serif;
+  font-size: 30px;
+  line-height: 30px;
+  color: #ffadad !important;
+
+  margin: 10px;
+  text-align: center;
+  text-shadow: 2px 1px 6px darkgray;
+}
+
+.more {
+  font-size: 15px;
+  line-height: 15px;
+}
+
 .container {
-  position: relative;
   text-align: center;
   color: white;
   width: 100%;
@@ -12,15 +35,14 @@ img {
   padding: 0;
 }
 
-.centered {
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  font-size: 5vw;
-}
+@media (min-width: 1000px) {
+  .titulo {
+    font-size: 50px;
+    line-height: 50px;
+  }
 
-.more {
-  color: #fff;
+  .more {
+    font-size: 20px;
+    line-height: 20px;
+  }
 }

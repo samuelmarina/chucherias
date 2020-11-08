@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 import {AppComponent} from '../../app.component';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -15,20 +17,16 @@ export class NavbarComponent implements OnInit {
   available: boolean = false;
 
   availableburgerItems() {
-    
-    if (this.available === false) {
-      this.available = true;
-      console.log('true');
-    } else {
-      this.available = false;
-      console.log('false');
-    }
-
+    this.available = !this.available
   }
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
+
+
 
 }

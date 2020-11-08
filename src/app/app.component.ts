@@ -11,8 +11,6 @@ export class AppComponent {
   @Input() public static logged: boolean = true;
   @Input() public static user: string='usuario';
 
-
-
 }
 
 

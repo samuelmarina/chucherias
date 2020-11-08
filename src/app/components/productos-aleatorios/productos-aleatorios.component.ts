@@ -23,7 +23,7 @@ export class ProductosAleatoriosComponent implements OnInit {
   ids = [];
   product;
   aleatoryProducts;
-  n_aleatory_products = 6;
+  n_aleatory_products = 7;
   category: string;
   numero: number;
   array: string[] = [];

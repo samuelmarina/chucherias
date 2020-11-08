@@ -1,164 +1,113 @@
-
-<nav *ngIf="logged===false" id='navbarbox-nologged' class="navbar navbar-expand-lg navbar-light bg-light">
-    <div>
-        <a class="navbar-brand" routerLink="" routerLinkActive="active"><app-logo></app-logo></a>
-        <a class="navbar-brand" id="titulo" routerLink="" routerLinkActive="active">Chucherilandia</a>
-    </div>
-    
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
-        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
+<div>
+    <nav *ngIf="!logged" id="navbarbox-nologged" class="navbar navbar-expand-lg navbar-light bg-light">
         <div>
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link navbar-brand" routerLink="/carrito" routerLinkActive="active">Iniciar Sesion <span
-                            class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link navbar-brand" routerLink="/bolsa" routerLinkActive="active">Registrarse</a>
-                </li>
-
-            </ul>
+            <a class="navbar-brand" routerLink="/">
+                <app-logo></app-logo>
+            </a>
+            <a class="navbar-brand" id="titulo" routerLink="/">Chucherilandia</a>
         </div>
-    </div>
 
-</nav>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
+        <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
+            <div>
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link navbar-brand" routerLink="/">Iniciar Sesion
+                            <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link navbar-brand" routerLink="/">Registrarse</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-
-
-
-
-<nav *ngIf="logged===true" id='navbarbox-logged' class="navbar navbar-expand-lg navbar-light bg-light">
-    <div>
-        <a class="navbar-brand" routerLink="" routerLinkActive="active"><app-logo></app-logo></a>
-        <a class="navbar-brand" id="titulo" routerLink="" routerLinkActive="active" >Chucherilandia</a>
-    </div>
-    
-    
-    <button (click)="availableburgerItems()" class="navbar-toggler justify-content-end" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" 
-        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-
-
-    <div  class="collapse navbar-collapse justify-content-center" id="navbarTogglerDemo03">
+    <nav *ngIf="logged" id="navbarbox-logged" class="navbar navbar-expand-lg navbar-light bg-light">
         <div>
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-                <a id="gostore" class="nav-link navbar-brand" routerLink="/carrito" routerLinkActive="active">Ir a la tienda <span class="sr-only">(current)</span></a>
-            </li>
-            <li>
-               <a  href="#"><mat-icon>storefront</mat-icon></a> 
-            </li>
-            
-        </ul>
+            <a class="navbar-brand" routerLink="/">
+                <app-logo></app-logo>
+            </a>
+            <a class="navbar-brand" id="titulo" routerLink="/">Chucherilandia</a>
         </div>
-    </div>
 
+        <button (click)="availableburgerItems()" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div *ngIf="user==='usuario'" id='iconsbarbox' class='navbar-brand'>
-
-        
-
-        <div *ngIf="available==true" class="collapse" id="navbarTogglerDemo03">
-        
-            <a class="nav-link navbar-brand" routerLink="/whishlist" routerLinkActive="active">Wishlist</a>
-            <br>
-            <a class="nav-link navbar-brand" routerLink="/tracking" routerLinkActive="active">Tracking</a>
-            <br>
-            <a class="nav-link navbar-brand" routerLink="/whishlist" routerLinkActive="active">Cerrar sesion</a>
-    </div>
-        
-        
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-            <div class='material-box-icon'>
-                <a href="#">
-                    <mat-icon matBadgeColor="accent" matBadge='5'>add_shopping_cart</mat-icon>
-                </a>
-                
+        <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
+            <div *ngIf="user === 'usuario'">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <div class="material-box-icon">
+                            <a class="navbar-brand" routerLink="/lista-productos">
+                                <mat-icon matBadgeColor="accent" matBadge="5">storefront</mat-icon>
+                                Tienda
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="material-box-icon">
+                            <a class="navbar-brand" routerLink="/carrito">
+                                <mat-icon matBadgeColor="accent" matBadge="5">add_shopping_cart</mat-icon>
+                                Carrito
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="material-box-icon">
+                            <a class="navbar-brand" routerLink="/bolsa">
+                                <mat-icon matBadgeColor="accent" matBadge="4">work_outline</mat-icon>
+                                Bolsa
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <div class="material-box-icon">
+                            <a class="navbar-brand dropdown-toggle" href="#" data-toggle="dropdown">
+                                <mat-icon matBadgeColor="accent" matBadge="4">person_outline</mat-icon>
+                                Cuenta
+                            </a>
+                            <ul class="dropdown-menu">
+                                <a class="dropdown-item" routerLink="/whishlist">Wishlist</a>
+                                <a class="dropdown-item" routerLink="/tracking">Tracking</a>
+                                <a class="dropdown-item" routerLink="/whishlist">Cerrar sesion</a>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
             </div>
-            <div class='material-box-icon'>
-                <a href="#">
-                    <mat-icon matBadgeColor="accent" matBadge='4'>work_outline</mat-icon>
-                </a>
+            <div *ngIf="user === 'admin'">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <div class="material-box-icon">
+                            <a class="navbar-brand" routerLink="/lista-productos">
+                                <mat-icon matBadgeColor="accent" matBadge="5">storefront</mat-icon>
+                                Tienda
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <div class="material-box-icon">
+                            <a class="navbar-brand dropdown-toggle" href="#" data-toggle="dropdown">
+                                <mat-icon matBadgeColor="accent" matBadge="4">person_outline</mat-icon>
+                                Cuenta
+                            </a>
+                            <ul class="dropdown-menu">
+                                <a class="dropdown-item" routerLink="/admin/productos">Administrar Productos</a>
+                                <a class="dropdown-item" routerLink="/admin/ordenes">Administrar Órdenes</a>
+                                <a class="dropdown-item" routerLink="/whishlist">Cerrar sesion</a>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
             </div>
-            
-
-            <ul class="navbar-nav">
-                
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person" fill="currentColor"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
-                        </svg>
-                    </a>
-                     
-                    
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" routerLink="/whishlist" routerLinkActive="active">Wishlist</a>
-                        <a class="dropdown-item" routerLink="/tracking" routerLinkActive="active">Tracking</a>
-                        <a class="dropdown-item" routerLink="/whishlist" routerLinkActive="active">Cerrar sesion</a>
-                        
-                    </div>
-                </li>
-            </ul>
         </div>
-
-        
-
-    </div>
-
-
-
-    <div *ngIf="user==='admin'" id='iconsbarbox' class='navbar-brand'>
-        <!-- <div class="collapse" id="navbarTogglerDemo03">
-            <a class="dropdown-item" routerLink="/whishlist" routerLinkActive="active">Administrar Productos</a>
-            <br>
-            <a class="dropdown-item" routerLink="/tracking" routerLinkActive="active">Administrar Ordenes</a>
-            <br>
-            <a class="dropdown-item" routerLink="/whishlist" routerLinkActive="active">Cerrar sesion</a>
-        </div> -->
-    
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person" fill="currentColor"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
-                        </svg>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" routerLink="/whishlist" routerLinkActive="active">Administrar Productos</a>
-                        <a class="dropdown-item" routerLink="/tracking" routerLinkActive="active">Administrar Ordenes</a>
-                        <a class="dropdown-item" routerLink="/whishlist" routerLinkActive="active">Cerrar sesion</a>
-                    
-                    </div>
-    
-                </li>
-            </ul>
-        </div>
-        
-    </div>
-
-    
-</nav>
-
-
-
-
-
-
-
-
-
+    </nav>
+</div>

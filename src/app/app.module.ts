@@ -41,6 +41,8 @@ import { FooterComponent } from './components/footer/footer.component'
 
 import {MaterialModule} from './material/material.module';
 import { ProductosAleatoriosComponent } from './components/productos-aleatorios/productos-aleatorios.component';
+import { StatusService } from './services/status/status.service';
+
 
 @NgModule({
   declarations: [
@@ -137,19 +139,20 @@ import { ProductosAleatoriosComponent } from './components/productos-aleatorios/
         component: AdminProductosComponent
       },
       {
-        path: 'admin/ordenes',
-        component: AdminOrdenesComponent
+        path: 'admin/ordenes/:id',
+        component: OrderFormComponent
       },
       {
-        path: 'admin/ordenes/nuevo',
-        component: OrderFormComponent
+        path: 'admin/ordenes',
+        component: AdminOrdenesComponent
       },
     ]),
     BrowserAnimationsModule
   ],
   providers: [
     CategoryService,
-    ProductService
+    ProductService,
+    StatusService
   ],
   bootstrap: [AppComponent]
 })
