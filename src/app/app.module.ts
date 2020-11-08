@@ -40,7 +40,9 @@ import { BannerComponent } from './components/banner/banner.component';
 import { FooterComponent } from './components/footer/footer.component'
 
 import {MaterialModule} from './material/material.module';
+import { ProductosAleatoriosComponent } from './components/productos-aleatorios/productos-aleatorios.component';
 import { StatusService } from './services/status/status.service';
+
 
 @NgModule({
   declarations: [
@@ -68,6 +70,7 @@ import { StatusService } from './services/status/status.service';
     LogoComponent,
     BannerComponent,
     FooterComponent,
+    ProductosAleatoriosComponent,
   ],
   imports: [
     BrowserModule,

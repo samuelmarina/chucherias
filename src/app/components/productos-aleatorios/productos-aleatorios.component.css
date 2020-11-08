@@ -1,0 +1,16 @@
+/* .box-aleatory-products{
+    height:50%;
+    width:50%;
+} */
+.box{
+    height:70%;
+    width:70%; 
+    /* background-color:red; */
+    /* display:inline; */
+    /* justify-items: center; */
+    /* justify-content: center; */
+    /* justify-self: center; */
+    margin-left:auto;
+    margin-right:auto;
+    
+}
