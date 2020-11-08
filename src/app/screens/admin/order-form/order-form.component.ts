@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map, take } from 'rxjs/operators';
 import { OrderService } from 'src/app/services/order/order.service';
 import { StatusService } from 'src/app/services/status/status.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-order-form',
@@ -12,7 +14,15 @@ import { StatusService } from 'src/app/services/status/status.service';
 export class OrderFormComponent implements OnInit {
   statuses$;
   id;
-  order;
+  order = {
+    client: "",
+    total: 0,
+    status: "",
+  };
+  pedido = []
+  displayedColumns: string[] = ["cantidad", "nombre", "costo"]
+  dataSource: MatTableDataSource<any>;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
     private route: ActivatedRoute,
@@ -30,7 +40,14 @@ export class OrderFormComponent implements OnInit {
         this.order['client'] = order['cliente']
         this.order['total'] = order['total']
         this.order['status'] = order['status']
-        this.order['pedido'] = order['pedido']
+        order['Pedido'].forEach(x => {
+          if(x){
+            this.pedido.push(x);
+          }
+          
+        })
+        this.dataSource = new MatTableDataSource(this.pedido)
+        this.dataSource.paginator = this.paginator;
       })
     }
   }
