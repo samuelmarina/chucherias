@@ -43,7 +43,7 @@ import {MaterialModule} from './material/material.module';
 import { ProductosAleatoriosComponent } from './components/productos-aleatorios/productos-aleatorios.component';
 import { StatusService } from './services/status/status.service';
 import { RegresarATiendaComponent } from './components/regresar-a-tienda/regresar-a-tienda.component';
-
+import { CategoryContainerComponent } from './components/category-container/category-container.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +73,7 @@ import { RegresarATiendaComponent } from './components/regresar-a-tienda/regresa
     FooterComponent,
     ProductosAleatoriosComponent,
     RegresarATiendaComponent,
+    CategoryContainerComponent
   ],
   imports: [
     BrowserModule,
