@@ -1,0 +1,17 @@
+<p>productos-aleatorios works!</p>
+
+<p>ROMMEEEEEEL</p>
+
+
+
+    <div class="col">
+        <div class="row">
+            <ng-container *ngFor="let p of productosHome; let i = index">
+                <div class="col">
+                    <product-card [product]="p"></product-card>
+                    <!-- {{p}} -->
+                </div>
+                <div *ngIf="(i+1)%2 == 0" class="w-100"></div>
+            </ng-container>
+        </div>
+    </div>
