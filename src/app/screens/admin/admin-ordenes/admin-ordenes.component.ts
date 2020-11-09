@@ -12,7 +12,7 @@ import { MatPaginator } from '@angular/material/paginator';
 export class AdminOrdenesComponent implements OnInit {
   elementData = [];
   dataSource: MatTableDataSource<any>;
-  displayedColumns: string[] = ["client", "date", "edit"]
+  displayedColumns: string[] = ["client", "date", "status", "edit"]
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private orderService: OrderService) { 
