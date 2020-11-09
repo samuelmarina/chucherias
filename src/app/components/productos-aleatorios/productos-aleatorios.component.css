@@ -1,21 +1,59 @@
-/* .box-aleatory-products{
-    height:50%;
-    width:50%;
-} */
-.box{
-    
-    height:70%;
-    width:70%; 
-    /* background-color:red; */
-    /* display:inline; */
-    /* justify-items: center; */
-    /* justify-content: center; */
-    /* justify-self: center; */
-    margin-left:auto;
-    margin-right:auto;
-    
+
+
+@media (min-width: 992px){
+
+    .box{
+        height:70%;
+        width:70%; 
+        margin-left:auto;
+        margin-right:auto; 
+        
+    } 
+    .col-lg-la1{
+        height:70%;
+        width:70%; 
+        margin-left:auto;
+        margin-right:auto;
+        
+    }
+
 }
 
 
+@media(min-width: 768px) and (max-width: 991px){
+
+    .box{
+        height:70%;
+        width:70%; 
+        margin-left:auto;
+        margin-right:auto; 
+        
+    } 
+    .col-md-la1{
+        height:70%;
+        width:70%; 
+        margin-left:auto;
+        margin-right:auto;
+        
+    }
+
+}
 
 
+@media (max-width: 768px){
+    .box{
+        height:70%;
+        width:90%; 
+        margin-left:auto;
+        margin-right:auto; 
+        
+    } 
+    .col-sm-la1{
+        height:70%;
+        width:100%; 
+        margin-left:auto;
+        margin-right:auto;
+    
+}
+
+}
