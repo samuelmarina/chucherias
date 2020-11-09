@@ -15,4 +15,8 @@ export class OrderService {
   get(orderId) {
     return this.db.object("/orders/" + orderId);
   }
+
+  update(orderId, order) {
+    return this.db.object("/orders/" + orderId).update(order);
+  }
 }
