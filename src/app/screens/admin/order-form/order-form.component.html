@@ -1,5 +1,5 @@
 <div class="container">
-    <form>
+    <form #form="ngForm" (ngSubmit)="save(form.value)">
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { map, take } from 'rxjs/operators';
 import { OrderService } from 'src/app/services/order/order.service';
 import { StatusService } from 'src/app/services/status/status.service';
@@ -25,6 +25,7 @@ export class OrderFormComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private statusService: StatusService,
     private orderService: OrderService) { 
@@ -37,7 +38,7 @@ export class OrderFormComponent implements OnInit {
     if(this.id) {
       this.orderService.get(this.id).valueChanges().pipe(take(1))
       .subscribe(order => {
-        this.order['client'] = order['cliente']
+        this.order['client'] = order['client']
         this.order['total'] = order['total']
         this.order['status'] = order['status']
         order['Pedido'].forEach(x => {
@@ -56,7 +57,10 @@ export class OrderFormComponent implements OnInit {
   }
 
   save(form) {
-
+    console.log(form);
+    form['Pedido'] = this.pedido;
+    this.orderService.update(this.id, form);
+    this.router.navigate(['admin/ordenes']);
   }
 
 }
