@@ -75,17 +75,6 @@ mat-icon {
   content: none;
 }
 
-button.navbar-toggler {
-  position: fixed;
-  right: 15px;
-  top: 21px;
-}
-
-button.navbar-toggler.collapsed {
-  position: fixed;
-  right: 15px;
-}
-
 .dropdown-menu.show {
   margin-left: -135px;
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);

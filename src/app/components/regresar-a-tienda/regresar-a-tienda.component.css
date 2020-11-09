@@ -1,0 +1,29 @@
+.box{
+    width: 90%;
+    margin-left: auto;
+    margin-right:auto;
+    background-color: #caffbf;
+    border-radius: 5px;
+    height:3rem;
+    
+    display: table;
+
+}
+
+
+
+#regresar{
+    margin-left: 1%;
+    font-size: large;
+    color: pink;
+    text-decoration: none;
+    
+    
+}
+
+.box-content{
+    /* background-color: red; */
+    display: table-cell;
+    vertical-align: middle;
+    /* margin-bottom: auto; */
+}
