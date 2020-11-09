@@ -42,8 +42,9 @@ import { FooterComponent } from './components/footer/footer.component'
 import {MaterialModule} from './material/material.module';
 import { ProductosAleatoriosComponent } from './components/productos-aleatorios/productos-aleatorios.component';
 import { StatusService } from './services/status/status.service';
+import { OrderService } from './services/order/order.service';
+import { RegresarATiendaComponent } from './components/regresar-a-tienda/regresar-a-tienda.component';
 import { CategoryContainerComponent } from './components/category-container/category-container.component';
-
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { CategoryContainerComponent } from './components/category-container/cate
     BannerComponent,
     FooterComponent,
     ProductosAleatoriosComponent,
+    RegresarATiendaComponent,
     CategoryContainerComponent
   ],
   imports: [
@@ -154,7 +156,8 @@ import { CategoryContainerComponent } from './components/category-container/cate
   providers: [
     CategoryService,
     ProductService,
-    StatusService
+    StatusService,
+    OrderService
   ],
   bootstrap: [AppComponent]
 })
