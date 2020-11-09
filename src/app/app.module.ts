@@ -79,6 +79,8 @@ import { CategoryContainerComponent } from './components/category-container/cate
 
     RegresarATiendaComponent,
     CategoryContainerComponent
+
+   
   ],
   imports: [
     BrowserModule,
