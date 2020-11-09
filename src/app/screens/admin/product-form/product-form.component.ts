@@ -21,7 +21,6 @@ export class ProductFormComponent implements OnInit {
 
   constructor(
     private router: Router,
-
     private categoryService: CategoryService, 
     private route: ActivatedRoute,
     private productService: ProductService) { 

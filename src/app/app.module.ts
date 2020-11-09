@@ -44,6 +44,9 @@ import { ProductosAleatoriosComponent } from './components/productos-aleatorios/
 import { StatusService } from './services/status/status.service';
 import { ContactoAtencionEspecialComponent } from './components/contacto-atencion-especial/contacto-atencion-especial.component';
 
+import { OrderService } from './services/order/order.service';
+import { RegresarATiendaComponent } from './components/regresar-a-tienda/regresar-a-tienda.component';
+import { CategoryContainerComponent } from './components/category-container/category-container.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +76,9 @@ import { ContactoAtencionEspecialComponent } from './components/contacto-atencio
     FooterComponent,
     ProductosAleatoriosComponent,
     ContactoAtencionEspecialComponent,
+
+    RegresarATiendaComponent,
+    CategoryContainerComponent
   ],
   imports: [
     BrowserModule,
@@ -154,7 +160,8 @@ import { ContactoAtencionEspecialComponent } from './components/contacto-atencio
   providers: [
     CategoryService,
     ProductService,
-    StatusService
+    StatusService,
+    OrderService
   ],
   bootstrap: [AppComponent]
 })
