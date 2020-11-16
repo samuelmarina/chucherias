@@ -47,6 +47,7 @@ import { ContactoAtencionEspecialComponent } from './components/contacto-atencio
 import { OrderService } from './services/order/order.service';
 import { RegresarATiendaComponent } from './components/regresar-a-tienda/regresar-a-tienda.component';
 import { CategoryContainerComponent } from './components/category-container/category-container.component';
+import { AuthService } from './services/auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -163,7 +164,8 @@ import { CategoryContainerComponent } from './components/category-container/cate
     CategoryService,
     ProductService,
     StatusService,
-    OrderService
+    OrderService,
+    AuthService,
   ],
   bootstrap: [AppComponent]
 })

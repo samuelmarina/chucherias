@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
 export class AppComponent {
   title = 'chucherias';
 
-  @Input() public static logged: boolean = true;
+  @Input() public static logged: boolean = false;
   @Input() public static user: string='usuario';
 
 }
