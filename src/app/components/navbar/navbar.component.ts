@@ -24,8 +24,12 @@ export class NavbarComponent {
     auth.user$.subscribe(user => {
       if(user){
         this.logged = true;
-        this.roleService.getRole(user.uid).valueChanges().subscribe(x => {
-          this.role = x;
+        this.roleService.getRole(user.uid).valueChanges().subscribe(role => {
+          if(!role){
+            this.roleService.createRole(user.uid);
+            return this.role = "user";
+          }
+          this.role = role;
         })
       }
     })

@@ -13,4 +13,8 @@ export class RoleService {
   getRole(userId) {
     return this.db.object("/users/" + userId + "/role");
   }
+
+  createRole(userId){
+    return this.db.object("/users/" + userId ).update({role: "user"})
+  }
 }
