@@ -30,9 +30,9 @@ export class ProductosAleatoriosComponent implements OnInit {
   constructor(route: ActivatedRoute,
     private productService: ProductService) {
      {
-      console.log('AQUI');
+      // console.log('AQUI');
       this.ids = this.getProd();
-      console.log('ids');
+      // console.log('ids');
 
       // console.log(this.ids.length);
       // console.log((this.ids));
@@ -61,21 +61,21 @@ export class ProductosAleatoriosComponent implements OnInit {
         .subscribe(c => {
           c.map(k => this.all_products.push(k))
           this.arr = productService.getNAleatoryProducts(this.n_aleatory_products, this.all_products);
-          console.log(this.arr);
-          console.log(this.all_products[1]);
+          // console.log(this.arr);               IMPORTANTE PARA NOTAR EN LA CONSOLA CADA OBJETO DEL ARRAY
+          // console.log(this.all_products[1]);
 
 
           route.queryParamMap.subscribe(params => {
             var n = this.arr.length;
             // this.arr=this.arr.sort();
-            console.log(this.arr);
+            // console.log(this.arr);                //IMPORTANTE PARA NOTAR EN LA CONSOLA CADA OBJETO DEL ARRAY
 
             for (let i = 0; i < this.arr.length; i++) {
 
               for (let j = 0; j < this.all_products.length; j++) {
 
                 if (this.arr[i] == j) {
-                  console.log(this.arr[i]);
+                  // console.log(this.arr[i]); IMPORTANTE PARA NOTAR EN LA CONSOLA LOS OBJETOS DEL ARRAY
                   this.al = params.get('id');
                   // console.log(this.al);
                   this.productsById = this.al ?
@@ -83,7 +83,7 @@ export class ProductosAleatoriosComponent implements OnInit {
                   this.all_products;
 
                   this.productosHome.push(this.all_products[j]);
-                  console.log(this.all_products[j]); //AQUII SE EMPIEZA A NOTAR EL CAMBIO DE AQUELLO QUE ES ALEATORIO
+                  // console.log(this.all_products[j]); //AQUII SE EMPIEZA A NOTAR EL CAMBIO DE AQUELLO QUE ES ALEATORIO
                   // console.log('======>',this.all_products.length);
                   // console.log('estee',this.productsById);
 
@@ -133,7 +133,7 @@ export class ProductosAleatoriosComponent implements OnInit {
 
     }
 
-    console.log(array);
+    // console.log(array); IMPORTANTE PARA NOTAR EL ARRAY CON SUS OBJETOS EN LA CONSOLA
 
   }
   
