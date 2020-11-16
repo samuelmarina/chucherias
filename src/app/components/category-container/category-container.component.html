@@ -2,7 +2,7 @@
     <div class="icons-container">
         <ul class="icons">
             <li>
-                <a routerLink="/lista-productos?category=chicles">
+                <a routerLink="/lista-productos" [queryParams]="{category: 'chupetas'}">
                 <div class="iconbox">
                     <img src="../../../assets/Paleta.png" class="icon-cat">
                 </div>
@@ -10,7 +10,7 @@
                 </a>
             </li>
             <li>
-                <a [routerLink]="['/lista-productos?category=algodones']">
+                <a routerLink="/lista-productos" [queryParams]="{category: 'chicles'}">
                 <div class="iconbox">
                     <img src="../../../assets/algodon.png" class="icon-cat">
                 </div>
@@ -18,7 +18,7 @@
             </a>
             </li>
             <li>
-                <a [routerLink]="['/lista-productos?category=caramelos']" >
+                <a routerLink="/lista-productos" [queryParams]="{category: 'caramelos'}" >
                 <div class="iconbox">
                     <img src="../../../assets/candy.png" class="icon-cat">
                 </div>
@@ -26,7 +26,7 @@
             </a>
             </li>
             <li>
-                <a [routerLink]="['/lista-productos?category=galletas']" >
+                <a routerLink="/lista-productos" [queryParams]="{category: 'gomitas'}" >
                 <div class="iconbox">
                     <img src="../../../assets/cookie.png" class="icon-cat">
                 </div>
