@@ -48,6 +48,8 @@ import { OrderService } from './services/order/order.service';
 import { RegresarATiendaComponent } from './components/regresar-a-tienda/regresar-a-tienda.component';
 import { CategoryContainerComponent } from './components/category-container/category-container.component';
 import { AuthService } from './services/auth/auth.service';
+import { UserService } from './services/user/user.service';
+import { RoleService } from './services/role/role.service';
 
 @NgModule({
   declarations: [
@@ -166,6 +168,8 @@ import { AuthService } from './services/auth/auth.service';
     StatusService,
     OrderService,
     AuthService,
+    UserService,
+    RoleService
   ],
   bootstrap: [AppComponent]
 })
