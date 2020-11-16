@@ -1,4 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from './services/auth/auth.service';
+import { UserService } from './services/user/user.service';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +11,22 @@ import { Component, Input } from '@angular/core';
 export class AppComponent {
   title = 'chucherias';
 
-  @Input() public static logged: boolean = false;
-  @Input() public static user: string='usuario';
+  logged: boolean = false;
+  user: string='usuario';
+
+  constructor(
+    private auth: AuthService,
+    private userService: UserService,
+    private router: Router
+    ) {
+      auth.user$.subscribe(user => {
+      if(user){
+        userService.save(user);
+        let returnUrl = localStorage.getItem("returnUrl");
+        router.navigateByUrl(returnUrl);
+      }
+    })
+    }
 
 }
 
