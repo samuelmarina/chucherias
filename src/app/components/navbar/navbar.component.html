@@ -19,6 +19,7 @@
                         <a 
                             class="nav-link navbar-brand"
                             (click)="login()"
+                            id="log"
                         >Iniciar Sesion
                             <span class="sr-only">(current)</span></a>
                     </li>
@@ -26,6 +27,7 @@
                         <a 
                             class="nav-link navbar-brand" 
                             (click)="login()"
+                            id="log"
                         >Registrarse</a>
                     </li>
                 </ul>
@@ -83,7 +85,7 @@
                             <ul class="dropdown-menu">
                                 <a class="dropdown-item" routerLink="/whishlist">Wishlist</a>
                                 <a class="dropdown-item" routerLink="/tracking">Tracking</a>
-                                <a class="dropdown-item" (click)="logout()">Cerrar sesion</a>
+                                <a class="dropdown-item" (click)="logout()" id="log">Cerrar sesion</a>
                             </ul>
                         </div>
                     </li>
@@ -108,7 +110,7 @@
                             <ul class="dropdown-menu">
                                 <a class="dropdown-item" routerLink="/admin/productos">Administrar Productos</a>
                                 <a class="dropdown-item" routerLink="/admin/ordenes">Administrar Órdenes</a>
-                                <a class="dropdown-item" (click)="logout()">Cerrar sesion</a>
+                                <a class="dropdown-item" (click)="logout()" id="log">Cerrar sesion</a>
                             </ul>
                         </div>
                     </li>
