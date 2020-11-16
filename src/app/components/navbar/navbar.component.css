@@ -93,3 +93,7 @@ mat-icon {
     margin-left: 0;
   }
 }
+
+#log:hover {
+  cursor: pointer;
+}

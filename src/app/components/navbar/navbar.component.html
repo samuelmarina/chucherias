@@ -16,11 +16,19 @@
             <div>
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link navbar-brand" routerLink="/">Iniciar Sesion
+                        <a 
+                            class="nav-link navbar-brand"
+                            (click)="login()"
+                            id="log"
+                        >Iniciar Sesion
                             <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link navbar-brand" routerLink="/">Registrarse</a>
+                        <a 
+                            class="nav-link navbar-brand" 
+                            (click)="login()"
+                            id="log"
+                        >Registrarse</a>
                     </li>
                 </ul>
             </div>
@@ -42,7 +50,7 @@
         </button>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
-            <div *ngIf="user === 'usuario'">
+            <div *ngIf="role === 'user'">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <div class="material-box-icon">
@@ -77,13 +85,13 @@
                             <ul class="dropdown-menu">
                                 <a class="dropdown-item" routerLink="/whishlist">Wishlist</a>
                                 <a class="dropdown-item" routerLink="/tracking">Tracking</a>
-                                <a class="dropdown-item" routerLink="/whishlist">Cerrar sesion</a>
+                                <a class="dropdown-item" (click)="logout()" id="log">Cerrar sesion</a>
                             </ul>
                         </div>
                     </li>
                 </ul>
             </div>
-            <div *ngIf="user === 'admin'">
+            <div *ngIf="role === 'admin'">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <div class="material-box-icon">
@@ -102,7 +110,7 @@
                             <ul class="dropdown-menu">
                                 <a class="dropdown-item" routerLink="/admin/productos">Administrar Productos</a>
                                 <a class="dropdown-item" routerLink="/admin/ordenes">Administrar Órdenes</a>
-                                <a class="dropdown-item" routerLink="/whishlist">Cerrar sesion</a>
+                                <a class="dropdown-item" (click)="logout()" id="log">Cerrar sesion</a>
                             </ul>
                         </div>
                     </li>

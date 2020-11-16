@@ -50,6 +50,10 @@ import { CategoryContainerComponent } from './components/category-container/cate
 import { TextoIntroContactoComponent } from './components/texto-intro-contacto/texto-intro-contacto.component';
 import { ContactThroughofComponent } from './components/contact-throughof/contact-throughof.component';
 
+import { AuthService } from './services/auth/auth.service';
+import { UserService } from './services/user/user.service';
+import { RoleService } from './services/role/role.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -167,7 +171,10 @@ import { ContactThroughofComponent } from './components/contact-throughof/contac
     CategoryService,
     ProductService,
     StatusService,
-    OrderService
+    OrderService,
+    AuthService,
+    UserService,
+    RoleService
   ],
   bootstrap: [AppComponent]
 })
