@@ -47,6 +47,8 @@ import { ContactoAtencionEspecialComponent } from './components/contacto-atencio
 import { OrderService } from './services/order/order.service';
 import { RegresarATiendaComponent } from './components/regresar-a-tienda/regresar-a-tienda.component';
 import { CategoryContainerComponent } from './components/category-container/category-container.component';
+import { TextoIntroContactoComponent } from './components/texto-intro-contacto/texto-intro-contacto.component';
+import { ContactThroughofComponent } from './components/contact-throughof/contact-throughof.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +80,9 @@ import { CategoryContainerComponent } from './components/category-container/cate
     ContactoAtencionEspecialComponent,
 
     RegresarATiendaComponent,
-    CategoryContainerComponent
+    CategoryContainerComponent,
+    TextoIntroContactoComponent,
+    ContactThroughofComponent
 
    
   ],
