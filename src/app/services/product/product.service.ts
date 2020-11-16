@@ -61,7 +61,7 @@ export class ProductService {
         myArray[myArray.length] = numeroAleatorio;
       }
     }
-    console.log("números aleatorios : " + myArray);
+    // console.log("números aleatorios : " + myArray);
 
     
 

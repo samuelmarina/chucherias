@@ -53,6 +53,7 @@ import { ContactThroughofComponent } from './components/contact-throughof/contac
 import { AuthService } from './services/auth/auth.service';
 import { UserService } from './services/user/user.service';
 import { RoleService } from './services/role/role.service';
+import { BackgroundContactoComponent } from './components/background-contacto/background-contacto.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { RoleService } from './services/role/role.service';
     RegresarATiendaComponent,
     CategoryContainerComponent,
     TextoIntroContactoComponent,
-    ContactThroughofComponent
+    ContactThroughofComponent,
+    BackgroundContactoComponent
 
    
   ],
