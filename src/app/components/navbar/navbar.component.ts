@@ -35,6 +35,11 @@ export class NavbarComponent {
     this.auth.login();
   }
 
+  logout() {
+    this.auth.logout();
+    this.logged = false;
+  }
+
   availableburgerItems() {
     this.available = !this.available
   }

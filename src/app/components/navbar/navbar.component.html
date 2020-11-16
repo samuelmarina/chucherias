@@ -83,7 +83,7 @@
                             <ul class="dropdown-menu">
                                 <a class="dropdown-item" routerLink="/whishlist">Wishlist</a>
                                 <a class="dropdown-item" routerLink="/tracking">Tracking</a>
-                                <a class="dropdown-item" routerLink="/whishlist">Cerrar sesion</a>
+                                <a class="dropdown-item" (click)="logout()">Cerrar sesion</a>
                             </ul>
                         </div>
                     </li>
@@ -108,7 +108,7 @@
                             <ul class="dropdown-menu">
                                 <a class="dropdown-item" routerLink="/admin/productos">Administrar Productos</a>
                                 <a class="dropdown-item" routerLink="/admin/ordenes">Administrar Órdenes</a>
-                                <a class="dropdown-item" routerLink="/whishlist">Cerrar sesion</a>
+                                <a class="dropdown-item" (click)="logout()">Cerrar sesion</a>
                             </ul>
                         </div>
                     </li>
