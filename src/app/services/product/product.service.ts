@@ -48,7 +48,8 @@ export class ProductService {
   getNAleatoryProducts(n:number,allElementos) {
     // console.log(allElementos.length);
     var myArray = [];
-    while (myArray.length < n) {
+
+    while (myArray.length <n ) {  
       var numeroAleatorio = Math.ceil(Math.random() * allElementos.length);
       var existe = false;
       for (var i = 0; i < myArray.length; i++) {
@@ -60,6 +61,7 @@ export class ProductService {
       if (!existe) {
         myArray[myArray.length] = numeroAleatorio;
       }
+      
     }
     // console.log("números aleatorios : " + myArray);
 
@@ -73,6 +75,7 @@ export class ProductService {
     //   products.push(allElementos[numero]);
       
     // }
+    
     
     return myArray;
   

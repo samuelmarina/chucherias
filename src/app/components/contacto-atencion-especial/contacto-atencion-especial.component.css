@@ -71,7 +71,6 @@ img{
         margin-top: 10px;
         margin-bottom: 10px;
         padding: 10px;
-        /* background-color:blue; */
         height:95%;
         width: 45%;
         text-align: center;
@@ -86,7 +85,7 @@ img{
         margin-top: 10px;
         margin-bottom: 10px;
         padding: 10px;
-        /* background-color:blue; */
+       
         height:50%;
         width: 75%;
         text-align: center;
@@ -108,7 +107,7 @@ img{
         margin-bottom: 10px;
         padding: 10px;
         /* background-color:blue; */
-        height:95%;
+        height:50%;
         width: 90%;
         text-align: center;
         display: inline-block;
