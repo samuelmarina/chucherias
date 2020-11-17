@@ -1,4 +1,8 @@
 
+.container-box{
+    background-color: #CAFFBF;
+    width: 100%;
+}
 #text-SA{
     color: #EA0DB9;
     font-size:  43px;
@@ -34,13 +38,22 @@ img{
 
 
 @media (min-width: 992px) {
-    .box {
+    .box-text{
     background-color: #CAFFBF;
     width: 100%;
     height:300px;
-    display: inline-block;
-    /* display: table; */
+    /* display: inline-block; */
+    display: table;
     
+    }
+
+    .box-icons{
+        background-color: #CAFFBF;
+        width: 100%;
+        height:300px;
+        /* display: inline-block; */
+        display: table;
+        
     }
 
     .col-lg-c1{
@@ -51,10 +64,10 @@ img{
         height:95%;
         width: 33%;
         text-align: center;
-        display: inline-block;
+        /* display: inline-block; */
         justify-content: center;
-        /* display: table-cell;
-        vertical-align: middle; */
+        display: table-cell;
+        vertical-align: middle; 
 
     }
     .col-md-c2{
@@ -66,11 +79,13 @@ img{
         padding: 10px;
        
         height:30%;
-        width: 75%;
+        width: 100%;
         text-align: center;
         
-        display: inline-block;
+        /* display: inline-block; */
         justify-content: center;
+        /* display: table-cell; */
+         /* vertical-align: middle;  */
     }
 
 
@@ -82,9 +97,17 @@ img{
     .box {
     background-color: #CAFFBF;
     width: 100%;
-    height:300px;
+    height:230px;
     display: inline-block;
     /* display: table; */
+    
+    }
+    .box-text{
+    background-color: #CAFFBF;
+    width: 100%;
+    height:200px;
+    /* display: inline-block; */
+    display: table;
     
     }
 
@@ -127,8 +150,8 @@ img{
     .box {
     background-color: #CAFFBF;
     width: 100%;
-    height:930px;
-    display: inline-block;
+    height:700px;
+    display: inline;
     /* display: table; */
     }
 
@@ -144,6 +167,7 @@ img{
         width: 90%;
         text-align: center;
         display: inline-block;
+
     }
 
 }
