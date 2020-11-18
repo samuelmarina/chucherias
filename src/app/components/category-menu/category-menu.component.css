@@ -1,3 +1,17 @@
 .sticky-top {
   top: 20px;
 }
+.active{
+  background-color: #ffadad;
+  color: black;
+  font-weight: bolder;
+  border-radius: 0 10px 10px 10px;
+  border-color: black;
+  border-width: 1px;
+}
+@media (max-width: 425px){
+  .list-group{
+    width: 100px;
+  }
+  
+}
