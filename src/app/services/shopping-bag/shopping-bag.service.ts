@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { take } from 'rxjs/operators';
+import { switchMap, take } from 'rxjs/operators';
 import { Producto } from 'src/app/schemas/producto';
 import firebase from "firebase/app"
 
@@ -30,35 +30,50 @@ export class ShoppingBagService {
       return res.key;
   }
 
-  async addToBag(product: Producto) {
-    let bagId = await this.getOrCreateBagId();
-    let price = product.price.toString().replace(".", ",");
-    let item$ = this.db.object("/shopping-bags/" + bagId + "/items/" + price);
-    let product$ = this.db.object("/shopping-bags/" + bagId + "/items/" + price + "/products/" + product.key);
-    let ref = firebase.database().ref("/shopping-bags/" + bagId + "/items/" + price + "/products/" + product.key);
-    let isProductAdded = await this.isProductAdded(ref);
 
-    item$.valueChanges().pipe(take(1)).subscribe(item => {
-      if(!item) {
-        item$.set({
-          quantity: 50
+
+  async addToBag(product: Producto, user: firebase.User) {
+    let price = product.price.toString().replace(".", ",");
+    let item$ = this.db.list("/users/" + user.uid + "/shopping-bags/" + price, ref => ref.orderByChild('quantity'));
+
+    item$.snapshotChanges().pipe(take(1)).subscribe(async item=> {
+      if(item.length === 0 || item[0].payload.val()['quantity'] === 2000){
+        let bagKey = item$.push({
+          quantity: 50,
+          date: new Date().toString(),
+        }).key
+
+        this.db.object("/users/" + user.uid + "/shopping-bags/" + price + "/" + bagKey + "/products/" + product.key)
+        .set({
+          product, quantity: 50
         })
-        product$.set({
-          product: product
-        })
-        
       }
       else{
-        item$.update({
-          quantity: item['quantity'] + 50
+        let bagKey = item[0].key;
+        let ref = firebase.database().ref("/users/" + user.uid + "/shopping-bags/" + price + "/" + bagKey
+        + "/products/" + product.key);
+
+        let bag = this.db.object("/users/" + user.uid + "/shopping-bags/" + price + "/" + bagKey)
+        bag.valueChanges().pipe(take(1))
+        .subscribe(x => {
+          bag.update({
+            quantity: x['quantity'] + 50
+          })
         })
-        if(!isProductAdded){
-          product$.set({
-            product: product
+
+        if(await this.isProductAdded(ref)){
+          ref.update({
+            quantity: item[0].payload.val()['products'][product.key]['quantity'] + 50
+          })
+        }
+        else{
+          ref.set({
+            product,
+            quantity: 50
           })
         }
       }
-    });
+    })
   }
 
   private async isProductAdded(ref: firebase.database.Reference) {

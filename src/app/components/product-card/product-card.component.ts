@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { ShoppingBagService } from 'src/app/services/shopping-bag/shopping-bag.service';
 
 @Component({
@@ -9,16 +10,24 @@ import { ShoppingBagService } from 'src/app/services/shopping-bag/shopping-bag.s
 export class ProductCardComponent implements OnInit {
   @Input('product') product;
   @Input('show-actions') showActions = true;
+  user;
 
   constructor(
+    private authService: AuthService,
     private bagService: ShoppingBagService
-  ) { }
+  ) { 
+    authService.user$.subscribe(user => {
+      if(user){
+        this.user = user;
+      }
+    })
+  }
 
   ngOnInit(): void {
   }
 
   addToBag(product){
-    this.bagService.addToBag(product);
+    this.bagService.addToBag(product, this.user);
   }
 
 }
