@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { Producto } from 'src/app/schemas/producto';
 import { ProductService } from 'src/app/services/product/product.service';
 
 @Component({
@@ -21,27 +22,36 @@ export class ListaProductosComponent implements OnInit {
   constructor(
     route: ActivatedRoute,
     private productService: ProductService) {
+
+    // this.productService.getAll().snapshotChanges().pipe(
+    //   map(actions => {
+    //     console.log("HGey")
+    //   })
+    // )
       
-
-
-    // this.products$ = this.productService.getAll().snapshotChanges().pipe(
-    //   map(changes => changes.map(c => (
+    // this.productService.getAll().snapshotChanges().pipe(
+    //   map(changes => {
+    //     changes.map(c => {
+    //     this.products.push(
     //     {
     //       key: c.key, 
-    //       title: c.payload.val()['title'],
-    //       price: c.payload.val()['price'],
-    //       imageUrl: c.payload.val()['imageUrl']
-    //     })))
+    //       ...c.payload.val() as any
+    //     })
+    //   })
+      
+    //   })
     // )
 
-
-   
-
-    this.productService.getAll().valueChanges().pipe(
+    this.productService.getAll().snapshotChanges().pipe(
       map(changes => changes.map(c => c))
     )
     .subscribe(c => {
-      c.map(k => this.products.push(k))
+      c.map(k => {
+        this.products.push({
+          key: k.key,
+          ...k.payload.val() as any
+        } as Producto)
+      })
       route.queryParamMap.subscribe(params => {
         this.category = params.get('category');
 

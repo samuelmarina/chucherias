@@ -18,15 +18,7 @@ export class ProductCardComponent implements OnInit {
   }
 
   addToBag(product){
-    let bagId = localStorage.getItem('bagId');
-    if(!bagId) {
-      this.bagService.create().then(res => {
-        localStorage.setItem("bagId", res.key);
-      })
-    }
-    else {
-      
-    }
+    this.bagService.addToBag(product);
   }
 
 }
