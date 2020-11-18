@@ -54,6 +54,7 @@ import { AuthService } from './services/auth/auth.service';
 import { UserService } from './services/user/user.service';
 import { RoleService } from './services/role/role.service';
 import { BackgroundContactoComponent } from './components/background-contacto/background-contacto.component';
+import { BolsaVaciaComponent } from './components/bolsa-vacia/bolsa-vacia.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { BackgroundContactoComponent } from './components/background-contacto/ba
     CategoryContainerComponent,
     TextoIntroContactoComponent,
     ContactThroughofComponent,
-    BackgroundContactoComponent
+    BackgroundContactoComponent,
+    BolsaVaciaComponent
 
    
   ],
