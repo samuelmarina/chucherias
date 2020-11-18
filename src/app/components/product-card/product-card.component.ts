@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ShoppingBagService } from 'src/app/services/shopping-bag/shopping-bag.service';
 
 @Component({
   selector: 'product-card',
@@ -8,9 +9,24 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ProductCardComponent implements OnInit {
   @Input('product') product;
   @Input('show-actions') showActions = true;
-  constructor() { }
+
+  constructor(
+    private bagService: ShoppingBagService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  addToBag(product){
+    let bagId = localStorage.getItem('bagId');
+    if(!bagId) {
+      this.bagService.create().then(res => {
+        localStorage.setItem("bagId", res.key);
+      })
+    }
+    else {
+      
+    }
   }
 
 }

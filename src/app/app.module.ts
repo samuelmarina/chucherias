@@ -54,6 +54,7 @@ import { AuthService } from './services/auth/auth.service';
 import { UserService } from './services/user/user.service';
 import { RoleService } from './services/role/role.service';
 import { BackgroundContactoComponent } from './components/background-contacto/background-contacto.component';
+import { ShoppingBagService } from './services/shopping-bag/shopping-bag.service';
 
 @NgModule({
   declarations: [
@@ -176,7 +177,8 @@ import { BackgroundContactoComponent } from './components/background-contacto/ba
     OrderService,
     AuthService,
     UserService,
-    RoleService
+    RoleService,
+    ShoppingBagService,
   ],
   bootstrap: [AppComponent]
 })
