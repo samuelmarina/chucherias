@@ -1,10 +1,24 @@
 .card {
-  margin: 0;
+  box-shadow: 0 1px 3px#4BB543, 0 1px 2px #4BB543;
+  box-sizing: border-box;
+  margin-top: 50px;
   margin-bottom: 30px;
   padding: 0;
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+  max-width: 250px;
+  transition: all .2 ease-in-out;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.card:hover{
+  box-shadow: 0 5px 5px rgba(0,0,0,.19), 0 5px 5px rgba(0,0,0,.24);
+  cursor: pointer;
+}
+img{
+  width: 100%;
 }
 
 .card-footer {
   padding: 0;
 }
+
+

@@ -55,6 +55,8 @@ import { UserService } from './services/user/user.service';
 import { RoleService } from './services/role/role.service';
 import { BackgroundContactoComponent } from './components/background-contacto/background-contacto.component';
 import { ShoppingBagService } from './services/shopping-bag/shopping-bag.service';
+import { BolsaVaciaComponent } from './components/bolsa-vacia/bolsa-vacia.component';
+
 
 @NgModule({
   declarations: [
@@ -89,7 +91,8 @@ import { ShoppingBagService } from './services/shopping-bag/shopping-bag.service
     CategoryContainerComponent,
     TextoIntroContactoComponent,
     ContactThroughofComponent,
-    BackgroundContactoComponent
+    BackgroundContactoComponent,
+    BolsaVaciaComponent
 
    
   ],

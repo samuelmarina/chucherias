@@ -24,8 +24,11 @@ h1 {
 .more {
   font-size: 15px;
   line-height: 15px;
+  
 }
-
+a{
+  text-decoration-color: #ffadad;
+}
 .container {
   text-align: center;
   color: white;

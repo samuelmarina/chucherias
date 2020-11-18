@@ -1,4 +1,4 @@
-<div *ngIf="product.title" class="card" style="width: 25rem">
+<div *ngIf="product.title" class="card" >
     <img *ngIf="product.imageUrl" [src]="product.imageUrl" class="card-img-top" alt="{{product.title}}">
     <div class="card-body">
         <h5 class="card-title">{{ product.title }}</h5>
@@ -6,8 +6,8 @@
     </div>
     <div class="card-footer">
         <button 
-            (click)="addToBag(product)"
+            (click)="addToBag(product)" 
             *ngIf="showActions" 
-            class="btn btn-primary btn-block">Add to Cart</button>
+            class="btn btn-success btn-block">Add to Bag</button>
     </div>
 </div>
