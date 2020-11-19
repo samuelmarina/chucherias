@@ -76,6 +76,38 @@ export class ShoppingBagService {
     })
   }
 
+  removeFromBag(product: Producto, user: firebase.User){
+    let price = product.price.toString().replace(".", ",");
+    let item$ = this.db.list("/users/" + user.uid + "/shopping-bags/" + price, ref => ref.orderByChild('quantity'));
+
+    item$.snapshotChanges().pipe(take(1)).subscribe(async item => {
+      let bagKey = item[0].key;
+      
+      let ref = firebase.database().ref("/users/" + user.uid + "/shopping-bags/" + price + "/" + bagKey
+      + "/products/" + product.key);
+
+      let productoQty = item[0].payload.val()['products'][product.key]['quantity'];
+      if(productoQty === 50){
+        ref.remove();
+      }
+      else{
+        ref.update({
+          quantity: item[0].payload.val()['products'][product.key]['quantity'] - 50
+        })
+      }
+
+      if(item[0].payload.val()['quantity'] === 50){
+        return firebase.database().ref("/users/" + user.uid + "/shopping-bags/" + price + "/" + bagKey).remove();
+      }
+
+      ref = firebase.database().ref("/users/" + user.uid + "/shopping-bags/" + price + "/" + bagKey);
+
+      ref.update({
+        quantity: item[0].payload.val()['quantity'] - 50
+      })
+    })
+  }
+
   private async isProductAdded(ref: firebase.database.Reference) {
     let flag;
     await ref.once("value").then(res => {

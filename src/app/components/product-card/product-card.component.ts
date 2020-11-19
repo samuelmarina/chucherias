@@ -12,7 +12,7 @@ export class ProductCardComponent implements OnInit {
   @Input('showActions') showActions;
   user;
   isLiked: boolean;
-  quantity = 50;
+  quantity = 0;
 
   constructor(
     private authService: AuthService,
@@ -38,6 +38,12 @@ export class ProductCardComponent implements OnInit {
 
   addToBag(product){
     this.bagService.addToBag(product, this.user);
+    this.quantity += 50;
+  }
+
+  removeFromBag(product){
+    this.bagService.removeFromBag(product, this.user);
+    this.quantity -= 50;
   }
 
   like(){

@@ -17,7 +17,7 @@
         <ng-template #updateQuantity>
             <div class="row no-gutters">
                 <div class="col-3">
-                    <button class="btn btn-secondary btn-block" id="qtyBtn">
+                    <button class="btn btn-secondary btn-block" id="qtyBtn" (click)="removeFromBag(product)">
                         -
                     </button>
                 </div>
@@ -25,7 +25,7 @@
                     {{quantity}} gr
                 </div>
                 <div class="col-3">
-                    <button class="btn btn-secondary btn-block" id="qtyBtn">
+                    <button class="btn btn-secondary btn-block" id="qtyBtn" (click)="addToBag(product)">
                         +
                     </button>
                 </div>
