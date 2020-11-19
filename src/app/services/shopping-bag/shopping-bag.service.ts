@@ -17,9 +17,7 @@ export class ShoppingBagService {
     })
   }
 
-  // private getBag(bagId: string){
-  //   return this.db.object("shopping-bags/" + bagId);
-  // }
+
 
   getBag(user: firebase.User){
     return this.db.object("/users/" + user.uid + "/shopping-bags");
@@ -61,12 +59,10 @@ export class ShoppingBagService {
     return flag;
   }
 
-
-
   async addToBag(product: Producto, user: firebase.User) {
     this.createOrUpdateBag(user, "add");
-    let price = product.price.toString().replace(".", ",");
-    let item$ = this.db.list("/users/" + user.uid + "/shopping-bags/" + price, ref => ref.orderByChild('quantity'));
+    let price = this.getPrice(product);
+    let item$ = this.getItem(user.uid, price);
 
     item$.snapshotChanges().pipe(take(1)).subscribe(async item=> {
       if(item.length === 0 || item[0].payload.val()['quantity'] === 2000){
@@ -82,8 +78,7 @@ export class ShoppingBagService {
       }
       else{
         let bagKey = item[0].key;
-        let ref = firebase.database().ref("/users/" + user.uid + "/shopping-bags/" + price + "/" + bagKey
-        + "/products/" + product.key);
+        let ref = this.getProductRef(user.uid, price, bagKey, product);
 
         let bag = this.db.object("/users/" + user.uid + "/shopping-bags/" + price + "/" + bagKey)
         bag.valueChanges().pipe(take(1))
@@ -110,14 +105,13 @@ export class ShoppingBagService {
 
   removeFromBag(product: Producto, user: firebase.User){
     this.createOrUpdateBag(user, "remove");
-    let price = product.price.toString().replace(".", ",");
-    let item$ = this.db.list("/users/" + user.uid + "/shopping-bags/" + price, ref => ref.orderByChild('quantity'));
+    let price = this.getPrice(product);
+    let item$ = this.getItem(user.uid, price);
 
     item$.snapshotChanges().pipe(take(1)).subscribe(async item => {
       let bagKey = item[0].key;
       
-      let ref = firebase.database().ref("/users/" + user.uid + "/shopping-bags/" + price + "/" + bagKey
-      + "/products/" + product.key);
+      let ref = this.getProductRef(user.uid, price, bagKey, product);
 
       let productoQty = item[0].payload.val()['products'][product.key]['quantity'];
       if(productoQty === 50){
@@ -129,16 +123,33 @@ export class ShoppingBagService {
         })
       }
 
+      let bagRef = this.getBagRef(user.uid, price, bagKey);
+
       if(item[0].payload.val()['quantity'] === 50){
-        return firebase.database().ref("/users/" + user.uid + "/shopping-bags/" + price + "/" + bagKey).remove();
+        return bagRef.remove();
       }
 
-      ref = firebase.database().ref("/users/" + user.uid + "/shopping-bags/" + price + "/" + bagKey);
-
-      ref.update({
+      bagRef.update({
         quantity: item[0].payload.val()['quantity'] - 50
       })
     })
+  }
+
+  private getItem(userId: string, price: string){
+    return this.db.list("/users/" + userId + "/shopping-bags/" + price, ref => ref.orderByChild('quantity'))
+  }
+
+  private getPrice(product: Producto){
+    return product.price.toString().replace(".", ",");
+  }
+
+  private getProductRef(userId: string, price: string, bagKey: string, product: Producto){
+    return firebase.database().ref("/users/" + userId + "/shopping-bags/" + price + "/" + bagKey
+      + "/products/" + product.key);
+  }
+
+  private getBagRef(userId: string, price: string, bagKey: string){
+    return firebase.database().ref("/users/" + userId + "/shopping-bags/" + price + "/" + bagKey)
   }
 
   private async isProductAdded(ref: firebase.database.Reference) {
