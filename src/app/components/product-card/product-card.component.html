@@ -1,6 +1,7 @@
 <div *ngIf="product.title" class="card" >
     <img *ngIf="product.imageUrl" [src]="product.imageUrl" class="card-img-top" alt="{{product.title}}">
-    <div class="card-body">
+    <hr>
+    <div class="card-body" id="body">
         <h5 class="card-title">{{ product.title }}</h5>
         <p class="card-text">{{ product.price | currency:'USD':true }}</p>
     </div>
@@ -8,6 +9,7 @@
         <button 
             (click)="addToBag(product)" 
             *ngIf="showActions" 
-            class="btn btn-success btn-block">Add to Bag</button>
+            class="btn btn-block"
+            >Add to Bag</button>
     </div>
 </div>
