@@ -74,11 +74,11 @@ export class ProductCardComponent implements OnInit {
     this.isLiked = !this.isLiked;
  
     if(this.isLiked){
-      console.log('agregar a la bd');
+      // console.log('agregar a la bd');
       this.addToWL(product);
 
     }else{
-      console.log('eliminar de la bd');
+      // console.log('eliminar de la bd');
       this.deleteToWL(product);
     }
     
