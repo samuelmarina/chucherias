@@ -1,8 +1,8 @@
-<div *ngIf="product.title" class="card" >
+<div *ngIf="product.title" class="card">
     <img *ngIf="product.imageUrl" [src]="product.imageUrl" class="card-img-top" alt="{{product.title}}">
     <hr>
     <div class="card-body">
-        <div class="row">
+        <div class="row" id="text">
             <h5 class="card-title">{{ product.title }}</h5>
             <div *ngIf="showActions">
                 <mat-icon *ngIf="!isLiked" (click)="like()" aria-hidden="false">star_outline</mat-icon>
@@ -12,10 +12,24 @@
         <p class="card-text">{{ product.price | currency:'USD':true }}</p>
     </div>
     <div *ngIf="showActions" class="card-footer">
-        <button 
-            (click)="addToBag(product)" 
-            *ngIf="showActions" 
-            class="btn btn-block"
-            >Add to Bag</button>
+        <button *ngIf="quantity === 0; else updateQuantity" (click)="addToBag(product)" class="btn btn-block">Add to
+            Bag</button>
+        <ng-template #updateQuantity>
+            <div class="row no-gutters">
+                <div class="col-3">
+                    <button class="btn btn-secondary btn-block" id="qtyBtn">
+                        -
+                    </button>
+                </div>
+                <div class="col text-center">
+                    {{quantity}} gr
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-secondary btn-block" id="qtyBtn">
+                        +
+                    </button>
+                </div>
+            </div>
+        </ng-template>
     </div>
 </div>

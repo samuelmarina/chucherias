@@ -12,6 +12,7 @@ export class ProductCardComponent implements OnInit {
   @Input('showActions') showActions;
   user;
   isLiked: boolean;
+  quantity = 50;
 
   constructor(
     private authService: AuthService,
