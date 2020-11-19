@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { Producto } from 'src/app/schemas/producto';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProductService } from 'src/app/services/product/product.service';
 
 @Component({
@@ -12,35 +13,18 @@ import { ProductService } from 'src/app/services/product/product.service';
 export class ListaProductosComponent implements OnInit {
   products: any[] = [];
   filteredProducts = [];
-  
-
-
+  showActions: boolean;
   category: string;
   
   
 
   constructor(
+    private auth: AuthService,
     route: ActivatedRoute,
     private productService: ProductService) {
-
-    // this.productService.getAll().snapshotChanges().pipe(
-    //   map(actions => {
-    //     console.log("HGey")
-    //   })
-    // )
-      
-    // this.productService.getAll().snapshotChanges().pipe(
-    //   map(changes => {
-    //     changes.map(c => {
-    //     this.products.push(
-    //     {
-    //       key: c.key, 
-    //       ...c.payload.val() as any
-    //     })
-    //   })
-      
-    //   })
-    // )
+      auth.user$.subscribe(user => {
+        this.showActions = user ? true : false;
+      })
 
     this.productService.getAll().snapshotChanges().pipe(
       map(changes => changes.map(c => c))
