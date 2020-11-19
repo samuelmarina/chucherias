@@ -5,6 +5,8 @@
   padding: 0;
   max-width: 250px;
   transition: all 0.2 ease-in-out;
+  /* border-top-left-radius: 20px;
+  border-top-right-radius: 20px; */
   border-radius: 20px;
   overflow: hidden;
 }
@@ -44,11 +46,16 @@ hr {
   margin: 0;
 }
 
-.row {
+#text {
   padding-left: 0.9rem;
 }
 
 mat-icon {
   margin-left: 10px;
   color: #ff437b;
+}
+
+#qtyBtn {
+  border-color: transparent;
+  font-size: large;
 }

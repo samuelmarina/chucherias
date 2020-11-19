@@ -38,6 +38,20 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="quantity">Cantidad</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">gr</span>
+                        </div>
+                        <input #quantity="ngModel" [(ngModel)]="product.quantity" name="quantity" id="quantity" type="number" class="form-control"
+                            required [min]="1">
+                    </div>
+                    <div class="alert alert-danger" *ngIf="quantity.touched && quantity.invalid">
+                        <div *ngIf="quantity.errors.required">La cantidad es obligatoria</div>
+                        <div *ngIf="quantity.errors.min">La cantidad tiene que ser superior a 0 gramos</div>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="imageUrl">URL de Imagen</label>
                     <input #imageUrl="ngModel" [(ngModel)]="product.imageUrl" name="imageUrl" id="imageUrl" type="text"
                         class="form-control" required url>
