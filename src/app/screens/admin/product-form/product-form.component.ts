@@ -15,7 +15,8 @@ export class ProductFormComponent implements OnInit {
     title: "",
     price: 1,
     category: "",
-    imageUrl: ""
+    imageUrl: "",
+    quantity: 1
   };
   id;
 
@@ -35,6 +36,7 @@ export class ProductFormComponent implements OnInit {
         this.product.price = p["price"];
         this.product.category = p["category"]
         this.product.imageUrl = p['imageUrl']
+        this.product.quantity = p['quantity']
       });
     }
   }
