@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database';
-import { switchMap, take } from 'rxjs/operators';
+import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
+import { map, switchMap, take } from 'rxjs/operators';
 import { Producto } from 'src/app/schemas/producto';
 import firebase from "firebase/app"
+import { ShoppingBag } from 'src/app/schemas/shopping-bag-items';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +18,7 @@ export class ShoppingBagService {
     })
   }
 
-
-
-  getBag(user: firebase.User){
+  getBag(user: firebase.User): AngularFireObject<ShoppingBag>{
     return this.db.object("/users/" + user.uid + "/shopping-bags");
   }
 
@@ -66,12 +65,13 @@ export class ShoppingBagService {
 
     item$.snapshotChanges().pipe(take(1)).subscribe(async item=> {
       if(item.length === 0 || item[0].payload.val()['quantity'] === 2000){
+        console.log(item);
         let bagKey = item$.push({
           quantity: 50,
           date: new Date().toString(),
         }).key
 
-        this.db.object("/users/" + user.uid + "/shopping-bags/" + price + "/" + bagKey + "/products/" + product.key)
+        this.db.object("/users/" + user.uid + "/shopping-bags/items/" + price + "/bags/" + bagKey + "/products/" + product.key)
         .set({
           product, quantity: 50
         })
@@ -80,7 +80,7 @@ export class ShoppingBagService {
         let bagKey = item[0].key;
         let ref = this.getProductRef(user.uid, price, bagKey, product);
 
-        let bag = this.db.object("/users/" + user.uid + "/shopping-bags/" + price + "/" + bagKey)
+        let bag = this.db.object("/users/" + user.uid + "/shopping-bags/items/" + price + "/bags/" + bagKey)
         bag.valueChanges().pipe(take(1))
         .subscribe(x => {
           bag.update({
@@ -125,9 +125,7 @@ export class ShoppingBagService {
 
       let bagRef = this.getBagRef(user.uid, price, bagKey);
 
-      if(item[0].payload.val()['quantity'] === 50){
-        return bagRef.remove();
-      }
+      if(item[0].payload.val()['quantity'] === 50) return bagRef.remove();
 
       bagRef.update({
         quantity: item[0].payload.val()['quantity'] - 50
@@ -136,7 +134,7 @@ export class ShoppingBagService {
   }
 
   private getItem(userId: string, price: string){
-    return this.db.list("/users/" + userId + "/shopping-bags/" + price, ref => ref.orderByChild('quantity'))
+    return this.db.list("/users/" + userId + "/shopping-bags/items/" + price + "/bags", ref => ref.orderByChild('quantity'))
   }
 
   private getPrice(product: Producto){
@@ -144,12 +142,12 @@ export class ShoppingBagService {
   }
 
   private getProductRef(userId: string, price: string, bagKey: string, product: Producto){
-    return firebase.database().ref("/users/" + userId + "/shopping-bags/" + price + "/" + bagKey
+    return firebase.database().ref("/users/" + userId + "/shopping-bags/items/" + price + "/bags/" + bagKey
       + "/products/" + product.key);
   }
 
   private getBagRef(userId: string, price: string, bagKey: string){
-    return firebase.database().ref("/users/" + userId + "/shopping-bags/" + price + "/" + bagKey)
+    return firebase.database().ref("/users/" + userId + "/shopping-bags/items/" + price + "/bags/" + bagKey)
   }
 
   private async isProductAdded(ref: firebase.database.Reference) {
