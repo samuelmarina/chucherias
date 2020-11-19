@@ -9,8 +9,9 @@ import { ShoppingBagService } from 'src/app/services/shopping-bag/shopping-bag.s
 })
 export class ProductCardComponent implements OnInit {
   @Input('product') product;
-  @Input('show-actions') showActions = true;
+  @Input('showActions') showActions;
   user;
+  isLiked: boolean;
 
   constructor(
     private authService: AuthService,
@@ -21,6 +22,14 @@ export class ProductCardComponent implements OnInit {
         this.user = user;
       }
     })
+
+    /**
+     * Aqui hay que inicializar la variable isLiked, donde 
+     * se busca en la base de datos si el producto se encuentra en la
+     * wishlist
+     * Si se encuentra, isLiked = true
+     * Si no se encuentra, isLiked = false
+     */
   }
 
   ngOnInit(): void {
@@ -28,6 +37,15 @@ export class ProductCardComponent implements OnInit {
 
   addToBag(product){
     this.bagService.addToBag(product, this.user);
+  }
+
+  like(){
+    this.isLiked = !this.isLiked;
+    /**
+     * Aqui se agrega la llamada a la bd
+     * Si isLiked == true, entonces agregar a wishlist
+     * Si isLiked == false, entonces eliminar de wishlist
+     */
   }
 
 }

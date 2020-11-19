@@ -1,11 +1,21 @@
 <div *ngIf="product.title" class="card" >
     <img *ngIf="product.imageUrl" [src]="product.imageUrl" class="card-img-top" alt="{{product.title}}">
     <hr>
-    <div class="card-body" id="body">
-        <h5 class="card-title">{{ product.title }}</h5>
+    <div class="card-body">
+        <div class="row">
+            <h5 class="card-title">{{ product.title }}</h5>
+            <mat-icon 
+                *ngIf="!isLiked"
+                (click)="like()"
+                aria-hidden="false">star_outline</mat-icon>
+            <mat-icon 
+                *ngIf="isLiked"
+                (click)="like()"
+                aria-hidden="false">star</mat-icon>
+        </div>
         <p class="card-text">{{ product.price | currency:'USD':true }}</p>
     </div>
-    <div class="card-footer">
+    <div *ngIf="showActions" class="card-footer">
         <button 
             (click)="addToBag(product)" 
             *ngIf="showActions" 

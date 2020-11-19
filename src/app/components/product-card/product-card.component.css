@@ -44,3 +44,12 @@ button:hover {
 hr {
   margin: 0;
 }
+
+.row {
+  padding-left: 0.9rem;
+}
+
+mat-icon {
+  margin-left: 10px;
+  color: #ff437b;
+}
