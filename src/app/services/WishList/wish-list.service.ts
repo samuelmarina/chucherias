@@ -68,9 +68,7 @@ export class WishListService {
 
     let item$ = this.db.list("/users/" + user.uid + "/wish-list/");
 
-    let wLKey = item$.push({
-      //  POR AHORA BORRAR
-    }).key
+    
 
     this.db.object("/users/" + user.uid + "/wish-list/" + "/products/" + product.key).remove();
     
@@ -121,88 +119,7 @@ export class WishListService {
           product
         })
 
-    // item$.snapshotChanges().pipe(take(1)).subscribe(async item=> {
-    //   if(item.length === 0 || item[0].payload.val()['quantity'] === 2000){
-    //     let bagKey = item$.push({
-    //       quantity: 50,
-    //       date: new Date().toString(),
-    //     }).key
-
-    //     this.db.object("/users/" + user.uid + "/shopping-bags/" + price + "/" + bagKey + "/products/" + product.key)
-    //     .set({
-    //       product, quantity: 50
-    //     })
-    //   }
-    //   else{
-    //     let bagKey = item[0].key;
-    //     let ref = firebase.database().ref("/users/" + user.uid + "/shopping-bags/" + price + "/" + bagKey
-    //     + "/products/" + product.key);
-
-    //     let bag = this.db.object("/users/" + user.uid + "/shopping-bags/" + price + "/" + bagKey)
-    //     bag.valueChanges().pipe(take(1))
-    //     .subscribe(x => {
-    //       bag.update({
-    //         quantity: x['quantity'] + 50
-    //       })
-    //     })
-
-    //     if(await this.isProductAdded(ref)){
-    //       ref.update({
-    //         quantity: item[0].payload.val()['products'][product.key]['quantity'] + 50
-    //       })
-    //     }
-    //     else{
-    //       ref.set({
-    //         product,
-    //         quantity: 50
-    //       })
-    //     }
-    //   }
-    // }) //
-
-
-
-
-
-
-    // item$.snapshotChanges().pipe(take(1)).subscribe(async item => {
-    //   if (item.length === 0 || item[0].payload.val()['quantity'] === 2000) {
-    //     let bagKey = item$.push({
-    //       quantity: 50,
-    //       date: new Date().toString(),
-    //     }).key
-
-    //     this.db.object("/users/" + user.uid + "/shopping-bags/" + price + "/" + bagKey + "/products/" + product.key)
-    //       .set({
-    //         product, quantity: 50
-    //       })
-    //   }
-    //   else {
-    //     let bagKey = item[0].key;
-    //     let ref = firebase.database().ref("/users/" + user.uid + "/shopping-bags/" + price + "/" + bagKey
-    //       + "/products/" + product.key);
-
-    //     let bag = this.db.object("/users/" + user.uid + "/shopping-bags/" + price + "/" + bagKey)
-    //     bag.valueChanges().pipe(take(1))
-    //       .subscribe(x => {
-    //         bag.update({
-    //           quantity: x['quantity'] + 50
-    //         })
-    //       })
-
-    //     if (await this.isProductAdded(ref)) {
-    //       ref.update({
-    //         quantity: item[0].payload.val()['products'][product.key]['quantity'] + 50
-    //       })
-    //     }
-    //     else {
-    //       ref.set({
-    //         product,
-    //         quantity: 50
-    //       })
-    //     }
-    //   }
-    // })
+   
 
 
 

@@ -34,7 +34,7 @@ export class ProductCardComponent implements OnInit {
           // console.log(this.product.key);
           this.isLiked=true;
         }else{
-          console.log(this.product.key);
+          // console.log(this.product.key);
           this.isLiked=false;
         }
       }
