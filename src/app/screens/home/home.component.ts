@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProductService } from 'src/app/services/product/product.service';
 
 @Component({
@@ -7,8 +8,15 @@ import { ProductService } from 'src/app/services/product/product.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  showActions: boolean;
 
-  constructor() { }
+  constructor(
+    private auth: AuthService,
+  ) { 
+    auth.user$.subscribe(user => {
+      this.showActions = user ? true : false;
+    })
+  }
 
   ngOnInit(): void {
   }

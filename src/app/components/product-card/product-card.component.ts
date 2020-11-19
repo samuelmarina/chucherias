@@ -9,8 +9,9 @@ import {WishListService} from 'src/app/services/wish-list.service';
 })
 export class ProductCardComponent implements OnInit {
   @Input('product') product;
-  @Input('show-actions') showActions = true;
+  @Input('showActions') showActions;
   user;
+  isLiked: boolean;
 
   constructor(
     private authService: AuthService,
@@ -22,6 +23,14 @@ export class ProductCardComponent implements OnInit {
         this.user = user;
       }
     })
+
+    /**
+     * Aqui hay que inicializar la variable isLiked, donde 
+     * se busca en la base de datos si el producto se encuentra en la
+     * wishlist
+     * Si se encuentra, isLiked = true
+     * Si no se encuentra, isLiked = false
+     */
   }
 
   ngOnInit(): void {
@@ -35,5 +44,14 @@ export class ProductCardComponent implements OnInit {
     this.wLService.addToWL(product, this.user);
   }
 
+
+  like(){
+    this.isLiked = !this.isLiked;
+    /**
+     * Aqui se agrega la llamada a la bd
+     * Si isLiked == true, entonces agregar a wishlist
+     * Si isLiked == false, entonces eliminar de wishlist
+     */
+  }
 
 }

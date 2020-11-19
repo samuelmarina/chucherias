@@ -57,6 +57,8 @@ import { BackgroundContactoComponent } from './components/background-contacto/ba
 import { ShoppingBagService } from './services/shopping-bag/shopping-bag.service';
 import { BolsaVaciaComponent } from './components/bolsa-vacia/bolsa-vacia.component';
 
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -104,6 +106,7 @@ import { BolsaVaciaComponent } from './components/bolsa-vacia/bolsa-vacia.compon
     CustomFormsModule,
     MatTableModule,
     MatPaginatorModule,
+    MatIconModule,
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot([
       {

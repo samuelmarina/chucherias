@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { ProductService } from 'src/app/services/product/product.service';
@@ -9,6 +9,7 @@ import { Product} from '../../screens/lista-productos/lista-productos.component'
   styleUrls: ['./productos-aleatorios.component.css']
 })
 export class ProductosAleatoriosComponent implements OnInit {
+  @Input('showActions') showActions: boolean;
   products: any[] = [];
   filteredProducts = [];
   productsById: any[] = [];
