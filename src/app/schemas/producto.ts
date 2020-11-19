@@ -6,3 +6,4 @@ export interface Producto {
     imageUrl: string;
     quantity: number;
 }
+
