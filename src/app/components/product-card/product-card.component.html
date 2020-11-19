@@ -5,8 +5,8 @@
         <div class="row">
             <h5 class="card-title">{{ product.title }}</h5>
             <div *ngIf="showActions">
-                <mat-icon *ngIf="!isLiked" (click)="like()" aria-hidden="false">star_outline</mat-icon>
-                <mat-icon *ngIf="isLiked" (click)="like()" aria-hidden="false">star</mat-icon>
+                <mat-icon *ngIf="!isLiked" (click)="like(product)" aria-hidden="false">star_outline</mat-icon>
+                <mat-icon *ngIf="isLiked" (click)="like(product)" aria-hidden="false">star</mat-icon>
             </div>
         </div>
         <p class="card-text">{{ product.price | currency:'USD':true }}</p>
@@ -17,5 +17,7 @@
             *ngIf="showActions" 
             class="btn btn-block"
             >Add to Bag</button>
+            
+            <!-- <button (click)="addToWL(product)" *ngIf="showActions" class="btn btn-block">Add to Bag</button> -->
     </div>
 </div>
