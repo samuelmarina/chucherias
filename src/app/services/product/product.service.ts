@@ -32,7 +32,7 @@ export class ProductService {
   }
 
   getProduct(productId){
-    return this.db.object("/products/" + productId).valueChanges();
+    return this.db.object("/products/" + productId);
   }
 
   update(productId, product) {
