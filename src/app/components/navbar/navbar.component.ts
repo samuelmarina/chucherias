@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit{
   logged = false;
   role;
   available: boolean = false;
-  bagQty = 7;
+  bagQty;
 
   constructor(
     private auth: AuthService,
@@ -41,13 +41,12 @@ export class NavbarComponent implements OnInit{
           this.role = role;
         })
 
-        // let bag$ = this.bagService.getBag(this.user);
-        // bag$.valueChanges().subscribe(bag => {
-        //   console.log(bag);
-        //   for(let x in bag as any[]){
-        //     console.log(x);
-        //   }
-        // })
+        let bag$ = this.bagService.getBag(this.user);
+        bag$.valueChanges().subscribe(bag => {
+          if(!bag) return this.bagQty = 0;
+
+          this.bagQty = bag['quantity'];
+        })
       }
       else{
         this.bagQty = 0;
