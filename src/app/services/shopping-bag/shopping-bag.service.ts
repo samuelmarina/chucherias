@@ -17,22 +17,54 @@ export class ShoppingBagService {
     })
   }
 
-  private getBag(bagId: string){
-    return this.db.object("shopping-bags/" + bagId);
+  // private getBag(bagId: string){
+  //   return this.db.object("shopping-bags/" + bagId);
+  // }
+
+  getBag(user: firebase.User){
+    return this.db.object("/users/" + user.uid + "/shopping-bags");
   }
 
-  private async getOrCreateBagId(){
-    let bagId = localStorage.getItem('bagId');
-    if(bagId) return bagId;
-    
-    let res = await this.create();
-      localStorage.setItem("bagId", res.key);
-      return res.key;
+  private async createOrUpdateBag(user: firebase.User, action: string){
+    let ref = firebase.database().ref("/users/" + user.uid + "/shopping-bags/");
+    let bagExist = await this.isBagCreated(ref);
+
+    if(bagExist){
+      let bag$ = this.db.object("/users/" + user.uid + "/shopping-bags/");
+      bag$.valueChanges().pipe(take(1)).subscribe(bag => {
+        if(action === "add"){
+            bag$.update({
+            quantity: bag['quantity'] + 1
+          })
+        }
+        else{
+          if(bag['quantity'] === 1) return ref.remove();
+
+          bag$.update({
+            quantity: bag['quantity'] - 1
+          })
+        }
+      })
+    }
+    else{
+      ref.set({
+        quantity: 1
+      })
+    }
+  }
+
+  private async isBagCreated(ref: firebase.database.Reference){
+    let flag;
+    await ref.once("value").then(res => {
+      flag = res.exists();
+    })
+    return flag;
   }
 
 
 
   async addToBag(product: Producto, user: firebase.User) {
+    this.createOrUpdateBag(user, "add");
     let price = product.price.toString().replace(".", ",");
     let item$ = this.db.list("/users/" + user.uid + "/shopping-bags/" + price, ref => ref.orderByChild('quantity'));
 
@@ -77,6 +109,7 @@ export class ShoppingBagService {
   }
 
   removeFromBag(product: Producto, user: firebase.User){
+    this.createOrUpdateBag(user, "remove");
     let price = product.price.toString().replace(".", ",");
     let item$ = this.db.list("/users/" + user.uid + "/shopping-bags/" + price, ref => ref.orderByChild('quantity'));
 
