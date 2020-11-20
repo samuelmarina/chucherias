@@ -6,7 +6,6 @@ import firebase from "firebase/app"
   providedIn: 'root'
 })
 export class UserService {
-
   constructor(
     private db: AngularFireDatabase
   ) { }

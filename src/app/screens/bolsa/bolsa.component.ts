@@ -6,10 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bolsa.component.css']
 })
 export class BolsaComponent implements OnInit {
-
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit() {} 
 }

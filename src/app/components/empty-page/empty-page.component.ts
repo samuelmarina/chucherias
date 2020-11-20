@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Url } from 'url';
-import { threadId } from 'worker_threads';
 
 @Component({
   selector: 'app-empty-page',
@@ -17,7 +14,6 @@ export class EmptyPageComponent implements OnInit {
   }
   ngOnInit(): void {
     this.urlActual = window.location;
-    console.log(this.urlActual.pathname);
     if (this.urlActual.pathname == '/bolsa') {
       this.page = "bag";
     } else if (this.urlActual.pathname == '/carrito'){
