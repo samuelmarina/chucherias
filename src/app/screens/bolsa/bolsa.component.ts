@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { map, take } from 'rxjs/operators';
-import { ShoppingBag } from 'src/app/schemas/shopping-bag';
+import { User } from 'firebase';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ShoppingBagService } from 'src/app/services/shopping-bag/shopping-bag.service';
+import { UserService } from 'src/app/services/user/user.service';
+import firebase from "firebase/app";
 
 @Component({
   selector: 'app-bolsa',
@@ -13,15 +14,26 @@ export class BolsaComponent implements OnInit {
   user;
   shoppingBags: any[] = [];
   overallQuantity: number;
+  booleano: boolean;
+
   constructor(
     private bagService: ShoppingBagService,
     private auth: AuthService,
-  ) { 
-    auth.user$.subscribe(user => {
+  ) { }
+
+  ngOnInit(): void {
+    this.auth.user$.subscribe(user => {
+      this.auth.user$.subscribe(user => {
       if(user){
         this.user = user;
-
-        bagService.getBag(this.user).valueChanges().subscribe(x => {
+         let ref = firebase.database().ref("/users/" + user.uid + "/shopping-bags/");
+          ref.once("value").then(res => {
+            this.booleano = res.exists();
+            console.log(this.booleano);
+            
+          })
+    
+        this.bagService.getBag(this.user).valueChanges().subscribe(x => {
           this.overallQuantity = x.quantity;
           for(let price in x.items){
             let allBags = {
@@ -48,9 +60,7 @@ export class BolsaComponent implements OnInit {
         });
       }
     })
-  }
-
-  ngOnInit(): void {
+    })
   }
 
   private getTotal(allBags, tempBag){
@@ -63,5 +73,5 @@ export class BolsaComponent implements OnInit {
     word.replace(",", ".");
     return Number(word.replace(",", "."));
   }
+} 
 
-}
