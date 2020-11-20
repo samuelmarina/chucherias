@@ -60,6 +60,7 @@ import { BolsaVaciaComponent } from './components/bolsa-vacia/bolsa-vacia.compon
 import {MatIconModule} from '@angular/material/icon';
 import { ProductBagComponent } from './components/product-bag/product-bag.component';
 import { EmptyPageComponent } from './components/empty-page/empty-page.component';
+import { CategoryFormComponent } from './screens/admin/category-form/category-form.component';
 
 
 @NgModule({
@@ -90,7 +91,6 @@ import { EmptyPageComponent } from './components/empty-page/empty-page.component
     FooterComponent,
     ProductosAleatoriosComponent,
     ContactoAtencionEspecialComponent,
-
     RegresarATiendaComponent,
     CategoryContainerComponent,
     TextoIntroContactoComponent,
@@ -98,7 +98,8 @@ import { EmptyPageComponent } from './components/empty-page/empty-page.component
     BackgroundContactoComponent,
     BolsaVaciaComponent,
     ProductBagComponent,
-    EmptyPageComponent
+    EmptyPageComponent,
+    CategoryFormComponent
   ],
   imports: [
     BrowserModule,
@@ -174,6 +175,14 @@ import { EmptyPageComponent } from './components/empty-page/empty-page.component
       {
         path: 'admin/ordenes',
         component: AdminOrdenesComponent
+      },
+      {
+        path: 'admin/categories/nuevo',
+        component: CategoryFormComponent
+      },
+      {
+        path: 'admin/categories/:id',
+        component: CategoryFormComponent
       },
     ]),
     BrowserAnimationsModule

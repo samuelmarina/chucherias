@@ -1,0 +1,20 @@
+<div class="container">
+    <form #form="ngForm" (ngSubmit)="save(form.value)">
+        <div class="row" id="contenedor">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="name">Nombre Categoría</label>
+                    <input #name="ngModel" [(ngModel)]="category.name" name="name" id="name" type="text"
+                        class="form-control" required>
+                    <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+                        El nombre de la categoría es obligatorio
+                    </div>
+                </div>
+                <div class="botones">
+                    <button id="btn-save" class="btn btn-primary">Guardar</button>
+                    <button id="btn-remove" type="button" (click)="delete()" class="btn btn-danger">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
