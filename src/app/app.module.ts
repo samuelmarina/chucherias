@@ -62,6 +62,7 @@ import { ProductBagComponent } from './components/product-bag/product-bag.compon
 import { EmptyPageComponent } from './components/empty-page/empty-page.component';
 import { CategoryFormComponent } from './screens/admin/category-form/category-form.component';
 import { AdminCategoriesComponent } from './screens/admin/admin-categories/admin-categories.component';
+import { AdminPaymentsComponent } from './screens/admin/admin-payments/admin-payments.component';
 
 
 @NgModule({
@@ -101,7 +102,8 @@ import { AdminCategoriesComponent } from './screens/admin/admin-categories/admin
     ProductBagComponent,
     EmptyPageComponent,
     CategoryFormComponent,
-    AdminCategoriesComponent
+    AdminCategoriesComponent,
+    AdminPaymentsComponent
   ],
   imports: [
     BrowserModule,
@@ -189,6 +191,10 @@ import { AdminCategoriesComponent } from './screens/admin/admin-categories/admin
       {
         path: 'admin/categories',
         component: AdminCategoriesComponent
+      },
+      {
+        path: 'admin/payments',
+        component: AdminPaymentsComponent
       },
     ]),
     BrowserAnimationsModule
