@@ -63,6 +63,7 @@ import { EmptyPageComponent } from './components/empty-page/empty-page.component
 import { CategoryFormComponent } from './screens/admin/category-form/category-form.component';
 import { AdminCategoriesComponent } from './screens/admin/admin-categories/admin-categories.component';
 import { AdminPaymentsComponent } from './screens/admin/admin-payments/admin-payments.component';
+import { PaymentFormComponent } from './screens/admin/payment-form/payment-form.component';
 
 
 @NgModule({
@@ -103,7 +104,8 @@ import { AdminPaymentsComponent } from './screens/admin/admin-payments/admin-pay
     EmptyPageComponent,
     CategoryFormComponent,
     AdminCategoriesComponent,
-    AdminPaymentsComponent
+    AdminPaymentsComponent,
+    PaymentFormComponent
   ],
   imports: [
     BrowserModule,
@@ -191,6 +193,14 @@ import { AdminPaymentsComponent } from './screens/admin/admin-payments/admin-pay
       {
         path: 'admin/categories',
         component: AdminCategoriesComponent
+      },
+      {
+        path: 'admin/payments/nuevo',
+        component: PaymentFormComponent
+      },
+      {
+        path: 'admin/payments/:id',
+        component: PaymentFormComponent
       },
       {
         path: 'admin/payments',
