@@ -61,6 +61,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { ProductBagComponent } from './components/product-bag/product-bag.component';
 import { EmptyPageComponent } from './components/empty-page/empty-page.component';
 import { CategoryFormComponent } from './screens/admin/category-form/category-form.component';
+import { AdminCategoriesComponent } from './screens/admin/admin-categories/admin-categories.component';
 
 
 @NgModule({
@@ -99,7 +100,8 @@ import { CategoryFormComponent } from './screens/admin/category-form/category-fo
     BolsaVaciaComponent,
     ProductBagComponent,
     EmptyPageComponent,
-    CategoryFormComponent
+    CategoryFormComponent,
+    AdminCategoriesComponent
   ],
   imports: [
     BrowserModule,
@@ -183,6 +185,10 @@ import { CategoryFormComponent } from './screens/admin/category-form/category-fo
       {
         path: 'admin/categories/:id',
         component: CategoryFormComponent
+      },
+      {
+        path: 'admin/categories',
+        component: AdminCategoriesComponent
       },
     ]),
     BrowserAnimationsModule
