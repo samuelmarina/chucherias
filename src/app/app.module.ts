@@ -59,6 +59,7 @@ import { BolsaVaciaComponent } from './components/bolsa-vacia/bolsa-vacia.compon
 
 import {MatIconModule} from '@angular/material/icon';
 import { ProductBagComponent } from './components/product-bag/product-bag.component';
+import { EmptyPageComponent } from './components/empty-page/empty-page.component';
 
 
 @NgModule({
@@ -96,9 +97,8 @@ import { ProductBagComponent } from './components/product-bag/product-bag.compon
     ContactThroughofComponent,
     BackgroundContactoComponent,
     BolsaVaciaComponent,
-    ProductBagComponent
-
-   
+    ProductBagComponent,
+    EmptyPageComponent
   ],
   imports: [
     BrowserModule,
@@ -124,7 +124,7 @@ import { ProductBagComponent } from './components/product-bag/product-bag.compon
         component: CarritoComponent
       },
       {
-        path: 'whishlist',
+        path: 'wishlist',
         component: WishListComponent
       },
       {

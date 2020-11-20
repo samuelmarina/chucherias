@@ -1,7 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ShoppingBagService } from 'src/app/services/shopping-bag/shopping-bag.service';
-
+import {WishListService} from 'src/app/services/WishList/wish-list.service';
+import firebase from "firebase/app";
+import { Producto } from 'src/app/schemas/producto';
+import { AngularFireDatabase } from '@angular/fire/database';
 @Component({
   selector: 'product-card',
   templateUrl: './product-card.component.html',
@@ -16,25 +19,37 @@ export class ProductCardComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private bagService: ShoppingBagService
+    private bagService: ShoppingBagService,
+    private wLService: WishListService,
+    private db: AngularFireDatabase,
+    
+    
+    
   ) { 
-    authService.user$.subscribe(user => {
+    authService.user$.subscribe(async user => {
       if(user){
         this.user = user;
+       
+        if (await wLService.existe2(this.product, user)==true){
+          // console.log(this.product.key);
+          this.isLiked=true;
+        }else{
+          // console.log(this.product.key);
+          this.isLiked=false;
+        }
       }
+
     })
 
-    /**
-     * Aqui hay que inicializar la variable isLiked, donde 
-     * se busca en la base de datos si el producto se encuentra en la
-     * wishlist
-     * Si se encuentra, isLiked = true
-     * Si no se encuentra, isLiked = false
-     */
+
+    
+
   }
 
   ngOnInit(): void {
   }
+
+ 
 
   addToBag(product){
     this.bagService.addToBag(product, this.user);
@@ -46,13 +61,27 @@ export class ProductCardComponent implements OnInit {
     this.quantity -= 50;
   }
 
-  like(){
+  addToWL(product) {
+    this.wLService.addToWL(product, this.user);
+  }
+
+  deleteToWL(product){
+    this.wLService.deleteTWL(product, this.user);
+  }
+
+
+  like(product){
     this.isLiked = !this.isLiked;
-    /**
-     * Aqui se agrega la llamada a la bd
-     * Si isLiked == true, entonces agregar a wishlist
-     * Si isLiked == false, entonces eliminar de wishlist
-     */
+ 
+    if(this.isLiked){
+      // console.log('agregar a la bd');
+      this.addToWL(product);
+
+    }else{
+      // console.log('eliminar de la bd');
+      this.deleteToWL(product);
+    }
+    
   }
 
 }

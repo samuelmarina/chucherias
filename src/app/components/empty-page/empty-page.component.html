@@ -1,0 +1,108 @@
+<div *ngIf="page === 'bag' || page === 'wish' || page === 'cart' else rest">
+    <div class = "margin">
+        <div *ngIf="page === 'bag'" class="box">
+            <div class="box-icon">
+            <span class="shopbask-icon material-icons-outlined">
+                shopping_basket
+            </span>
+            </div>
+            <div class="">
+                <div class="text-1">
+        
+                    <p id="t1">
+                        No haz creado ninguna Chucheribolsa
+                    </p>
+        
+                </div>
+                
+                <div class="text-2">
+                    <p id="t2">
+        
+                        Crea una chucheribolsa para añadirle productos y proceder a pagarlos en el Chuchericarro
+                    </p>
+                    
+                </div>
+        
+            </div>
+        </div>
+        <div *ngIf="page === 'cart'" class="box">
+            <div class="box-icon">
+            <span class="shopbask-icon material-icons-outlined">
+                shopping_cart
+            </span>
+            </div>
+            <div class="">
+                <div class="text-1">
+        
+                    <p id="t1">
+                        No haz agregado nada a tu Chuchericarro
+                    </p>
+        
+                </div>
+                
+                <div class="text-2">
+                    <p id="t2">
+        
+                        Agrega bolsas de productos a tu Chuchericarro para proceder a pagarlos y disfrutarlos
+                    </p>
+                    
+                </div>
+        
+            </div>
+        </div>
+        <div *ngIf="page === 'wish'" class="box">
+            <div class="box-icon">
+            <span class="shopbask-icon material material-icons-outlined">
+                star_border
+            </span>
+            </div>
+            <div class="">
+                <div class="text-1">
+        
+                    <p id="t1">
+                        Tu Lista de Chucherideseos esta vacía
+                    </p>
+        
+                </div>
+                
+                <div class="text-2">
+                    <p id="t2">
+        
+                        Agrega productos a tus Chucherideseos para poder comprarlos cuando lo desees
+                    </p>
+                    
+                </div>
+        
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #rest >
+    <div class="margin">
+        <div  class="box">
+        <div class="box-icon">
+        <span class="shopbask-icon material material-icons-outlined">
+            category
+        </span>
+        </div>
+        <div class="">
+            <div class="text-1">
+
+                <p id="t1">
+                    Esta Chucheripagina se encuentra vacia
+                </p>
+
+            </div>
+            
+            <div class="text-2">
+                <p id="t2">
+
+                    Navega en cualquier otra pestaña mientras se completa esta Chucheripagina
+                </p>
+                
+            </div>
+
+        </div>
+        </div>
+    </div>
+</ng-template>

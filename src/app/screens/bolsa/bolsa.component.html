@@ -1,6 +1,6 @@
 <app-regresar-a-tienda></app-regresar-a-tienda>
 
-<div *ngIf="shoppingBags">
+<div *ngIf="shoppingBags" id="contenedor">
     <ng-container *ngFor="let shoppingBag of shoppingBags" style="margin: auto;">
         <ng-container *ngFor="let bag of shoppingBag.bags" >
             <div class="row justify-content-center">
