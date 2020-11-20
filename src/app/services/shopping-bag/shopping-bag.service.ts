@@ -3,7 +3,7 @@ import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
 import { map, switchMap, take } from 'rxjs/operators';
 import { Producto } from 'src/app/schemas/producto';
 import firebase from "firebase/app"
-import { ShoppingBag } from 'src/app/schemas/shopping-bag-items';
+import { ShoppingBag } from 'src/app/schemas/shopping-bag';
 
 @Injectable({
   providedIn: 'root'
@@ -65,7 +65,6 @@ export class ShoppingBagService {
 
     item$.snapshotChanges().pipe(take(1)).subscribe(async item=> {
       if(item.length === 0 || item[0].payload.val()['quantity'] === 2000){
-        console.log(item);
         let bagKey = item$.push({
           quantity: 50,
           date: new Date().toString(),
