@@ -124,7 +124,7 @@ import { EmptyPageComponent } from './components/empty-page/empty-page.component
         component: CarritoComponent
       },
       {
-        path: 'whishlist',
+        path: 'wishlist',
         component: WishListComponent
       },
       {
