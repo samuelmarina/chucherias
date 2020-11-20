@@ -58,6 +58,7 @@ import { ShoppingBagService } from './services/shopping-bag/shopping-bag.service
 import { BolsaVaciaComponent } from './components/bolsa-vacia/bolsa-vacia.component';
 
 import {MatIconModule} from '@angular/material/icon';
+import { EmptyPageComponent } from './components/empty-page/empty-page.component';
 
 
 @NgModule({
@@ -94,7 +95,8 @@ import {MatIconModule} from '@angular/material/icon';
     TextoIntroContactoComponent,
     ContactThroughofComponent,
     BackgroundContactoComponent,
-    BolsaVaciaComponent
+    BolsaVaciaComponent,
+    EmptyPageComponent
 
    
   ],
