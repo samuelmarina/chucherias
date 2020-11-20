@@ -40,15 +40,15 @@ export class CategoryFormComponent implements OnInit {
       this.categoryService.update(this.id, form);
     }
     else{
-      this.categoryService.create(form.title);
+      this.categoryService.create(form.name);
     }
-    this.router.navigate(['admin/productos']);
+    this.router.navigate(['admin/categories']);
   }
 
   delete() {
     if(confirm("Está seguro que desea eliminar la categoría?")){
       this.categoryService.delete(this.id);
-      this.router.navigate(['admin/productos']);
+      this.router.navigate(['admin/categories']);
     }
   }
 
