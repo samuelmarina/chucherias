@@ -29,8 +29,6 @@ export class BolsaComponent implements OnInit {
          let ref = firebase.database().ref("/users/" + user.uid + "/shopping-bags/");
           ref.once("value").then(res => {
             this.booleano = res.exists();
-            console.log(this.booleano);
-            
           })
     
         this.bagService.getBag(this.user).valueChanges().subscribe(x => {
