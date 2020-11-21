@@ -64,6 +64,7 @@ import { CategoryFormComponent } from './screens/admin/category-form/category-fo
 import { AdminCategoriesComponent } from './screens/admin/admin-categories/admin-categories.component';
 import { AdminPaymentsComponent } from './screens/admin/admin-payments/admin-payments.component';
 import { PaymentFormComponent } from './screens/admin/payment-form/payment-form.component';
+import { ProductBagListComponent } from './components/product-bag-list/product-bag-list.component';
 
 
 @NgModule({
@@ -105,7 +106,8 @@ import { PaymentFormComponent } from './screens/admin/payment-form/payment-form.
     CategoryFormComponent,
     AdminCategoriesComponent,
     AdminPaymentsComponent,
-    PaymentFormComponent
+    PaymentFormComponent,
+    ProductBagListComponent
   ],
   imports: [
     BrowserModule,

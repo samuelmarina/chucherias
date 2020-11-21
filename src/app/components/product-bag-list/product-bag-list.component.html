@@ -1,0 +1,22 @@
+
+<div class="row justify-content-center">
+    <div class="col-2 text-center">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" id="bolsa">work_outline</mat-icon>
+        <h3>US$ {{ shoppingBag.totalPrice }}</h3>
+        <h3>Peso: {{ shoppingBag.quantity }} gr</h3>
+        <button class="btn" id="cart" (click)="moveToCart()">
+            Enviar al carrito
+            <mat-icon aria-hidden="false" aria-label="Example home icon" id="icono">add_shopping_cart</mat-icon>
+        </button>
+        <button class="btn" id="remove" (click)="deleteBag()">
+            Eliminar bolsa
+            <mat-icon aria-hidden="false" aria-label="Example home icon" id="icono">close</mat-icon>
+        </button>
+    </div>
+    <div class="col-4">
+        <ng-container *ngFor="let product of shoppingBag.products">
+            <product-bag [product]="product" [qty]="product.quantity"></product-bag>
+        </ng-container>
+    </div>
+</div>
+<hr>
