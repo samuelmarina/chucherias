@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { uiShoppingBag } from 'src/app/schemas/shopping-bag';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ShoppingBagService } from 'src/app/services/shopping-bag/shopping-bag.service';
@@ -11,12 +10,10 @@ import { ShoppingBagService } from 'src/app/services/shopping-bag/shopping-bag.s
 })
 export class ProductBagListComponent {
   @Input('shoppingBag') shoppingBag: uiShoppingBag; 
-  bagPrice;
   user;
 
   constructor(
     private bagService: ShoppingBagService,
-    private router: Router,
     private auth: AuthService
   ) { 
     auth.user$.subscribe(user => {
@@ -28,7 +25,11 @@ export class ProductBagListComponent {
   }
 
   moveToCart(){
-    
+    /**
+     * En este espacio se tiene que colocar la función
+     * que elimina una bolsa de las shopping-bags en la bd
+     * y la agrega al carrito
+     */
   }
 
   deleteBag(){
