@@ -18,7 +18,9 @@ export interface ShoppingBag {
 export interface uiShoppingBag {
     price: string;
     quantity: number;
-    bags: uiIndividualBag[];
+    products: Producto[];
+    key: string;
+    totalPrice: number;
 }
 
 export interface uiIndividualBag {

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
 import { map, switchMap, take } from 'rxjs/operators';
 import { Producto } from 'src/app/schemas/producto';
 import firebase from "firebase/app"
-import { ShoppingBag } from 'src/app/schemas/shopping-bag';
+import { ShoppingBag, uiShoppingBag } from 'src/app/schemas/shopping-bag';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,32 @@ export class ShoppingBagService {
       dateCreated: new Date().getTime()
     })
   }
+
+  async removeBag(bag: uiShoppingBag, user: firebase.User){
+    let refTotalQty = firebase.database().ref("/users/" + user.uid + "/shopping-bags/quantity");
+    let newQty = await this.updateTotalQty(refTotalQty, bag.quantity, user.uid);
+    
+    if(newQty === 0) {
+      return this.db.object("/users/" + user.uid + "/shopping-bags").remove();
+    }
+
+    return this.db.object("/users/" + user.uid + "/shopping-bags/items/" + bag.price + 
+    "/bags/" + bag.key).remove();
+  }
+
+  private async updateTotalQty(refTotalQty: firebase.database.Reference, qtyToRemove: number, userId: string){
+    let totalQty;
+    await refTotalQty.once("value").then(res => {
+      totalQty = res.val();
+
+    })
+    let newQty = totalQty - (qtyToRemove/50)
+
+    firebase.database().ref("/users/" + userId + "/shopping-bags").update({quantity: newQty})
+
+    return newQty;
+  }
+  
 
   getBag(user: firebase.User): AngularFireObject<ShoppingBag>{
     return this.db.object("/users/" + user.uid + "/shopping-bags");
@@ -130,6 +156,10 @@ export class ShoppingBagService {
         quantity: item[0].payload.val()['quantity'] - 50
       })
     })
+  }
+
+  private parseString(str: string){
+    return Number(str.replace(",", "."));
   }
 
   private getItem(userId: string, price: string){

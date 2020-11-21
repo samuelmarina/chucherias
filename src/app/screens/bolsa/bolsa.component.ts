@@ -4,6 +4,8 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { ShoppingBagService } from 'src/app/services/shopping-bag/shopping-bag.service';
 import { UserService } from 'src/app/services/user/user.service';
 import firebase from "firebase/app";
+import { map } from 'rxjs/operators';
+import { uiShoppingBag } from 'src/app/schemas/shopping-bag';
 
 @Component({
   selector: 'app-bolsa',
@@ -26,12 +28,13 @@ export class BolsaComponent implements OnInit {
       this.auth.user$.subscribe(user => {
       if(user){
         this.user = user;
-         let ref = firebase.database().ref("/users/" + user.uid + "/shopping-bags/");
-          ref.once("value").then(res => {
-            this.booleano = res.exists();
-          })
+        let ref = firebase.database().ref("/users/" + user.uid + "/shopping-bags/");
+        ref.once("value").then(res => {
+          this.booleano = res.exists();
+        })
     
         this.bagService.getBag(this.user).valueChanges().subscribe(x => {
+          if(!x) return;
           this.overallQuantity = x.quantity;
           for(let price in x.items){
             let allBags = {
@@ -41,9 +44,14 @@ export class BolsaComponent implements OnInit {
               totalQty: 0
             }
             for(let bag in x.items[price].bags){
-              let tempBag = {
+              
+              
+              let tempBag: uiShoppingBag = {
                 products: [],
-                quantity: x.items[price].bags[bag].quantity
+                quantity: x.items[price].bags[bag].quantity,
+                key: bag,
+                price: price,
+                totalPrice: (x.items[price].bags[bag].quantity/50) * this.parseString(price)
               }
               for(let product in x.items[price].bags[bag].products){
                 tempBag.products.push(x.items[price].bags[bag].products[product]);
@@ -52,7 +60,7 @@ export class BolsaComponent implements OnInit {
               allBags.total += this.parseString(allBags.price) * (tempBag.quantity/50);
               allBags.bags.push(tempBag);              
             }
-            console.log(allBags);
+            // console.log(allBags);
             this.shoppingBags.push(allBags);
           }
         });
@@ -67,7 +75,7 @@ export class BolsaComponent implements OnInit {
     return price * amount;
   }
 
-  parseString(word: string){
+  private parseString(word: string){
     word.replace(",", ".");
     return Number(word.replace(",", "."));
   }
