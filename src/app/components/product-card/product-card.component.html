@@ -1,9 +1,11 @@
 <div *ngIf="product.title" class="card">
+    <a routerLink="/producto">
     <img *ngIf="product.imageUrl" [src]="product.imageUrl" class="card-img-top" alt="{{product.title}}">
+    </a>
     <hr>
     <div class="card-body">
         <div class="row" id="text">
-            <h5 class="card-title">{{ product.title }}</h5>
+            <a routerLink="/producto"><h5 class="card-title">{{ product.title }}</h5></a>
             <div *ngIf="showActions">
                 <mat-icon *ngIf="!isLiked" (click)="like(product)" aria-hidden="false">star_outline</mat-icon>
                 <mat-icon *ngIf="isLiked" (click)="like(product)" aria-hidden="false">star</mat-icon>

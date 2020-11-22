@@ -155,7 +155,7 @@ import { PaymentFormComponent } from './screens/admin/payment-form/payment-form.
         component: OrderSuccessComponent
       },
       {
-        path: 'producto',
+        path: 'producto/:id',
         component: ProductoComponent
       },
       {
