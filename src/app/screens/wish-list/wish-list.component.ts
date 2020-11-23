@@ -17,7 +17,7 @@ export class WishListComponent implements OnInit {
   async ngOnInit(){
     this.auth.user$.subscribe(user => {
       this.user = user;
-      let ref = firebase.database().ref("/users/" + user.uid + "/wishlist/");
+      let ref = firebase.database().ref("/users/" + user.uid + "/wish-list/");
       ref.once("value").then(res => {
         this.booleano = res.exists();
         console.log(this.booleano);

@@ -1,0 +1,211 @@
+.product-block{
+    display: flex;
+}
+.image-block{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+}
+.info-block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+}
+.pic-size{
+    min-width: 400px;
+    max-width: 500px;
+}
+.product-img{
+    width: 100%;
+}
+.card-footer {
+    padding: 0;
+  }
+  
+  h5 {
+    font-size: 30px;
+    text-align: center;
+  }
+  hr {
+    width: 80%; 
+    background-color: #ff9393db;
+    height: 2px;
+  }
+  
+  button {
+    background-color: #ff9393;
+    color: white;
+  }
+  .buttoms{
+    font-display: flex;
+    flex-direction: column;
+  }
+  
+  button:hover {
+    color: white;
+    background-color: #ff437b;
+  }
+  
+  
+  mat-icon {
+    margin-left: 10px;
+    color: #ff437b;
+  }
+  
+  #qtyBtn {
+    border-color: transparent;
+    font-size: small;
+    width: 35px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+  }
+  .product-buttom{
+      width: 100%;
+      margin-bottom: 20px;
+  }
+  .col.text-center{
+      border: solid;
+      background-color: #ff9393;
+      color: white;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: large;
+  }
+  .available{
+      font-weight: bolder;
+      margin-bottom: 40px;
+  }
+  .title-text{
+         margin: auto;
+         line-height: 50px;
+         
+     }
+  p{
+    font-size: medium;
+    line-height: 35px;
+  }
+  .title-text{
+      font-family: Mukta;
+      font-weight: 800;
+      font-size: 45px;
+      color: rgba(0, 0, 0, 1);
+ }
+ .price-text{
+     font-family: Mukta;
+     font-weight: 300;
+     font-size: 20px;
+     color: rgba(124, 118, 118, 1);
+ }
+ .box-title{
+     display: flex;
+     justify-content: center;
+     margin-top: 20px;
+     margin-bottom: 20px;
+     
+ }
+ .like-buttom{
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: left;
+     color: #ff437b;
+     margin-bottom: 15px;
+ }
+ .like-buttom:hover{
+     cursor: pointer;
+ }
+ a{
+     display: flex;
+     align-items: center;
+ }
+ @media (min-width: 426px) and (max-width: 768px){
+     .title-text{
+         font-size: 30px;
+         margin: auto;
+         
+         line-height: 30px;
+         
+     }
+     .price-text{
+        font-size: 18px;
+        margin-top: 0px;
+    }
+    .pic-size{
+        min-width: 250px;
+        max-width: 350px;
+    }
+    .available{
+        font-size: smaller;
+        
+        margin-bottom: 10px;
+    }
+    .btn.btn-block{
+        font-size: 15px;
+    }
+    .col.text-center{
+        font-size: small;
+    }
+    .col-3{
+      font-size: small;
+      width: 5px;
+      padding-left: 0px;
+    }
+ }
+ @media (max-width: 425px){
+    .image-block{
+        width: 50%;
+    }
+    .info-block{
+        width: 40%;
+    }
+    .title-text{
+        font-size: 15px;
+        margin-bottom: 0px;
+        line-height: normal;
+        
+    }
+    .price-text{
+       font-size: 10px;
+       margin-top: 0px;
+       line-height: 0;
+   }
+   .pic-size{
+       margin-top: 10%;
+       min-width: 150px;
+       max-width: 250px;
+   }
+   p{
+    font-size: small;
+    line-height: 25px;
+  }
+  .available{
+      font-size: smaller;
+      
+      margin-bottom: 10px;
+  }
+  .container{
+      padding: 0;
+      margin-bottom: 0px;
+  }
+  .btn.btn-block{
+      font-size: 15px;
+  }
+  .col.text-center{
+      font-size: small;
+  }
+  .col-3{
+    font-size: small;
+    width: 5px;
+    padding-left: 0px;
+  }
+  .like-buttom{
+    font-size: small;
+}
+}

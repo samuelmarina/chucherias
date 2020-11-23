@@ -1,0 +1,48 @@
+<div class="product-block">
+    <div class="image-block">
+        <div class="pic-size">
+        <img *ngIf="product.imageUrl" [src]="product.imageUrl" class="product-img" alt="{{product.title}}">
+        </div>
+    </div>
+    <div class="info-block">
+        <div class="box-title">
+        <h5 class="title-text">{{product.title}}</h5>
+        </div>
+        <p class="price-text">Precio: US$ {{product.price}}</p>
+        <hr>
+        <div class="container">
+        <p class="">Disponibilidad:</p>
+        <p class="available">{{product.quantity}}5000g por ahora</p>
+        
+        </div>
+        <div  class="product-buttom">
+
+            
+            <button *ngIf="userQuantity === 0; else updateQuantity" (click)="addToBag(product)" class="btn btn-block">Agregar a Bolsa</button>
+            <ng-template #updateQuantity>
+                <div class="row no-gutters">
+                    <div class="col text-center">
+                        {{userQuantity}} gr
+                    </div>
+                    <div class="buttoms">
+                        <div class="col-3">
+                            <button class="btn btn-block" id="qtyBtn" (click)="addToBag(product)">
+                                +
+                            </button>
+                        </div>
+                        <div class="col-3">
+                            <button class="btn btn-block" id="qtyBtn" (click)="removeFromBag(product)">
+                                -
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+        <div class="like-buttom">
+            <a *ngIf="!isLiked" (click)="like(product)"><mat-icon aria-hidden="false">star_outline</mat-icon> Añadir a Wishlist</a>
+            <a *ngIf="isLiked" (click)="like(product)"><mat-icon aria-hidden="false">star</mat-icon>Añadir a Wishlist</a>
+            
+        </div>
+    
+

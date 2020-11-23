@@ -65,6 +65,8 @@ import { AdminCategoriesComponent } from './screens/admin/admin-categories/admin
 import { AdminPaymentsComponent } from './screens/admin/admin-payments/admin-payments.component';
 import { PaymentFormComponent } from './screens/admin/payment-form/payment-form.component';
 import { ProductBagListComponent } from './components/product-bag-list/product-bag-list.component';
+import { WishlistProductsComponent } from './components/wishlist-products/wishlist-products.component';
+import { ProductContainerComponent } from './components/product-container/product-container.component';
 
 
 @NgModule({
@@ -107,7 +109,9 @@ import { ProductBagListComponent } from './components/product-bag-list/product-b
     AdminCategoriesComponent,
     AdminPaymentsComponent,
     PaymentFormComponent,
-    ProductBagListComponent
+    ProductBagListComponent,
+    WishlistProductsComponent,
+    ProductContainerComponent
   ],
   imports: [
     BrowserModule,
@@ -157,7 +161,7 @@ import { ProductBagListComponent } from './components/product-bag-list/product-b
         component: OrderSuccessComponent
       },
       {
-        path: 'producto',
+        path: 'producto/:productid',
         component: ProductoComponent
       },
       {

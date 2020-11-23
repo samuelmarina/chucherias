@@ -1,2 +1,6 @@
 <app-regresar-a-tienda></app-regresar-a-tienda>
-<app-empty-page></app-empty-page>
+
+<div *ngIf="!booleano">
+    <app-empty-page></app-empty-page>
+</div>
+<app-wishlist-products></app-wishlist-products>

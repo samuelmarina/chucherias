@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { ProductService } from 'src/app/services/product/product.service';
 import { Product} from '../../screens/lista-productos/lista-productos.component';
+
 @Component({
   selector: 'app-productos-aleatorios',
   templateUrl: './productos-aleatorios.component.html',
