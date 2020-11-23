@@ -58,6 +58,10 @@ export class WishlistProductsComponent implements OnInit {
     window.location.reload();
   }
     
+  deleteAllProducts(){
+    this.wishListService.deleteAllWL(this.user);
+    window.location.reload();
+  }
 
   ngOnInit(): void {
   }
