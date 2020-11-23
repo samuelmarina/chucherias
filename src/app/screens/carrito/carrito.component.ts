@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import firebase from "firebase/app";
 import { ShoppingCartService } from 'src/app/services/shopping-cart/shopping-cart.service';
 import { uiShoppingBag } from 'src/app/schemas/shopping-bag';
+import { ShoppingCart } from 'src/app/schemas/shopping-cart';
 
 @Component({
   selector: 'app-carrito',
@@ -15,6 +16,8 @@ export class CarritoComponent implements OnInit {
   user: User;
   booleano: boolean;
   allBags: uiShoppingBag[];
+  totalPrice: number = 0;
+  totalBags: number = 0;
 
   constructor(
     private auth: AuthService,
@@ -35,9 +38,11 @@ export class CarritoComponent implements OnInit {
           let allBags = [];
           for(let bagId in cart.bags){
             allBags.push(cart.bags[bagId]['bag']);
+            this.totalPrice += cart.bags[bagId]['bag']['totalPrice'];
           }
           this.allBags = allBags;
-          console.log(this.allBags);
+          this.totalBags = cart.quantity;
+          // console.log(this.allBags);
         })
       }
       

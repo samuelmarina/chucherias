@@ -2,10 +2,16 @@
 <div *ngIf="!booleano">
     <app-empty-page></app-empty-page>
 </div>
+<div class="container">
+    <div class="row justify-content-end">
+        <button class="btn btn-primary">Hacer Checkout</button>
+    </div>
+</div>
 <div *ngIf="allBags" id="contenedor">
     <ng-container *ngFor="let bag of allBags">
         <product-cart-list
             [shoppingBag]="bag"
         ></product-cart-list>
     </ng-container>
+    <cart-checkout [totalPrice]="totalPrice" [totalQuantity]="totalBags"></cart-checkout>
 </div>

@@ -69,6 +69,7 @@ import { WishlistProductsComponent } from './components/wishlist-products/wishli
 import { ProductContainerComponent } from './components/product-container/product-container.component';
 import { ShoppingCartService } from './services/shopping-cart/shopping-cart.service';
 import { ProductCartListComponent } from './components/product-cart-list/product-cart-list.component';
+import { CartCheckoutComponent } from './components/cart-checkout/cart-checkout.component';
 
 
 @NgModule({
@@ -114,7 +115,8 @@ import { ProductCartListComponent } from './components/product-cart-list/product
     ProductBagListComponent,
     WishlistProductsComponent,
     ProductContainerComponent,
-    ProductCartListComponent
+    ProductCartListComponent,
+    CartCheckoutComponent
   ],
   imports: [
     BrowserModule,
