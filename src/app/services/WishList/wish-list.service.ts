@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { switchMap, take } from 'rxjs/operators';
 import { Producto } from 'src/app/schemas/producto';
-import firebase from "firebase/app"
+import firebase, { User } from "firebase/app"
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +17,13 @@ export class WishListService {
   private getWishList(wLId: string) {
     return this.db.object("wish-list/" + wLId);
   }
+   getWishListUser(user:User) {
 
+    // let item$ = this.db.list("/users/" + user.uid + "/wish-list/");
+    // return this.db.object("/users/"+user.uid+"/wish-list/products" );
+    return this.db.list("/users/"+user.uid+"/wish-list/products" );
+
+  }
   private createwL() {
     return this.db.list("/wish-list").push({
       dateCreated: new Date().getTime()
@@ -120,8 +126,6 @@ export class WishListService {
         })
 
    
-
-
 
   }
 

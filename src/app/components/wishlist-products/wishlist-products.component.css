@@ -1,0 +1,242 @@
+
+
+
+
+@media (min-width: 992px) {
+    img{
+    margin-top: 40%;
+    width:100%;
+    height:50%;
+}
+.card-body{
+    margin-top:25%;
+    margin-left: 25%;
+}
+.col-md-4{
+    /* margin-left:auto;
+    margin-right:auto; */
+}
+    .box {
+    width:90%;
+    /* border-color: aquamarine; */
+    border-radius: 3px;
+    /* background-color:red; */
+    margin-left: 25%;
+    /* box-sizing: border-box; */
+    display: inline-flex;
+    /* margin-top: -10%; */
+    
+}
+
+.box-btns-sm{
+    display:none;
+}
+    .box-btns{
+        width: 40%;
+        height: 20%;
+        /* background-color:blue; */
+        /* position: absolute; */
+        display: inline-block;
+        /* margin-left: 18%; */
+        margin-top: 5%;
+    
+    }
+    .btn-box-c{
+        /* display: inline-block; */
+        margin-top: 6%;
+        
+    }
+    .col-md-8{
+        /* margin-left:5%; */
+        /* margin-right: auto; */
+    }
+    .btn{
+        /* margin-left:4% !important; */
+        margin-top: 5%;
+        display: inline-block;
+        width: 95%;
+        height: 80px;
+        width: 100%;
+        border-radius: 10%;
+        border-color: black;
+        border-width: 3px;
+        background-color: #FFADAD;
+        color: black;
+    }
+    .btn-sm{
+        /* margin-left:4% !important; */
+        margin-top: 5%;
+        display: inline-block;
+        width: 65%;
+        height: 60px;
+        
+        border-radius: 10%;
+        border-color: #CF9595;
+        border-width: 70%;
+        background-color: #ffffff;
+        color: black;
+    }
+
+    .h{
+        display: inline-block;
+        /* position: absolute; */
+        margin-top: 5%;
+        width: 80%;
+    }
+.card {
+     width:50%;
+     margin-left: 20%;
+     display: inline-block;
+    }
+
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .box {
+    width:90%;
+    /* border-color: aquamarine; */
+    border-radius: 3px;
+    /* background-color:red; */
+    margin-left: 25%;
+    /* box-sizing: border-box; */
+    display: inline-flex;
+    /* margin-top: -10%; */
+    
+}
+img{
+    margin-top: 60%;
+    width:120%;
+    height:40%;
+}
+.box-btns-sm{
+    display:none;
+}
+    .box-btns{
+        width: 50%;
+        height: 20%;
+        /* background-color:blue; */
+        /* position: absolute; */
+        display: inline-block;
+        /* margin-left: 10%; */
+        margin-top: 5%;
+    
+    }
+    .btn-box-c{
+        /* display: inline-block; */
+        margin-top: 10%;
+        
+    }
+    .btn{
+        /* margin-left:8% !important; */
+        /* margin-top: 20%; */
+        display: inline-block;
+        width: 100%;
+        height: 75px;
+        background-color: #FFADAD;
+        color: black;
+        border-width: 3px;
+        border-color: black;
+    }
+    .btn-sm{
+        /* margin-left:4% !important; */
+        margin-top: 5%;
+        display: inline-block;
+        width: 80%;
+        height: 10%;
+        border-radius: 10%;
+        border-color: #CF9595;
+        
+        background-color: #ffffff;
+        color: black;
+    }
+
+    .h{
+        display: inline-block;
+        /* position: absolute; */
+        margin-top: 5%;
+        width: 80%;
+    }
+
+.card {
+     width:50% ;
+     margin-left: 17%;
+    }
+    
+}
+
+
+@media (max-width: 767px) {
+    img{
+    margin-top: 20%;
+    width:100%;
+    height:40%;
+    
+
+    }
+    .box {
+    width:70%;
+    /* border-color: aquamarine; */
+    border-radius: 3px;
+    /* background-color:red; */
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+}
+
+.box-btns-sm{
+    /* display:inline-flex; */
+    /* margin-top: -2%; */
+    /* background-color: yellow; */
+    width: 100%;
+}
+    .box-btns{
+        display: none;
+    }
+    .btn-box-c{
+        /* display: inline-block; */
+        margin-top: 1%;
+        margin-left: 2%;
+        /* width: 100%; */
+    }
+    .btn{
+        /* margin-left:4% !important; */
+        margin-top: 5%;
+        display: inline-block;
+        width: 95%;
+        height: 80px;
+        width: 100%;
+        border-radius: 10%;
+        border-color: black;
+        border-width: 3px;
+        background-color: #FFADAD;
+        color: black;
+    }
+    .btn-sm{
+        margin-left:45% ;
+        margin-top: 5%;
+        display: inline-block;
+        width: 55%;
+        height: 60px;
+        
+        border-radius: 10%;
+        border-color: #CF9595;
+        border-width: 70%;
+        background-color: #ffffff;
+        color: black;
+    }
+
+    .h{
+        /* display: inline-block; */
+        /* position: absolute; */
+        margin-top: 5%;
+        width: 100%;
+    }
+
+    .card .mb-3{
+     width:57% !important;
+     margin-left: 43%;
+    }
+    
+}
