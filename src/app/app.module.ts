@@ -67,6 +67,7 @@ import { PaymentFormComponent } from './screens/admin/payment-form/payment-form.
 import { ProductBagListComponent } from './components/product-bag-list/product-bag-list.component';
 import { WishlistProductsComponent } from './components/wishlist-products/wishlist-products.component';
 import { ProductContainerComponent } from './components/product-container/product-container.component';
+import { ShoppingCartService } from './services/shopping-cart/shopping-cart.service';
 
 
 @NgModule({
@@ -224,6 +225,7 @@ import { ProductContainerComponent } from './components/product-container/produc
     UserService,
     RoleService,
     ShoppingBagService,
+    ShoppingCartService
   ],
   bootstrap: [AppComponent]
 })
