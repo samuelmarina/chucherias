@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import firebase from "firebase/app";
 import { WishListService } from 'src/app/services/WishList/wish-list.service';
 import { Producto } from 'src/app/schemas/producto';
+import {RouterModule} from '@angular/router';
 
 @Component({
   selector: 'app-wishlist-products',
@@ -22,7 +23,8 @@ export class WishlistProductsComponent implements OnInit {
   constructor(route: ActivatedRoute,
     private productService: ProductService,
     private auth: AuthService,
-    private wishListService:WishListService) { 
+    private wishListService:WishListService,
+    private router: RouterModule) { 
     this.auth.user$.subscribe(user => {
       this.user = user;
       let ref = firebase.database().ref("/users/" + user.uid + "/wish-list/");
@@ -53,6 +55,7 @@ export class WishlistProductsComponent implements OnInit {
 
   delete_product(product: Producto){
     this.wishListService.deleteTWL(product, this.user);
+    window.location.reload();
   }
     
 
