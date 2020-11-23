@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
 import firebase from "firebase/app"
 import { take } from 'rxjs/operators';
 import { uiShoppingBag } from 'src/app/schemas/shopping-bag';
+import { ShoppingCart} from "src/app/schemas/shopping-cart"
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +14,13 @@ export class ShoppingCartService {
     private db: AngularFireDatabase
   ) { }
 
+  getCart(user: firebase.User): AngularFireObject<ShoppingCart>{
+    return this.db.object("/users/" + user.uid + "/shopping-cart");
+  }
+
   addToCart(bag: uiShoppingBag, user: firebase.User){
     this.updateCart(user, "add");
-    return this.db.list("/users/" + user.uid + "/shopping-cart").push({
+    return this.db.list("/users/" + user.uid + "/shopping-cart/bags").push({
       bag
     });
   }
@@ -42,7 +47,7 @@ export class ShoppingCartService {
       })
     }
     else{
-      ref.set({
+      ref.update({
         quantity: 1
       })
     }

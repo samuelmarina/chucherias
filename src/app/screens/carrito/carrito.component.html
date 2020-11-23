@@ -2,3 +2,10 @@
 <div *ngIf="!booleano">
     <app-empty-page></app-empty-page>
 </div>
+<div *ngIf="allBags" id="contenedor">
+    <ng-container *ngFor="let bag of allBags">
+        <product-cart-list
+            [shoppingBag]="bag"
+        ></product-cart-list>
+    </ng-container>
+</div>

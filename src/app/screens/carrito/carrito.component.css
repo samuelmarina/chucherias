@@ -1,0 +1,64 @@
+#contenedor {
+  margin-top: 30px;
+}
+
+#bolsa {
+  font-size: 100px;
+  color: #ea0db9;
+  width: 100px;
+}
+
+hr {
+  width: 80%;
+  background-color: #ffc6ff;
+  height: 5px;
+  border-color: transparent;
+  border-radius: 10px;
+}
+
+h3 {
+  margin: 0;
+  font-size: large;
+  font-weight: bold;
+  color: #ea0db9;
+}
+
+#cart {
+  margin-top: 15px;
+  color: white;
+  background-color: #ff9393;
+  border-width: 0;
+  border-radius: 10px;
+  font-weight: bold;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+#cart:hover {
+  color: white;
+  background-color: #ff437b;
+}
+
+#cart:active {
+  color: white;
+  background-color: #ea0db9;
+}
+
+#icono {
+  padding: 0;
+  text-align: center;
+}
+
+#remove {
+  margin-top: 10px;
+  color: white;
+  background-color: #ff437b;
+  border-width: 0;
+  border-radius: 10px;
+  font-weight: bold;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+#remove:hover {
+  color: white;
+  background-color: #ea0db9;
+}
