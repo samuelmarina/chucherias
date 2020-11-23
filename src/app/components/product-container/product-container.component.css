@@ -1,0 +1,98 @@
+.product-block{
+    display: flex;
+}
+.image-block{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+}
+.info-block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+}
+.pic-size{
+    min-width: 400px;
+    max-width: 500px;
+}
+.product-img{
+    width: 100%;
+}
+.card-footer {
+    padding: 0;
+  }
+  
+  h5 {
+    font-size: 30px;
+  }
+  hr {
+    width: 100%; 
+    background-color: #ff9393;
+  }
+  
+  button {
+    background-color: #ff9393;
+    color: white;
+  }
+  .buttoms{
+    font-display: flex;
+    flex-direction: column;
+  }
+  
+  button:hover {
+    color: white;
+    background-color: #ff437b;
+  }
+  
+  
+  mat-icon {
+    margin-left: 10px;
+    color: #ff437b;
+  }
+  
+  #qtyBtn {
+    border-color: transparent;
+    font-size: small;
+    width: 35px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+  }
+  .product-buttom{
+      width: 100%;
+  }
+  .col.text-center{
+      border: solid;
+      background-color: #ff9393;
+      color: white;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: large;
+  }
+  .available{
+      font-weight: bolder;
+      margin-bottom: 40px;
+  }
+  p{
+    font-size: medium;
+    line-height: 35px;
+  }
+  .title-text{
+      font-family: Mukta;
+      font-weight: 800;
+      font-size: 45px;
+      color: rgba(0, 0, 0, 1);
+ }
+ .price-text{
+     font-family: Mukta;
+     font-weight: 300;
+     font-size: 20px;
+     margin-top: 20px;
+     color: rgba(124, 118, 118, 1);
+ }

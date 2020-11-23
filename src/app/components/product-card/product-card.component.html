@@ -1,5 +1,5 @@
 <div *ngIf="product.title" class="card">
-    <a routerLink="/producto">
+    <a [routerLink]="['/producto', product.key]">
     <img *ngIf="product.imageUrl" [src]="product.imageUrl" class="card-img-top" alt="{{product.title}}">
     </a>
     <hr>

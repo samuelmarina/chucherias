@@ -1,0 +1,41 @@
+<div class="product-block">
+    <div class="image-block">
+        <div class="pic-size">
+        <img *ngIf="product.imageUrl" [src]="product.imageUrl" class="product-img" alt="{{product.title}}">
+        </div>
+    </div>
+    <div class="info-block">
+        <h5 class="title-text">{{product.title}}</h5>
+        <p class="price-text">Precio: US$ {{product.price}}</p>
+        <hr>
+        <div class="container">
+        <p class="">Disponibilidad:</p>
+        <p class="available">{{product.quantity}}5000g por ahora</p>
+        
+        </div>
+        <div  class="product-buttom">
+
+            
+            <button *ngIf="userQuantity === 0; else updateQuantity" (click)="addToBag(product)" class="btn btn-block">Agregar a Bolsa</button>
+            <ng-template #updateQuantity>
+                <div class="row no-gutters">
+                    <div class="col text-center">
+                        {{userQuantity}} gr
+                    </div>
+                    <div class="buttoms">
+                        <div class="col-3">
+                            <button class="btn btn-block" id="qtyBtn" (click)="addToBag(product)">
+                                +
+                            </button>
+                        </div>
+                        <div class="col-3">
+                            <button class="btn btn-block" id="qtyBtn" (click)="removeFromBag(product)">
+                                -
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    
+
