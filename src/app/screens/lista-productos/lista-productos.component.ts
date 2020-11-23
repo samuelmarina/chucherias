@@ -42,10 +42,12 @@ export class ListaProductosComponent implements OnInit {
         this.filteredProducts = this.category ?
         this.products.filter(p => p['category'] === this.category) :
         this.products;
+        console.log(this.filteredProducts);
+      }
+      )
 
-      })
     });
-
+    
   }
 
   ngOnInit(): void {

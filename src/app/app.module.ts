@@ -65,6 +65,7 @@ import { AdminCategoriesComponent } from './screens/admin/admin-categories/admin
 import { AdminPaymentsComponent } from './screens/admin/admin-payments/admin-payments.component';
 import { PaymentFormComponent } from './screens/admin/payment-form/payment-form.component';
 import { ProductContainerComponent } from './components/product-container/product-container.component';
+import { WishlistProductsComponent } from './components/wishlist-products/wishlist-products.component';
 
 
 @NgModule({
@@ -107,7 +108,8 @@ import { ProductContainerComponent } from './components/product-container/produc
     AdminCategoriesComponent,
     AdminPaymentsComponent,
     PaymentFormComponent,
-    ProductContainerComponent
+    ProductContainerComponent,
+    WishlistProductsComponent
   ],
   imports: [
     BrowserModule,
