@@ -121,6 +121,10 @@
  .like-buttom:hover{
      cursor: pointer;
  }
+ a{
+     display: flex;
+     align-items: center;
+ }
  @media (min-width: 426px) and (max-width: 768px){
      .title-text{
          font-size: 30px;

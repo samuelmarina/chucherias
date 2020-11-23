@@ -40,9 +40,9 @@
             </ng-template>
         </div>
         <div class="like-buttom">
-            <mat-icon *ngIf="!isLiked" (click)="like(product)" aria-hidden="false">star_outline</mat-icon>
-            <mat-icon *ngIf="isLiked" (click)="like(product)" aria-hidden="false">star</mat-icon>
-            Añadir a Wishlist
+            <a *ngIf="!isLiked" (click)="like(product)"><mat-icon aria-hidden="false">star_outline</mat-icon> Añadir a Wishlist</a>
+            <a *ngIf="isLiked" (click)="like(product)"><mat-icon aria-hidden="false">star</mat-icon>Añadir a Wishlist</a>
+            
         </div>
     
 
