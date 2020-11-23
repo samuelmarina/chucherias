@@ -26,10 +26,12 @@
   
   h5 {
     font-size: 30px;
+    text-align: center;
   }
   hr {
     width: 100%; 
-    background-color: #ff9393;
+    background-color: #ff9393db;
+    height: 2px;
   }
   
   button {
@@ -64,6 +66,7 @@
   }
   .product-buttom{
       width: 100%;
+      margin-bottom: 20px;
   }
   .col.text-center{
       border: solid;
@@ -79,6 +82,11 @@
       font-weight: bolder;
       margin-bottom: 40px;
   }
+  .title-text{
+         margin: auto;
+         line-height: 50px;
+         
+     }
   p{
     font-size: medium;
     line-height: 35px;
@@ -93,6 +101,93 @@
      font-family: Mukta;
      font-weight: 300;
      font-size: 20px;
-     margin-top: 20px;
      color: rgba(124, 118, 118, 1);
  }
+ .box-title{
+     display: flex;
+     justify-content: center;
+     margin-top: 20px;
+     margin-bottom: 20px;
+     
+ }
+ @media (min-width: 426px) and (max-width: 768px){
+     .title-text{
+         font-size: 30px;
+         margin: auto;
+         
+         line-height: 30px;
+         
+     }
+     .price-text{
+        font-size: 18px;
+        margin-top: 0px;
+    }
+    .pic-size{
+        min-width: 250px;
+        max-width: 350px;
+    }
+    .available{
+        font-size: smaller;
+        
+        margin-bottom: 10px;
+    }
+    .btn.btn-block{
+        font-size: 15px;
+    }
+    .col.text-center{
+        font-size: small;
+    }
+    .col-3{
+      font-size: small;
+      width: 5px;
+      padding-left: 0px;
+    }
+ }
+ @media (max-width: 425px){
+    .image-block{
+        width: 50%;
+    }
+    .info-block{
+        width: 40%;
+    }
+    .title-text{
+        font-size: 15px;
+        margin-bottom: 0px;
+        line-height: normal;
+        
+    }
+    .price-text{
+       font-size: 10px;
+       margin-top: 0px;
+       line-height: 0;
+   }
+   .pic-size{
+       margin-top: 10%;
+       min-width: 150px;
+       max-width: 250px;
+   }
+   p{
+    font-size: small;
+    line-height: 25px;
+  }
+  .available{
+      font-size: smaller;
+      
+      margin-bottom: 10px;
+  }
+  .container{
+      padding: 0;
+      margin-bottom: 0px;
+  }
+  .btn.btn-block{
+      font-size: 15px;
+  }
+  .col.text-center{
+      font-size: small;
+  }
+  .col-3{
+    font-size: small;
+    width: 5px;
+    padding-left: 0px;
+  }
+}
