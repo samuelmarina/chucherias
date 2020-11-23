@@ -68,6 +68,7 @@ import { ProductBagListComponent } from './components/product-bag-list/product-b
 import { WishlistProductsComponent } from './components/wishlist-products/wishlist-products.component';
 import { ProductContainerComponent } from './components/product-container/product-container.component';
 import { ShoppingCartService } from './services/shopping-cart/shopping-cart.service';
+import { ProductCartListComponent } from './components/product-cart-list/product-cart-list.component';
 
 
 @NgModule({
@@ -112,7 +113,8 @@ import { ShoppingCartService } from './services/shopping-cart/shopping-cart.serv
     PaymentFormComponent,
     ProductBagListComponent,
     WishlistProductsComponent,
-    ProductContainerComponent
+    ProductContainerComponent,
+    ProductCartListComponent
   ],
   imports: [
     BrowserModule,
