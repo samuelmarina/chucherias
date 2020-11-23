@@ -66,7 +66,7 @@ export class WishListService {
     return flag;
   }
 
-  async deleteAllWL(product:Producto,user:firebase.User){
+  async deleteAllWL(user:firebase.User){
     this.db.object("/users/" + user.uid + "/wish-list/" + "/products/").remove();
   }
 
