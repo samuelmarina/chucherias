@@ -5,13 +5,13 @@
     <hr>
     <div class="card-body">
         <div class="row" id="text">
-            <a routerLink="/producto"><h5 class="card-title">{{ product.title }}</h5></a>
+            <a [routerLink]="['/producto', product.key]"><h5 class="card-title">{{ product.title }}</h5></a>
             <div *ngIf="showActions">
                 <mat-icon *ngIf="!isLiked" (click)="like(product)" aria-hidden="false">star_outline</mat-icon>
                 <mat-icon *ngIf="isLiked" (click)="like(product)" aria-hidden="false">star</mat-icon>
             </div>
         </div>
-        <p class="card-text">{{ product.price | currency:'USD':true }}</p>
+        <p class="card-text">{{ product.price | currency:'USD':true }}</p> 
     </div>
     <div *ngIf="showActions" class="card-footer">
 
