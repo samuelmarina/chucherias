@@ -29,7 +29,7 @@
     text-align: center;
   }
   hr {
-    width: 100%; 
+    width: 80%; 
     background-color: #ff9393db;
     height: 2px;
   }
@@ -109,6 +109,17 @@
      margin-top: 20px;
      margin-bottom: 20px;
      
+ }
+ .like-buttom{
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: left;
+     color: #ff437b;
+     margin-bottom: 15px;
+ }
+ .like-buttom:hover{
+     cursor: pointer;
  }
  @media (min-width: 426px) and (max-width: 768px){
      .title-text{
@@ -190,4 +201,7 @@
     width: 5px;
     padding-left: 0px;
   }
+  .like-buttom{
+    font-size: small;
+}
 }

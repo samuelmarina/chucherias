@@ -7,6 +7,7 @@ import { Product } from 'src/app/screens/lista-productos/lista-productos.compone
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProductService } from 'src/app/services/product/product.service';
 import { ShoppingBagService } from 'src/app/services/shopping-bag/shopping-bag.service';
+import { WishListService } from 'src/app/services/WishList/wish-list.service';
 
 @Component({
   selector: 'app-product-container',
@@ -15,7 +16,7 @@ import { ShoppingBagService } from 'src/app/services/shopping-bag/shopping-bag.s
 })
 export class ProductContainerComponent implements OnInit {
   @Input ('product') product;
-  
+  isLiked: boolean;
   
   
   user;
@@ -24,13 +25,19 @@ export class ProductContainerComponent implements OnInit {
   title: string;
 
   constructor( private authService: AuthService,
-    private bagService: ShoppingBagService ) {
+    private bagService: ShoppingBagService,
+    private wLService: WishListService ) {
       
 
       
           authService.user$.subscribe(async user => {
             if(user){
               this.user = user;
+              if (await wLService.existe2(this.product, user)==true){
+                this.isLiked=true;
+              }else{
+                this.isLiked=false;
+              }
             }
           })
      }
@@ -45,5 +52,25 @@ export class ProductContainerComponent implements OnInit {
   removeFromBag(product){
     this.bagService.removeFromBag(product, this.user);
     this.userQuantity -= 50;
+  }
+  addToWL(product) {
+    this.wLService.addToWL(product, this.user);
+  }
+
+  deleteToWL(product){
+    this.wLService.deleteTWL(product, this.user);
+  }
+
+
+  like(product){
+    this.isLiked = !this.isLiked;
+ 
+    if(this.isLiked){
+      this.addToWL(product);
+
+    }else{
+      this.deleteToWL(product);
+    }
+    
   }
 }
