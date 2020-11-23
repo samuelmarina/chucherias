@@ -88,6 +88,10 @@
      margin-left: 20%;
      display: inline-block;
     }
+    .btn-box-c-delete{
+        width:50%;
+        margin-left: 65%;
+    }
 
 }
 
@@ -162,7 +166,11 @@ img{
      width:50% ;
      margin-left: 17%;
     }
-    
+    .btn-box-c-delete{
+        width:50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 
@@ -237,6 +245,12 @@ img{
     .card .mb-3{
      width:57% !important;
      margin-left: 43%;
+    }
+    .btn-box-c-delete{
+        margin-top: 20%;
+        width:80%;
+        margin-left: auto;
+        margin-right: auto;
     }
     
 }
