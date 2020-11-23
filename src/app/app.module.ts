@@ -64,8 +64,8 @@ import { CategoryFormComponent } from './screens/admin/category-form/category-fo
 import { AdminCategoriesComponent } from './screens/admin/admin-categories/admin-categories.component';
 import { AdminPaymentsComponent } from './screens/admin/admin-payments/admin-payments.component';
 import { PaymentFormComponent } from './screens/admin/payment-form/payment-form.component';
-import { ProductContainerComponent } from './components/product-container/product-container.component';
 import { WishlistProductsComponent } from './components/wishlist-products/wishlist-products.component';
+import { ProductContainerComponent } from './components/product-container/product-container.component';
 
 
 @NgModule({
@@ -108,8 +108,8 @@ import { WishlistProductsComponent } from './components/wishlist-products/wishli
     AdminCategoriesComponent,
     AdminPaymentsComponent,
     PaymentFormComponent,
-    ProductContainerComponent,
-    WishlistProductsComponent
+    WishlistProductsComponent,
+    ProductContainerComponent
   ],
   imports: [
     BrowserModule,
