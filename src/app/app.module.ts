@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from "@angular/fire"
 import { RouterModule } from "@angular/router"
-import { FormsModule } from "@angular/forms"
+import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 import { CustomFormsModule } from "ng2-validation"
 import { MatTableModule } from "@angular/material/table"
 import { MatPaginatorModule} from '@angular/material/paginator';
@@ -67,7 +67,7 @@ import { PaymentFormComponent } from './screens/admin/payment-form/payment-form.
 import { ProductBagListComponent } from './components/product-bag-list/product-bag-list.component';
 import { WishlistProductsComponent } from './components/wishlist-products/wishlist-products.component';
 import { ProductContainerComponent } from './components/product-container/product-container.component';
-
+import { AddressFormComponent} from './components/address-form/address-form.component';
 
 @NgModule({
   declarations: [
@@ -111,7 +111,8 @@ import { ProductContainerComponent } from './components/product-container/produc
     PaymentFormComponent,
     ProductBagListComponent,
     WishlistProductsComponent,
-    ProductContainerComponent
+    ProductContainerComponent,
+    AddressFormComponent
   ],
   imports: [
     BrowserModule,
@@ -122,6 +123,7 @@ import { ProductContainerComponent } from './components/product-container/produc
     MatTableModule,
     MatPaginatorModule,
     MatIconModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot([
       {

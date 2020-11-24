@@ -19,7 +19,7 @@ export class WishlistProductsComponent implements OnInit {
   all_products = [];
   user:User;
   booleano2:boolean;
-
+  
   constructor(route: ActivatedRoute,
     private productService: ProductService,
     private auth: AuthService,
@@ -30,14 +30,21 @@ export class WishlistProductsComponent implements OnInit {
       let ref = firebase.database().ref("/users/" + user.uid + "/wish-list/");
       ref.once("value").then(res => {
         this.booleano2 = res.exists();
-        console.log(this.booleano2);
+        // console.log(this.booleano2);
 
         this.wishListService.getWishListUser(user).valueChanges().pipe(
           map(changes => changes.map(c => c))
         ).subscribe(c => {
-          c.map(k => this.all_products.push(k))
+          this.all_products = c
         });
-        console.log(this.all_products);
+        
+        // this.wishListService.getWishListUser(user).valueChanges().pipe(
+        //   map(changes => changes.map(c => c))
+        // ).subscribe(c => {
+        //   c.map(k => this.all_products.push(k))
+        // });
+        
+        // console.log(this.all_products);
         // console.log(this.all_products);
 
       })
@@ -55,7 +62,17 @@ export class WishlistProductsComponent implements OnInit {
 
   delete_product(product: Producto){
     this.wishListService.deleteTWL(product, this.user);
-    window.location.reload();
+    
+    this.wishListService.getWishListUser(this.user).valueChanges().pipe(
+      map(changes => changes.map(c => c))
+    ).subscribe(c => {
+      this.all_products = c
+      if (this.all_products.length == 0) {
+        window.location.reload();
+      }
+    });
+    
+    // window.location.reload();
   }
     
   deleteAllProducts(){
