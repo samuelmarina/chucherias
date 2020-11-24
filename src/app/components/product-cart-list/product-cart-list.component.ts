@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { uiShoppingBag } from 'src/app/schemas/shopping-bag';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { ShoppingCartService } from 'src/app/services/shopping-cart/shopping-cart.service';
 
 @Component({
   selector: 'product-cart-list',
@@ -8,14 +10,26 @@ import { uiShoppingBag } from 'src/app/schemas/shopping-bag';
 })
 export class ProductCartListComponent implements OnInit {
   @Input('shoppingBag') shoppingBag: uiShoppingBag;
+  user;
 
-  constructor() { }
+  constructor(
+    private cartService: ShoppingCartService,
+    private auth: AuthService
+  ) { 
+    this.auth.user$.subscribe(user => {
+      if(user){
+        this.user = user;
+      }
+    })
+  }
 
   ngOnInit(): void {
   }
 
   deleteBag(){
-
+    if(confirm("Está seguro que desea eliminar esta bolsa del carrito?")){
+      this.cartService.removeBag(this.shoppingBag, this.user);
+    }
   }
 
   buyBag(){
