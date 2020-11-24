@@ -69,6 +69,13 @@ import { WishlistProductsComponent } from './components/wishlist-products/wishli
 import { ProductContainerComponent } from './components/product-container/product-container.component';
 import { AddressFormComponent} from './components/address-form/address-form.component';
 
+import { ShoppingCartService } from './services/shopping-cart/shopping-cart.service';
+import { ProductCartListComponent } from './components/product-cart-list/product-cart-list.component';
+import { CartCheckoutComponent } from './components/cart-checkout/cart-checkout.component';
+import { AdminRetirosComponent } from './screens/admin/admin-retiros/admin-retiros.component';
+import { RetiroService } from './services/retiro/retiro.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -112,8 +119,11 @@ import { AddressFormComponent} from './components/address-form/address-form.comp
     ProductBagListComponent,
     WishlistProductsComponent,
     ProductContainerComponent,
-    AddressFormComponent
-  ],
+    AddressFormComponent,
+    ProductCartListComponent,
+    CartCheckoutComponent,
+    AdminRetirosComponent
+],
   imports: [
     BrowserModule,
     MaterialModule,
@@ -123,6 +133,7 @@ import { AddressFormComponent} from './components/address-form/address-form.comp
     MatTableModule,
     MatPaginatorModule,
     MatIconModule,
+     
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot([
@@ -214,6 +225,10 @@ import { AddressFormComponent} from './components/address-form/address-form.comp
         path: 'admin/payments',
         component: AdminPaymentsComponent
       },
+      {
+        path: 'admin/retiros',
+        component: AdminRetirosComponent
+      },
     ]),
     BrowserAnimationsModule
   ],
@@ -226,6 +241,8 @@ import { AddressFormComponent} from './components/address-form/address-form.comp
     UserService,
     RoleService,
     ShoppingBagService,
+    ShoppingCartService,
+    RetiroService
   ],
   bootstrap: [AppComponent]
 })

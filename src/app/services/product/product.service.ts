@@ -17,12 +17,6 @@ export class ProductService {
   }
     
 
-  
-
-  // public getAllproducts() {
-  //   return this.firestore.collection('/products').snapshotChanges();
-  // }
-
   create(product){
     return this.db.list("/products").push(product);
   }
