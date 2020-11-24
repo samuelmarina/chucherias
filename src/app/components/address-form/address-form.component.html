@@ -1,39 +1,4 @@
-<p>address-form works!</p>
 
-
-<!-- <form [formGroup]="form">
-    <p>
-        Name: <br />
-        <input type="text" formControlName="name">
-    </p>
-    <p>
-        Fecha: <br />
-        <input type="date" formControlName="date">
-    </p>
-    <p>
-        Email: <br />
-        <input type="email" formControlName="email">
-    </p>
-    <p>
-        Texto largo: <br />
-        <textarea cols="30" rows="10" formControlName="text"></textarea>
-    </p>
-    <p>
-        Category: <br />
-        <select formControlName="category">
-            <option value="1">Category 1</option>
-            <option value="2">Category 2</option>
-            <option value="3">Category 3</option>
-        </select>
-    </p>
-    <p>
-        Genero: <br />
-        <input type="radio" name="gender" formControlName="gender" value="male"> Male<br>
-        <input type="radio" name="gender" formControlName="gender" value="female"> Female<br>
-        <input type="radio" name="gender" formControlName="gender" value="other"> Other
-    </p>
-    <button type="submit" [disabled]="form.invalid">Guardar</button>
-</form> -->
     
 <form [formGroup]="form" (ngSubmit)="save($event)">
     <div class="container">
