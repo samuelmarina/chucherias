@@ -26,3 +26,7 @@ export interface uiShoppingBag {
 export interface uiIndividualBag {
     product: Producto[];
 }
+
+export interface cartBag {
+    bags: uiShoppingBag[];
+}

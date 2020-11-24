@@ -67,7 +67,12 @@ import { PaymentFormComponent } from './screens/admin/payment-form/payment-form.
 import { ProductBagListComponent } from './components/product-bag-list/product-bag-list.component';
 import { WishlistProductsComponent } from './components/wishlist-products/wishlist-products.component';
 import { ProductContainerComponent } from './components/product-container/product-container.component';
-import { AddressFormComponent } from './components/address-form/address-form.component';
+
+import { ShoppingCartService } from './services/shopping-cart/shopping-cart.service';
+import { ProductCartListComponent } from './components/product-cart-list/product-cart-list.component';
+import { CartCheckoutComponent } from './components/cart-checkout/cart-checkout.component';
+import { AdminRetirosComponent } from './screens/admin/admin-retiros/admin-retiros.component';
+import { RetiroService } from './services/retiro/retiro.service';
 
 
 @NgModule({
@@ -113,7 +118,9 @@ import { AddressFormComponent } from './components/address-form/address-form.com
     ProductBagListComponent,
     WishlistProductsComponent,
     ProductContainerComponent,
-    AddressFormComponent
+    ProductCartListComponent,
+    CartCheckoutComponent,
+    AdminRetirosComponent
   ],
   imports: [
     BrowserModule,
@@ -216,6 +223,10 @@ import { AddressFormComponent } from './components/address-form/address-form.com
         path: 'admin/payments',
         component: AdminPaymentsComponent
       },
+      {
+        path: 'admin/retiros',
+        component: AdminRetirosComponent
+      },
     ]),
     BrowserAnimationsModule
   ],
@@ -228,6 +239,8 @@ import { AddressFormComponent } from './components/address-form/address-form.com
     UserService,
     RoleService,
     ShoppingBagService,
+    ShoppingCartService,
+    RetiroService
   ],
   bootstrap: [AppComponent]
 })

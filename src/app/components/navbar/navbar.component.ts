@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { RoleService } from 'src/app/services/role/role.service';
 import { ShoppingBagService } from 'src/app/services/shopping-bag/shopping-bag.service';
+import { ShoppingCartService } from 'src/app/services/shopping-cart/shopping-cart.service';
 import { UserService } from 'src/app/services/user/user.service';
 
 import {AppComponent} from '../../app.component';
@@ -17,13 +18,15 @@ export class NavbarComponent implements OnInit{
   logged = false;
   role;
   available: boolean = false;
-  bagQty;
+  bagQty = 0;
+  cartQty = 0;
 
   constructor(
     private auth: AuthService,
     private userService: UserService,
     private roleService: RoleService,
-    private bagService: ShoppingBagService
+    private bagService: ShoppingBagService,
+    private cartService: ShoppingCartService
   ) { 
     
   }
@@ -47,12 +50,14 @@ export class NavbarComponent implements OnInit{
 
           this.bagQty = bag['quantity'];
         })
-      }
-      else{
-        this.bagQty = 0;
-      }
 
-      
+        this.cartService.getCart(this.user).valueChanges().subscribe(cart => {
+          if(!cart) return this.cartQty = 0;
+
+          this.cartQty = cart.quantity;
+        })
+
+      }   
     })
     
   }
