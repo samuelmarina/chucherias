@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
+import { AngularFirestore } from '@angular/fire/firestore';
 import firebase from "firebase/app"
 import { take } from 'rxjs/operators';
 import { uiShoppingBag } from 'src/app/schemas/shopping-bag';
@@ -11,16 +12,41 @@ import { ShoppingCart} from "src/app/schemas/shopping-cart"
 export class ShoppingCartService {
 
   constructor(
-    private db: AngularFireDatabase
+    private db: AngularFireDatabase,
+    private db2: AngularFirestore
   ) { }
 
   getCart(user: firebase.User): AngularFireObject<ShoppingCart>{
     return this.db.object("/users/" + user.uid + "/shopping-cart");
   }
 
+  async removeBag(bag: uiShoppingBag, user: firebase.User){
+    let refTotalQty = firebase.database().ref("/users/" + user.uid + "/shopping-cart/quantity");
+    let newQty = await this.updateTotalQty(refTotalQty, user.uid);
+
+    if(newQty === 0) {
+      return this.db.object("/users/" + user.uid + "/shopping-cart").remove();
+    }
+    return this.db.object("/users/" + user.uid + "/shopping-cart/bags/" + bag.price + 
+    "/bags/" + bag.key).remove();
+  }
+
+  private async updateTotalQty(refTotalQty: firebase.database.Reference, userId: string){
+    let totalQty;
+    await refTotalQty.once("value").then(res => {
+      totalQty = res.val();
+
+    })
+    let newQty = totalQty - 1;
+
+    firebase.database().ref("/users/" + userId + "/shopping-cart").update({quantity: newQty})
+
+    return newQty;
+  }
+
   addToCart(bag: uiShoppingBag, user: firebase.User){
     this.updateCart(user, "add");
-    return this.db.list("/users/" + user.uid + "/shopping-cart/bags").push({
+    return this.db.object("/users/" + user.uid + "/shopping-cart/bags/" + bag.key).set({
       bag
     });
   }
