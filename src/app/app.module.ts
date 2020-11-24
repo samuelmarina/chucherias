@@ -71,6 +71,7 @@ import { ShoppingCartService } from './services/shopping-cart/shopping-cart.serv
 import { ProductCartListComponent } from './components/product-cart-list/product-cart-list.component';
 import { CartCheckoutComponent } from './components/cart-checkout/cart-checkout.component';
 import { AdminRetirosComponent } from './screens/admin/admin-retiros/admin-retiros.component';
+import { RetiroService } from './services/retiro/retiro.service';
 
 
 @NgModule({
@@ -235,7 +236,8 @@ import { AdminRetirosComponent } from './screens/admin/admin-retiros/admin-retir
     UserService,
     RoleService,
     ShoppingBagService,
-    ShoppingCartService
+    ShoppingCartService,
+    RetiroService
   ],
   bootstrap: [AppComponent]
 })
