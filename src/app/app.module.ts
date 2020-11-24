@@ -72,6 +72,7 @@ import { ProductCartListComponent } from './components/product-cart-list/product
 import { CartCheckoutComponent } from './components/cart-checkout/cart-checkout.component';
 import { AdminRetirosComponent } from './screens/admin/admin-retiros/admin-retiros.component';
 import { RetiroService } from './services/retiro/retiro.service';
+import { RetirosFormComponent } from './screens/admin/retiros-form/retiros-form.component';
 
 
 @NgModule({
@@ -119,7 +120,8 @@ import { RetiroService } from './services/retiro/retiro.service';
     ProductContainerComponent,
     ProductCartListComponent,
     CartCheckoutComponent,
-    AdminRetirosComponent
+    AdminRetirosComponent,
+    RetirosFormComponent
   ],
   imports: [
     BrowserModule,
@@ -219,6 +221,14 @@ import { RetiroService } from './services/retiro/retiro.service';
       {
         path: 'admin/payments',
         component: AdminPaymentsComponent
+      },
+      {
+        path: 'admin/retiros/nuevo',
+        component: RetirosFormComponent
+      },
+      {
+        path: 'admin/retiros/:id',
+        component: RetirosFormComponent
       },
       {
         path: 'admin/retiros',
