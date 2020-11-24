@@ -24,11 +24,10 @@ export class ShoppingCartService {
     let refTotalQty = firebase.database().ref("/users/" + user.uid + "/shopping-cart/quantity");
     let newQty = await this.updateTotalQty(refTotalQty, user.uid);
 
-    if(newQty === 0) {
-      return this.db.object("/users/" + user.uid + "/shopping-cart").remove();
-    }
-    return this.db.object("/users/" + user.uid + "/shopping-cart/bags/" + bag.price + 
-    "/bags/" + bag.key).remove();
+    // if(newQty === 0) {
+    //   return this.db.object("/users/" + user.uid + "/shopping-cart").remove();
+    // }
+    return this.db.object("/users/" + user.uid + "/shopping-cart/bags/" + bag.key).remove();
   }
 
   private async updateTotalQty(refTotalQty: firebase.database.Reference, userId: string){
