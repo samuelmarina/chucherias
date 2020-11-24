@@ -1,18 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators, FormGroupDirective, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {debounceTime} from 'rxjs/operators';
+import { RetiroService } from 'src/app/services/retiro/retiro.service';
 @Component({
   selector: 'app-address-form',
   templateUrl: './address-form.component.html',
   styleUrls: ['./address-form.component.css']
 })
 export class AddressFormComponent implements OnInit {
+  retiros;
+  currentRetiro = "";
+  isDelivery = false;
+  address = {
+    name: "",
+    address: ""
+  }
 
-  constructor(private formBuilder:FormBuilder) { this.buildForm();}
+  constructor(
+    private formBuilder:FormBuilder,
+    private retiroService: RetiroService
+    ) { 
+      this.buildForm();
+      
+      this.retiroService.getAll().valueChanges().subscribe(retiros => {
+        this.retiros = retiros;
+      })
+    }
 
   form:FormGroup;
   
   ngOnInit(): void {
+  }
+
+  retiroChangeHandler(event){
+    this.currentRetiro = event.target.value;
+    this.currentRetiro === 'Delivery' ? this.isDelivery = true : this.isDelivery = false;
   }
 
   private buildForm() {

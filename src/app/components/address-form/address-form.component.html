@@ -1,11 +1,85 @@
 
+<div class="container">
+    <form #form="ngForm" (ngSubmit)="save(form.value)">
+        <div class="form-row justify-content-start">
+            <div class="col-md-12">
+                <div class="col-md-4">
+                    <label for="inputAddress">Metodo de Retiro</label>
+                    <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Metodo de envio</label>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" (change)="retiroChangeHandler($event)">
+                        <option value=""></option>
+                        <ng-container *ngFor="let retiro of retiros">
+                            <option value="{{ retiro.name }}">{{ retiro.name}}</option>
+                        </ng-container>
+                    </select>
+                </div>
+                <div *ngIf="isDelivery">
+                    <div class="form-group">
+                        <label for="name">Nombre Completo</label>
+                        <input #name="ngModel" [(ngModel)]="address.name" name="name" id="name" type="text" class="form-control"
+                            placeholder="Nombre Completo" required>
+                        <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+                            El nombre completo es obligatorio
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Dirección</label>
+                        <input #addressing="ngModel" [(ngModel)]="address.address" name="addressing" type="text" class="form-control"
+                            placeholder="Dirección" required>
+                        <div class="alert alert-danger" *ngIf="addressing.touched && addressing.invalid">
+                            La dirección es obligatoria
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="country">País</label>
+                            <input #country="ngModel" [(ngModel)]="address.country" name="country" type="country" class="form-control"
+                                placeholder="País" required>
+                            <div class="alert alert-danger" *ngIf="country.touched && country.invalid">
+                                El país es obligatorio
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="state">Estado</label>
+                            <input #state="ngModel" [(ngModel)]="address.state" name="state" type="text" class="form-control"
+                                placeholder="Estado" required>
+                            <div class="alert alert-danger" *ngIf="state.touched && state.invalid">
+                                El estado es obligatorio
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-9">
+                            <label for="city">Ciudad</label>
+                            <input #city="ngModel" [(ngModel)]="address.city" name="city" type="text" class="form-control"
+                                placeholder="Ciudad" required>
+                            <div class="alert alert-danger" *ngIf="city.touched && city.invalid">
+                                La ciudad es obligatoria
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="zipCode">Codigo Postal</label>
+                            <input #zipCode="ngModel" [(ngModel)]="address.zipCode" name="zipCode" type="number" class="form-control"
+                                placeholder="Código Postal" required>
+                            <div class="alert alert-danger" *ngIf="zipCode.touched && zipCode.invalid">
+                                El código postal es obligatorio
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- 
     
 <form [formGroup]="form" (ngSubmit)="save($event)">
     <div class="container">
         
         <div class="form-row align-items-center">
             <div class="col-auto my-1">
-                <label for="inputAddress">Metodo de Envio</label>
+                <label for="inputAddress">Metodo de Retiro</label>
                 <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Metodo de envio</label>
                 <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" formControlName="metodoEnvio">
                     
@@ -88,4 +162,4 @@
         </div>
     </div>
 </form>
-
+ -->

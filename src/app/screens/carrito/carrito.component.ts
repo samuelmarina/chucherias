@@ -6,6 +6,7 @@ import firebase from "firebase/app";
 import { ShoppingCartService } from 'src/app/services/shopping-cart/shopping-cart.service';
 import { uiShoppingBag } from 'src/app/schemas/shopping-bag';
 import { ShoppingCart } from 'src/app/schemas/shopping-cart';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-carrito',
@@ -21,6 +22,7 @@ export class CarritoComponent implements OnInit {
 
   constructor(
     private auth: AuthService,
+    private router: Router,
     private cartService: ShoppingCartService
   ) { }
 
@@ -42,12 +44,15 @@ export class CarritoComponent implements OnInit {
           }
           this.allBags = allBags;
           this.totalBags = cart.quantity;
-          // console.log(this.allBags);
         })
       }
       
       
   })
+  }
+
+  checkOut() {
+    this.router.navigate(['/check-out']);
   }
 
 }

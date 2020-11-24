@@ -9,7 +9,7 @@
     <div *ngIf="allBags.length > 0">
         <div class="container">
             <div class="row justify-content-end">
-                <button class="btn">Hacer Checkout</button>
+                <button class="btn" (click)="checkOut()">Hacer Checkout</button>
             </div>
         </div>
         <ng-container *ngFor="let bag of allBags">
