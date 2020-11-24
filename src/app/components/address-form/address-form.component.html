@@ -1,0 +1,124 @@
+<p>address-form works!</p>
+
+
+<!-- <form [formGroup]="form">
+    <p>
+        Name: <br />
+        <input type="text" formControlName="name">
+    </p>
+    <p>
+        Fecha: <br />
+        <input type="date" formControlName="date">
+    </p>
+    <p>
+        Email: <br />
+        <input type="email" formControlName="email">
+    </p>
+    <p>
+        Texto largo: <br />
+        <textarea cols="30" rows="10" formControlName="text"></textarea>
+    </p>
+    <p>
+        Category: <br />
+        <select formControlName="category">
+            <option value="1">Category 1</option>
+            <option value="2">Category 2</option>
+            <option value="3">Category 3</option>
+        </select>
+    </p>
+    <p>
+        Genero: <br />
+        <input type="radio" name="gender" formControlName="gender" value="male"> Male<br>
+        <input type="radio" name="gender" formControlName="gender" value="female"> Female<br>
+        <input type="radio" name="gender" formControlName="gender" value="other"> Other
+    </p>
+    <button type="submit" [disabled]="form.invalid">Guardar</button>
+</form> -->
+    
+<form [formGroup]="form" (ngSubmit)="save($event)">
+    <div class="container">
+        
+        <div class="form-row align-items-center">
+            <div class="col-auto my-1">
+                <label for="inputAddress">Metodo de Envio</label>
+                <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Metodo de envio</label>
+                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" formControlName="metodoEnvio">
+                    
+                    <option value="Delivery">Delivery</option>
+                    <option value="Pickup">Pickup</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="inputAddress">Nombre Completo</label>
+            <input type="text" class="form-control" id="inputAddress" formControlName="name" placeholder="Nombre Completo">
+        </div>
+        <div class="form-group">
+            <label for="inputAddress">Direccion</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" formControlName="direccion">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Pais</label>
+                <input type="text" class="form-control" id="inputEmail4" formControlName="pais">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">Estado</label>
+                <input type="text" class="form-control" id="inputPassword4" formControlName="estado">
+            </div>
+        </div>
+        
+        
+        <div class="form-row">
+            <div class="form-group col-md-9">
+                <label for="inputCity">Ciudad</label>
+                <input type="text" class="form-control" id="inputCity" formControlName="ciudad">
+            </div>
+            
+            <div class="form-group col-md-3">
+                <label for="inputZip">Codigo Postal</label>
+                <input type="number" class="form-control" id="inputZip" formControlName="codigoPostal">
+            </div>
+            
+        </div>
+        
+        </div>
+    <div class="container">
+    
+        <div class="form-check">
+            <input class="form-check-input" type="radio"  id="exampleRadios1" value="tarjetaCredito" formControlName="metodoPago">
+            <label class="form-check-label" for="exampleRadios1">
+                Tarjeta de Credito
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="inputAddress">Numero de la tarjeta</label>
+            <input type="number" class="form-control" id="inputAddress" placeholder="Numero de la Tarjeta" formControlName="numeroTarjeta">
+        </div>
+        <div class="form-group">
+            <label for="inputAddress">Nombre de la tarjeta</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Nombre de la Tarjeta" formControlName="nombreTarjeta">
+        </div>
+        <div class="form-group">
+            <label for="inputAddress">Fecha de expiracion</label>
+            <input type="date" class="form-control" id="inputAddress" placeholder="dd/mm/aaaa" formControlName="fechaExpiracion">
+        </div>
+        
+    
+    
+       
+        <div class="form-check">
+            <input class="form-check-input" type="radio"  id="exampleRadios1" value="paypal" formControlName="metodoPago">
+            <label class="form-check-label" for="exampleRadios1">
+                Paypal
+            </label>
+        </div>
+        
+    </div>
+    <div class="container-btn">
+        <div class="btn-box">
+            <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Comprar</button>
+        </div>
+    </div>
+</form>
