@@ -70,6 +70,7 @@ import { ProductContainerComponent } from './components/product-container/produc
 import { ShoppingCartService } from './services/shopping-cart/shopping-cart.service';
 import { ProductCartListComponent } from './components/product-cart-list/product-cart-list.component';
 import { CartCheckoutComponent } from './components/cart-checkout/cart-checkout.component';
+import { AdminRetirosComponent } from './screens/admin/admin-retiros/admin-retiros.component';
 
 
 @NgModule({
@@ -116,7 +117,8 @@ import { CartCheckoutComponent } from './components/cart-checkout/cart-checkout.
     WishlistProductsComponent,
     ProductContainerComponent,
     ProductCartListComponent,
-    CartCheckoutComponent
+    CartCheckoutComponent,
+    AdminRetirosComponent
   ],
   imports: [
     BrowserModule,
@@ -216,6 +218,10 @@ import { CartCheckoutComponent } from './components/cart-checkout/cart-checkout.
       {
         path: 'admin/payments',
         component: AdminPaymentsComponent
+      },
+      {
+        path: 'admin/retiros',
+        component: AdminRetirosComponent
       },
     ]),
     BrowserAnimationsModule
