@@ -89,7 +89,7 @@ export class AddressFormComponent implements OnInit {
       date: this.getDate(),
       userName: this.user.displayName,
       userId: this.user.uid,
-      status: "Pagado",
+      status: "pagado",
       retiro: form['retiro'],
       paymentMethod: form['payment'],
       totalPayment: null,
