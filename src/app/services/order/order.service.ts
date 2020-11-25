@@ -30,6 +30,7 @@ export class OrderService {
   }
 
   update(orderId, order) {
-    return this.db.object("/orders/" + orderId).update(order);
+    this.db.object("/users/" + this.user.uid + "/orders/" + orderId + "/order").update(order);
+    return this.db.object("/orders/" + orderId + "/order").update(order);
   }
 }

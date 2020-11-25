@@ -15,8 +15,8 @@ export class OrderFormComponent implements OnInit {
   statuses$;
   id;
   order = {
-    client: "",
-    total: 0,
+    userName: "",
+    totalPayment: 0,
     status: "",
   };
   pedido = []
@@ -39,8 +39,8 @@ export class OrderFormComponent implements OnInit {
       this.orderService.get(this.id).valueChanges().pipe(take(1))
       .subscribe(order => {
         let fullOrder = order['order'];
-        this.order['client'] = fullOrder['userName']
-        this.order['total'] = fullOrder['totalPayment']
+        this.order['userName'] = fullOrder['userName']
+        this.order['totalPayment'] = fullOrder['totalPayment']
         this.order['status'] = fullOrder['status']
         fullOrder['pedido'].forEach(x => {
           if(x){
@@ -58,8 +58,7 @@ export class OrderFormComponent implements OnInit {
   }
 
   save(form) {
-    console.log(form);
-    form['Pedido'] = this.pedido;
+    form['pedido'] = this.pedido;
     this.orderService.update(this.id, form);
     this.router.navigate(['admin/ordenes']);
   }
