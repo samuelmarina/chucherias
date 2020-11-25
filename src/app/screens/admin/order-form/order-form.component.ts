@@ -38,10 +38,11 @@ export class OrderFormComponent implements OnInit {
     if(this.id) {
       this.orderService.get(this.id).valueChanges().pipe(take(1))
       .subscribe(order => {
-        this.order['client'] = order['client']
-        this.order['total'] = order['total']
-        this.order['status'] = order['status']
-        order['Pedido'].forEach(x => {
+        let fullOrder = order['order'];
+        this.order['client'] = fullOrder['userName']
+        this.order['total'] = fullOrder['totalPayment']
+        this.order['status'] = fullOrder['status']
+        fullOrder['pedido'].forEach(x => {
           if(x){
             this.pedido.push(x);
           }

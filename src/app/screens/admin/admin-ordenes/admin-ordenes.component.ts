@@ -19,9 +19,10 @@ export class AdminOrdenesComponent implements OnInit {
      this.orderService.getAll().snapshotChanges()
     .subscribe(c => {
       c.map(k => {
+        console.log(k.payload.val()['order'])
         this.elementData.push({
           key: k.key,
-          ...k.payload.val() as any
+          ...k.payload.val()['order'] as any
         })
       })
       this.dataSource = new MatTableDataSource(this.elementData);

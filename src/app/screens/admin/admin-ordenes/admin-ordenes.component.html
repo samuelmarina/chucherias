@@ -7,11 +7,11 @@
         <table mat-table [dataSource]="dataSource">
             <ng-container matColumnDef="client">
                 <th id="column-name" mat-header-cell *matHeaderCellDef> Cliente </th>
-                <td mat-cell *matCellDef="let element"> {{element.client}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
             </ng-container>
             <ng-container matColumnDef="date">
                 <th id="column-name" mat-header-cell *matHeaderCellDef> Fecha </th>
-                <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.date}} </td>
             </ng-container>
             <ng-container matColumnDef="status">
                 <th id="column-name" mat-header-cell *matHeaderCellDef> Estado </th>
