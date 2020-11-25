@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
 import { AngularFirestore } from '@angular/fire/firestore';
 import firebase from "firebase/app"
 import { take } from 'rxjs/operators';
@@ -18,6 +18,14 @@ export class ShoppingCartService {
 
   getCart(user: firebase.User): AngularFireObject<ShoppingCart>{
     return this.db.object("/users/" + user.uid + "/shopping-cart");
+  }
+
+  getCart2(user: firebase.User): AngularFireList<ShoppingCart>{
+    return this.db.list("/users/" + user.uid + "/shopping-cart");
+  }
+
+  removeCart(user: firebase.User){
+    return this.db.object("/users/" + user.uid + "/shopping-cart").remove();
   }
 
   async removeBag(bag: uiShoppingBag, user: firebase.User){

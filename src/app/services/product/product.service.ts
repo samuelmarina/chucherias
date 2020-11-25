@@ -1,19 +1,22 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from "@angular/fire/database"
 import { AngularFirestore} from '@angular/fire/firestore';
-import { AngularFirestoreCollection, AngularFirestoreDocument} from '@angular/fire/firestore';
-import {Product} from '../../screens/lista-productos/lista-productos.component';
-import {Observable} from 'rxjs/internal/Observable';
+import firebase from "firebase/app"
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+  user;
   
   constructor(private db: AngularFireDatabase,
-              private firestore: AngularFirestore
-              
-              ) {
+    private firestore: AngularFirestore,
+    private auth: AuthService
+    ) {
+      this.auth.user$.subscribe(user => {
+        if(user) this.user = user;
+      })
   }
     
 
@@ -35,6 +38,24 @@ export class ProductService {
 
   delete(productId){
     return this.db.object("/products/" + productId).remove();
+  }
+
+  reduceQuantity(product){
+    let ref = firebase.database().ref("/products/" + product['key'] + "/quantity");
+    this.updateTotalQty(ref, product['quantity'], this.user.uid, product['key'])
+
+  }
+
+  private async updateTotalQty(refTotalQty: firebase.database.Reference, qtyToRemove: number, userId: string, productKey: string){
+    let totalQty;
+    await refTotalQty.once("value").then(res => {
+      totalQty = res.val();
+
+    })
+    let newQty = totalQty - qtyToRemove;
+
+
+    firebase.database().ref("/products/" + productKey).update({quantity: newQty})
   }
 
   
