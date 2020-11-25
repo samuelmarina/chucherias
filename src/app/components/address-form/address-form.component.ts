@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { cartBag } from 'src/app/schemas/shopping-bag';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -34,6 +35,7 @@ export class AddressFormComponent implements OnInit {
 
   constructor(
     private auth: AuthService,
+    private router: Router,
     private retiroService: RetiroService,
     private paymentService: PaymentService,
     private cartService: ShoppingCartService,
@@ -124,6 +126,7 @@ export class AddressFormComponent implements OnInit {
         order.totalPayment = totalPayment;
         this.cartService.removeCart(this.user);
         this.orderService.create(order);
+        this.router.navigate(['/order-success']);
       })
     }
   }
