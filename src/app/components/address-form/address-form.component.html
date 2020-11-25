@@ -1,6 +1,7 @@
 
-<div class="container">
-    <form #form="ngForm" (ngSubmit)="save(form.value)">
+
+<form #form="ngForm" (ngSubmit)="save(form.value)">
+    <div class="container">
         <div class="form-row justify-content-start">
             <div class="col-md-12">
                 <div class="col-md-4">
@@ -15,7 +16,7 @@
                 </div>
                 <div *ngIf="isDelivery">
                     <div class="form-group">
-                        <label for="name">Nombre Completo</label>
+                        <label for="name">Nombre Completo *</label>
                         <input #name="ngModel" [(ngModel)]="address.name" name="name" id="name" type="text" class="form-control"
                             placeholder="Nombre Completo" required>
                         <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
@@ -23,7 +24,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="address">Dirección</label>
+                        <label for="address">Dirección *</label>
                         <input #addressing="ngModel" [(ngModel)]="address.address" name="addressing" type="text" class="form-control"
                             placeholder="Dirección" required>
                         <div class="alert alert-danger" *ngIf="addressing.touched && addressing.invalid">
@@ -32,7 +33,7 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="country">País</label>
+                            <label for="country">País *</label>
                             <input #country="ngModel" [(ngModel)]="address.country" name="country" type="country" class="form-control"
                                 placeholder="País" required>
                             <div class="alert alert-danger" *ngIf="country.touched && country.invalid">
@@ -40,7 +41,7 @@
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="state">Estado</label>
+                            <label for="state">Estado *</label>
                             <input #state="ngModel" [(ngModel)]="address.state" name="state" type="text" class="form-control"
                                 placeholder="Estado" required>
                             <div class="alert alert-danger" *ngIf="state.touched && state.invalid">
@@ -50,7 +51,7 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-9">
-                            <label for="city">Ciudad</label>
+                            <label for="city">Ciudad *</label>
                             <input #city="ngModel" [(ngModel)]="address.city" name="city" type="text" class="form-control"
                                 placeholder="Ciudad" required>
                             <div class="alert alert-danger" *ngIf="city.touched && city.invalid">
@@ -58,7 +59,7 @@
                             </div>
                         </div>
                         <div class="form-group col-md-3">
-                            <label for="zipCode">Codigo Postal</label>
+                            <label for="zipCode">Codigo Postal *</label>
                             <input #zipCode="ngModel" [(ngModel)]="address.zipCode" name="zipCode" type="number" class="form-control"
                                 placeholder="Código Postal" required>
                             <div class="alert alert-danger" *ngIf="zipCode.touched && zipCode.invalid">
@@ -69,8 +70,58 @@
                 </div>
             </div>
         </div>
-    </form>
-</div>
+    </div>
+    <div class="container">
+        <div class="form-row justify-content-start">
+            <div class="col-md-12">
+                <div class="col-md-4">
+                    <label for="inputPayment">Metodo de Pago</label>
+                    <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Metodo de Pago</label>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" (change)="paymentChangeHandler($event)">
+                        <option value=""></option>
+                        <ng-container *ngFor="let payments of payments">
+                            <option value="{{ payments.name }}">{{ payments.name}}</option>
+                        </ng-container>
+                    </select>
+                </div>
+                <div *ngIf="isTDC">
+                    <div class="form-group">
+                        <label for="name">Nombre *</label>
+                        <input #tdcName="ngModel" [(ngModel)]="payment.tdcName" name="tdcName" id="tdcName" type="text" class="form-control"
+                            placeholder="Nombre como aparece en la tarjeta" required>
+                        <div class="alert alert-danger" *ngIf="tdcName.touched && tdcName.invalid">
+                            El nombre es obligatorio
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tdcNumber">Número de la Tarjeta *</label>
+                        <input #tdcNumber="ngModel" [(ngModel)]="payment.tdcNumber" name="tdcNumber" id="tdcNumber" type="number" class="form-control" id="inputAddress" 
+                            placeholder="Número de la Tarjeta" required>
+                        <div class="alert alert-danger" *ngIf="tdcNumber.touched && tdcNumber.invalid">
+                            El número es obligatorio
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="expiration">Fecha de expiracion *</label>
+                            <input #expiration="ngModel" [(ngModel)]="payment.expiration" name="expiration" id="expiration" type="date"
+                                class="form-control" placeholder="dd/mm/aaaa" required>
+                            <div class="alert alert-danger" *ngIf="expiration.touched && expiration.invalid">
+                                El número es obligatorio
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-btn">
+        <div class="btn-box">
+            <button type="submit" class="btn">Realizar Pago</button>
+        </div>
+    </div>
+</form>
+
 
 <!-- 
     
