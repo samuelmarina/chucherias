@@ -6,24 +6,48 @@
     border-radius: 5px;
     height:3rem;
     
-    display: table;
-
+    display: flex;
+    align-content: center;
+    
 }
 
-
+a{
+    display: flex;
+    align-items: center;
+}
 
 #regresar{
     margin-left: 1%;
     font-size: large;
-    color: pink;
+    color: #ffadad;
+    font-weight: 500;
     text-decoration: none;
     
     
 }
+#regresar:hover{
+    cursor: pointer;
+}
 
 .box-content{
     /* background-color: red; */
-    display: table-cell;
-    vertical-align: middle;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     /* margin-bottom: auto; */
+    
+
+}
+p{
+    display: flex;
+    margin: 0px;
+    margin-left: 5px;
+    align-content: center;
+}
+.variable{
+    display: flex;
+    align-items: center;
+    font-size: large;
+    font-weight: 600;
+    margin-right: 10px;
 }
