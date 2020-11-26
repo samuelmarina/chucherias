@@ -8,3 +8,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+hr{ 
+    animation: multifondo 10s infinite
+    }
+    
+    @keyframes multifondo {
+        0%   {border-color: #FFC6FF;}
+        20%  {border-color: #FFADAD;}
+        50% {border-color: #BDB2FF;}
+        80%  {border-color: #FFADAD;}
+        100% {border-color: #FFC6FF;;}
+    }
+    
