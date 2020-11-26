@@ -16,3 +16,7 @@
   color: white;
   background-color: #ff437b;
 }
+.container{
+  margin: 0;
+  padding: 0;
+}
