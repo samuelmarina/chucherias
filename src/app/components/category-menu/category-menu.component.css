@@ -1,17 +1,38 @@
 .sticky-top {
   top: 20px;
 }
+.list-group-item{
+  border-radius: 0 10px 10px 0px;
+  border-color: #ffadad;
+  background-image: -webkit-linear-gradient(45deg, #ff437b 50%, transparent 50%);
+  background-image: linear-gradient(45deg, #ff437b 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  -webkit-transition: background 200ms ease-in-out;
+  transition: background 200ms ease-in-out;
+  
+}
+.list-group-item:hover{
+  background-position: 0;
+  color: white;
+}
 .active{
   background-color: #ffadad;
-  color: black;
-  font-weight: bolder;
-  border-radius: 0 10px 10px 10px;
-  border-color: black;
+  color: white;
+  font-weight: 550;
+  border-radius: 0 10px 10px 0px;
+  border-color: white;
   border-width: 1px;
+  width: 105%;
+  font-size: 105%;
+}
+.active:hover{
+  cursor: default;
+  background-position: 100%;
 }
 @media (max-width: 425px){
   .list-group{
     width: 100px;
   }
-  
+
 }
