@@ -18,7 +18,10 @@ hr {
   border-color: transparent;
   border-radius: 10px; */
 }
-
+.row{
+  margin: 0;
+  padding: 0;
+}
 h3 {
   margin: 0;
   font-size: large;
@@ -64,4 +67,54 @@ h3 {
 #remove:hover {
   color: white;
   background-color: #ea0db9;
+}
+@media (max-width: 425px){
+  .cont{
+    display: flex;
+  }
+
+  .col-2{
+    max-width: 50%;
+    flex-direction: column;
+  }
+  mat-icon{
+    height: auto;
+  }
+  .col-4{
+    padding-right: 5px;
+  }
+  h3 {
+    font-size: medium;
+  }
+  .btn{
+    font-size: small; 
+  }
+  p{
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 426px) and (max-width: 768px){
+  .cont{
+    display: flex;
+  }
+
+  .col-2{
+    max-width: 50%;
+    flex-direction: column;
+  }
+  mat-icon{
+    height: auto;
+  }
+  .col-4{
+    padding-right: 5px;
+  }
+  h3 {
+    font-size: medium;
+  }
+  .btn{
+    font-size: medium; 
+  }
+  p{
+    margin-bottom: 0;
+  }
 }

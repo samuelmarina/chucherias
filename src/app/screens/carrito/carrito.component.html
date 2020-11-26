@@ -7,15 +7,15 @@
         <app-empty-page></app-empty-page>
     </div>
     <div *ngIf="allBags.length > 0">
+        
+        <ng-container *ngFor="let bag of allBags">
+            <product-cart-list [shoppingBag]="bag"></product-cart-list>
+        </ng-container>
         <div class="container row justify-content-end">
-            <div class="">
+            <div class="checkoutSpace">
                 <cart-checkout [totalPrice]="totalPrice" [totalQuantity]="totalBags"></cart-checkout>
                 <button class="btn" (click)="checkOut()">Hacer Checkout</button>
             </div>
         </div>
-        <ng-container *ngFor="let bag of allBags">
-            <product-cart-list [shoppingBag]="bag"></product-cart-list>
-        </ng-container>
-        
     </div>
 </div>

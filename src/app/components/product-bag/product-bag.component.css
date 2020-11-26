@@ -12,3 +12,17 @@ h5 {
 p {
   font-size: medium;
 }
+@media (max-width: 425px){
+  h5{
+    font-size: medium;
+  }
+  .card-body{
+    padding: 0;
+    text-align: center;
+  }
+  @media (min-width: 426px) and (max-width: 768px){
+    h5{
+      font-size: large;
+    }
+  }
+}
