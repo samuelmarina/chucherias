@@ -31,10 +31,12 @@ export class ListaProductosComponent implements OnInit {
     )
     .subscribe(c => {
       c.map(k => {
-        this.products.push({
-          key: k.key,
-          ...k.payload.val() as any
-        } as Producto)
+        if(k.payload.val()['quantity'] > 0) {
+          this.products.push({
+            key: k.key,
+            ...k.payload.val() as any
+          } as Producto)
+        }
       })
       route.queryParamMap.subscribe(params => {
         this.category = params.get('category');
