@@ -43,12 +43,20 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">gr</span>
                         </div>
-                        <input #quantity="ngModel" [(ngModel)]="product.quantity" name="quantity" id="quantity" type="number" class="form-control"
-                            required [min]="1">
+                        <input #quantity="ngModel" [(ngModel)]="product.quantity" name="quantity" id="quantity"
+                            type="number" class="form-control" required [min]="1">
                     </div>
                     <div class="alert alert-danger" *ngIf="quantity.touched && quantity.invalid">
                         <div *ngIf="quantity.errors.required">La cantidad es obligatoria</div>
                         <div *ngIf="quantity.errors.min">La cantidad tiene que ser superior a 0 gramos</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description">Descripción</label>
+                    <input #description="ngModel" [(ngModel)]="product.description" name="description" id="description"
+                        type="text" class="form-control" required>
+                    <div class="alert alert-danger" *ngIf="description.touched && description.invalid">
+                        La descripción del producto es obligatoria
                     </div>
                 </div>
                 <div class="form-group">

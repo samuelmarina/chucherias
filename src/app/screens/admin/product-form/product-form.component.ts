@@ -10,7 +10,7 @@ import { ProductService } from 'src/app/services/product/product.service';
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.css']
 })
-export class ProductFormComponent implements OnInit {
+export class ProductFormComponent {
   categories$;
   product: Producto = {
     key: null,
@@ -18,7 +18,8 @@ export class ProductFormComponent implements OnInit {
     price: 1,
     category: "",
     imageUrl: "",
-    quantity: 1
+    quantity: 1,
+    description: ""
   };
   id;
 
@@ -59,8 +60,4 @@ export class ProductFormComponent implements OnInit {
       this.router.navigate(['admin/productos']);
     }
   }
-
-  ngOnInit(): void {
-  }
-
 }
