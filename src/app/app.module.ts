@@ -168,6 +168,10 @@ import { RetirosFormComponent } from './screens/admin/retiros-form/retiros-form.
         component: ContactoComponent
       },
       {
+        path: 'check-out/:id',
+        component: CheckOutComponent
+      },
+      {
         path: 'check-out',
         component: CheckOutComponent
       },

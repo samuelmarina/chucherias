@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { uiShoppingBag } from 'src/app/schemas/shopping-bag';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart/shopping-cart.service';
@@ -14,7 +15,8 @@ export class ProductCartListComponent implements OnInit {
 
   constructor(
     private cartService: ShoppingCartService,
-    private auth: AuthService
+    private auth: AuthService,
+    private router: Router
   ) { 
     this.auth.user$.subscribe(user => {
       if(user){
@@ -33,7 +35,8 @@ export class ProductCartListComponent implements OnInit {
   }
 
   buyBag(){
-
+    this.router.navigate(['/check-out', this.shoppingBag.key])
+    // console.log(this.shoppingBag);
   }
 
 }

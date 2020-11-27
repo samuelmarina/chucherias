@@ -38,6 +38,13 @@ export class ShoppingCartService {
     return this.db.object("/users/" + user.uid + "/shopping-cart/bags/" + bag.key).remove();
   }
 
+  async removeBag2(bagKey: string, user: firebase.User){
+    let refTotalQty = firebase.database().ref("/users/" + user.uid + "/shopping-cart/quantity");
+    let newQty = await this.updateTotalQty(refTotalQty, user.uid);
+
+    return this.db.object("/users/" + user.uid + "/shopping-cart/bags/" + bagKey).remove();
+  }
+
   private async updateTotalQty(refTotalQty: firebase.database.Reference, userId: string){
     let totalQty;
     await refTotalQty.once("value").then(res => {

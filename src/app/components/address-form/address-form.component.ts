@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { cartBag } from 'src/app/schemas/shopping-bag';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -36,12 +36,14 @@ export class AddressFormComponent implements OnInit {
   constructor(
     private auth: AuthService,
     private router: Router,
+    private route: ActivatedRoute,
     private retiroService: RetiroService,
     private paymentService: PaymentService,
     private cartService: ShoppingCartService,
     private productService: ProductService,
     private orderService: OrderService
     ) { 
+      this.id = this.route.snapshot.paramMap.get('id');
 
       this.auth.user$.subscribe(user => {
         if(user) this.user = user;
@@ -101,10 +103,40 @@ export class AddressFormComponent implements OnInit {
     let pedido = [];
     let totalPayment = 0;
     if(this.id){
-
+      this.buyOneBag(pedido, order, totalPayment);
     }
     else{
-      this.cartService.getCart2(this.user).valueChanges().pipe(take(1)).subscribe(cart => {
+      this.buyAllCart(pedido, order, totalPayment);
+    }
+  }
+
+  private buyOneBag(pedido: any[], order, totalPayment: number){
+    this.cartService.getCart2(this.user).valueChanges().pipe(take(1)).subscribe(cart => {
+        for(let bag in cart[0][this.id]['bag']['products']){
+          for(let prod in cart[0][this.id]['bag']['products'][bag]){
+            if(prod === 'quantity') continue;
+              
+              let product = {
+                key: cart[0][this.id]['bag']['products'][bag][prod]['key'],
+                title: cart[0][this.id]['bag']['products'][bag][prod]['title'],
+                price: cart[0][this.id]['bag']['products'][bag][prod]['price'],
+                quantity: cart[0][this.id]['bag']['products'][bag]['quantity']
+              }
+              pedido.push(product);
+              totalPayment += product.price * (product.quantity/50);
+              this.productService.reduceQuantity(product);
+          }
+        }
+        order.pedido = pedido;
+        order.totalPayment = totalPayment;
+        this.cartService.removeBag2(this.id, this.user);
+        this.orderService.create(order);
+        this.router.navigate(['/order-success']);
+      })
+  }
+
+  private buyAllCart(pedido: any[], order, totalPayment: number){
+    this.cartService.getCart2(this.user).valueChanges().pipe(take(1)).subscribe(cart => {
         for(let bagKey in cart[0]){
           for(let bag in cart[0][bagKey]['bag']['products']){
             for(let prod in cart[0][bagKey]['bag']['products'][bag]){
@@ -128,7 +160,6 @@ export class AddressFormComponent implements OnInit {
         this.orderService.create(order);
         this.router.navigate(['/order-success']);
       })
-    }
   }
 
   private getDate(){
