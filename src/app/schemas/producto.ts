@@ -5,5 +5,6 @@ export interface Producto {
     category: string;
     imageUrl: string;
     quantity: number;
+    description: string;
 }
 
