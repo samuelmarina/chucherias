@@ -71,7 +71,7 @@ export class ProductosAleatoriosComponent implements OnInit {
       // )
       //   .subscribe(c => {
       //     c.map(k => this.all_products.push(k) )
-      
+
           
           this.productService.getAll().snapshotChanges().pipe(
             map(changes => changes.map(c => c))
@@ -102,6 +102,7 @@ export class ProductosAleatoriosComponent implements OnInit {
               // console.log(this.all_products);
               // console.log(this.todproducts);
 
+              
           route.queryParamMap.subscribe(params => {
             var n = this.arr.length;
             // this.arr=this.arr.sort();
