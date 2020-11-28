@@ -2,220 +2,114 @@
 
 
 
-@media (min-width: 992px) {
-    img{
-    margin-top: 40%;
-    width:100%;
-    height:50%;
-}
-.card-body{
-    margin-top:25%;
-    margin-left: 25%;
-}
-.col-md-4{
-}
-    .box {
-    width:90%;
-    border-radius: 3px;
-    margin-left: 25%;
-    display: inline-flex;
-    
-}
 
-.box-btns-sm{
-    display:none;
+#star-icon{
+  /* color: gold; */
+  color: yellow;
 }
-    .box-btns{
-        width: 40%;
-        height: 20%;
-        display: inline-block;
-        margin-top: 5%;
-    
-    }
-    .btn-box-c{
-        margin-top: 6%;
-        
-    }
-    .col-md-8{
-    }
-    .btn{
-        margin-top: 5%;
-        display: inline-block;
-        width: 95%;
-        height: 80px;
-        width: 100%;
-        border-radius: 10%;
-        border-color: black;
-        border-width: 3px;
-        background-color: #FFADAD;
-        color: black;
-    }
-    .btn-sm{
-        margin-top: 5%;
-        display: inline-block;
-        width: 65%;
-        height: 60px;
-        
-        border-radius: 10%;
-        border-color: #CF9595;
-        border-width: 70%;
-        background-color: #ffffff;
-        color: black;
-    }
-
-    .h{
-        display: inline-block;
-        margin-top: 5%;
-        width: 80%;
-    }
-.card {
-     width:50%;
-     margin-left: 20%;
-     display: inline-block;
-    }
-    .btn-box-c-delete{
-        width:50%;
-        margin-left: 65%;
-    }
-
-}
-
-
-@media (min-width: 768px) and (max-width: 991px) {
-    .box {
-    width:90%;
-    border-radius: 3px;
-    margin-left: 25%;
-    display: inline-flex;
-    
-}
-img{
-    margin-top: 60%;
-    width:120%;
-    height:40%;
-}
-.box-btns-sm{
-    display:none;
-}
-    .box-btns{
-        width: 50%;
-        height: 20%;
-        display: inline-block;
-        margin-top: 5%;
-    
-    }
-    .btn-box-c{
-        margin-top: 10%;
-        
-    }
-    .btn{
-        display: inline-block;
-        width: 100%;
-        height: 75px;
-        background-color: #FFADAD;
-        color: black;
-        border-width: 3px;
-        border-color: black;
-    }
-    .btn-sm{
-        margin-top: 5%;
-        display: inline-block;
-        width: 80%;
-        height: 10%;
-        border-radius: 10%;
-        border-color: #CF9595;
-        
-        background-color: #ffffff;
-        color: black;
-    }
-
-    .h{
-        display: inline-block;
-        margin-top: 5%;
-        width: 80%;
-    }
 
 .card {
-     width:50% ;
-     margin-left: 17%;
-    }
-    .btn-box-c-delete{
-        width:50%;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 10%;
-    }
+  box-shadow: 0 1px 3px#FF9393, 0 1px 2px #ff9393;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+  padding: 0;
+  max-width: 250px;
+  transition: all 0.2 ease-in-out;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.card:hover {
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.19), 0 5px 5px rgba(0, 0, 0, 0.24);
+  cursor: pointer;
+}
+img {
+  width: 100%;
+}
+
+.card-footer {
+  padding: 0;
+}
+
+h5 {
+  font-size: large;
+}
+
+p {
+  font-size: medium;
+  font-weight: bold;
+  color: #ff9393;
+}
+
+button {
+  background-color: #ff9393;
+  color: white;
+}
+
+button:hover {
+  color: white;
+  background-color: #ff437b;
+}
+
+hr {
+  margin: 0;
+}
+
+#text {
+  padding-left: 0.9rem;
+}
+
+mat-icon {
+  margin-left: 10px;
+  color: #ff437b;
+}
+
+#qtyBtn {
+  border-color: transparent;
+  font-size: large;
+}
+a{
+  color: black
 }
 
 
-@media (max-width: 767px) {
-    img{
-    margin-top: 20%;
-    width:100%;
-    height:40%;
-    
+.btn-isliked{
+  background-color: #fc9b4d;
+  color: black;
+  border-width: 3px;
+  border-color: black;
+  font-size: 13px;
+  
+}
 
-    }
-    .box {
-    width:70%;
-    border-radius: 3px;
+#remove{
+    background-color: white;
+    color: red;
+    border-color:white;
+    margin-top: 2%;
+}
+.btn-box-c-delete{
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
-    
-    
 }
-
-.box-btns-sm{
-    width: 100%;
-}
-    .box-btns{
-        display: none;
-    }
-    .btn-box-c{
-        margin-top: 1%;
-        margin-left: 2%;
-    }
-    .btn{
-        margin-top: 5%;
-        display: inline-block;
-        width: 95%;
-        height: 80px;
-        width: 100%;
-        border-radius: 10%;
-        border-color: black;
-        border-width: 3px;
-        background-color: #FFADAD;
-        color: black;
-    }
-    .btn-sm{
-        margin-left:45% ;
-        margin-top: 5%;
-        display: inline-block;
-        width: 55%;
-        height: 60px;
+#remove-all {
         
-        border-radius: 10%;
-        border-color: #CF9595;
-        border-width: 70%;
-        background-color: #ffffff;
-        color: black;
+        font-size: 14px;
+        width:100%;
+        margin-top: 10%;
+        margin-bottom: 10%;
+        color:black;
+        border-width: 2%;
+        background-color:white;
+        border-radius: 10px;
+        font-weight: bold;
+        box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+        border-color:#ff437b;
     }
 
-    .h{
-        margin-top: 5%;
-        width: 100%;
-    }
-
-    .card .mb-3{
-     width:57% !important;
-     margin-left: 43%;
-    }
-    .btn-box-c-delete{
-        margin-top: 20%;
-        width:80%;
-        margin-left: auto;
-        margin-right: auto;
-        border-color: red !important;
+@media (min-width: 426px) and (max-width: 768px){
+    #comprar-CHUC{
+        font-size: 14px;
     }
     
 }

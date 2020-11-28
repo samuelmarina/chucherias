@@ -1,77 +1,69 @@
 
 
-<div *ngIf="booleano2">
-<div *ngFor="let product of all_products"  class="box">
-    <div  class="box-btns">
-        <div class="btn-box-c">
-            <button  type="button" class="btn btn-primary btn-lg">
-                <span class="shopbask-icon material material-icons-outlined">
-                    
-                    grade
-                </span>
-                COMPRAR CHUCHERIDESEO</button>
-        </div>
-        <div class="btn-box-c">
-            <button (click)="delete_product(product.product)" type="button" class="btn btn-primary btn-lg btn-sm">
+<div class="container">
+    <div *ngIf="booleano2" class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+        <div *ngFor="let product of all_products; let i = index" class="box col mb-4">
+
+            <button (click)="delete_product(product.product)" id="remove" type="button" class="btn btn-primary btn-lg btn-sm">
                 <span class="shopbask-icon material material-icons-outlined">
                     clear
                 </span>
-                Eliminar Producto</button>
-        </div>
-    </div>
-    <div class="h">
-        <div  class="card mb-3 lg md" style="border-color: #FFC6FF; border-radius: 10px; border-width: 4px;">
-            <div class="row no-gutters" >
-                <div class="col-md-4">
-                    <img [src]="product.product.imageUrl" class="card-img" alt="...">
-                </div>
-                <div class="col-md-8" >
-                    <div class="card-body" >
-                        <h1 class="card-title">{{ product.product.title }}</h1>
-                        <h3 class="card-title">{{ product.product.category }}</h3>
-                        <div class="card-body-price">
-                            <h1>${{product.product.price }}</h1>
-                        </div>
-                        <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                </button>
+            <div *ngIf="product.product.title" class="card">
+                <a [routerLink]="['/producto', product.product.key]">
+                    <img *ngIf="product.product.imageUrl" [src]="product.product.imageUrl" class="card-img-top"
+                        alt="{{product.product.title}}">
+                </a>
+                <hr>
+                
+                <div class="card-body">
+                    <div class="row" id="text">
+                        <a [routerLink]="['/producto', product.product.key]">
+                            <h5 class="card-title">{{ product.product.title }}</h5>
+                        </a>
+                        
                     </div>
+                    <p class="card-text">{{ product.product.price | currency:'USD':true }}</p>
                 </div>
+
+
+
+
+                <div class="card-footer">
+
+
+                    <a [routerLink]="['/producto', product.product.key]">
+                        <button id="comprar-CHUC" class="btn btn-block">COMPRAR CHUCHERIDESEO
+                            <span id="star-icon"class="shopbask-icon material material-icons-outlined">
+                                grade
+                            </span>
+                        </button>
+                        
+                    </a>
+                </div>
+
+
             </div>
-        </div>
-    </div>
-    
-    <div class="box-btns-sm">
-        <div class="btn-box-c">
-            
-            <button  type="button" class="btn btn-primary btn-lg">
-                
-                    <span class="shopbask-icon material material-icons-outlined">
-                        grade
-                    </span>
-                
-                COMPRAR CHUCHERIDESEO</button>
-        </div>
-        <div class="btn-box-c">
 
-            <button (click)="delete_product(product.product)" type="button" class="btn btn-primary btn-sm">
-                <span class="shopbask-icon material material-icons-outlined">
-                    clear
-                </span>Eliminar Producto</button>
+
+        </div>
+
         
-        </div>
     </div>
-    
-    
-</div>
-
     <div *ngIf="all_products.length!=0" class="btn-box-c-delete">
     
-        <button (click)="deleteAllProducts()" type="button" class="btn btn-primary btn-sm">
+        <button id="remove-all" (click)="deleteAllProducts()" type="button" class="btn btn-primary btn-sm">
             <span class="shopbask-icon material material-icons-outlined">
                 delete
-            </span>Eliminar Productos</button>
+            </span>Eliminar Toda la WishList </button>
     
     </div>
+
+
 </div>
+
+
+
 
 
 

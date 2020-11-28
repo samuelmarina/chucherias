@@ -120,6 +120,7 @@ export class WishListService {
         //  POR AHORA BORRAR
       }).key
 
+    console.log(product.key);
     this.db.object("/users/" + user.uid + "/wish-list/" + "/products/" + product.key)
         .set({
           product

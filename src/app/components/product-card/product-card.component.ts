@@ -23,11 +23,13 @@ export class ProductCardComponent implements OnInit {
     authService.user$.subscribe(async user => {
       if(user){
         this.user = user;
-       
+      //  console.log(this.product);
         if (await wLService.existe2(this.product, user)==true){
           this.isLiked=true;
+          // console.log(this.product.title );
         }else{
           this.isLiked=false;
+          // console.log(this.product.title);
         }
       }
 
@@ -60,7 +62,9 @@ export class ProductCardComponent implements OnInit {
 
   like(product){
     this.isLiked = !this.isLiked;
- 
+    
+    
+    // console.log(product.product);
     if(this.isLiked){
       this.addToWL(product);
 

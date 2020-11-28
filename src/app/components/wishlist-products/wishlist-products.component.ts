@@ -19,7 +19,10 @@ export class WishlistProductsComponent implements OnInit {
   all_products = [];
   user:User;
   booleano2:boolean;
-  
+  quantity;
+  bagService: any;
+  wLService: any;
+  isLiked: boolean;
   constructor(route: ActivatedRoute,
     private productService: ProductService,
     private auth: AuthService,
@@ -83,5 +86,35 @@ export class WishlistProductsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  addToBag(product) {
+    this.bagService.addToBag(product, this.user);
+    this.quantity += 50;
+  }
+
+  removeFromBag(product) {
+    this.bagService.removeFromBag(product, this.user);
+    this.quantity -= 50;
+  }
+
+  addToWL(product) {
+    this.wLService.addToWL(product, this.user);
+  }
+
+  deleteToWL(product) {
+    this.wLService.deleteTWL(product, this.user);
+  }
+
+
+  like(product) {
+    this.isLiked = !this.isLiked;
+
+    if (this.isLiked) {
+      this.addToWL(product);
+
+    } else {
+      this.deleteToWL(product);
+    }
+  }
 
 }
