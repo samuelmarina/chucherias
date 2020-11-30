@@ -75,8 +75,8 @@ import { CartCheckoutComponent } from './components/cart-checkout/cart-checkout.
 import { AdminRetirosComponent } from './screens/admin/admin-retiros/admin-retiros.component';
 import { RetiroService } from './services/retiro/retiro.service';
 import { RetirosFormComponent } from './screens/admin/retiros-form/retiros-form.component';
-
-
+import {UserProfileFormComponent} from './components/user-profile-form/user-profile-form.component';
+import { UserProfileComponent } from './screens/user-profile/user-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -124,7 +124,9 @@ import { RetirosFormComponent } from './screens/admin/retiros-form/retiros-form.
     ProductCartListComponent,
     CartCheckoutComponent,
     AdminRetirosComponent,
-    RetirosFormComponent
+    RetirosFormComponent,
+    UserProfileFormComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -242,6 +244,10 @@ import { RetirosFormComponent } from './screens/admin/retiros-form/retiros-form.
       {
         path: 'admin/retiros',
         component: AdminRetirosComponent
+      },
+      {
+        path: 'user-profile',
+        component: UserProfileComponent
       },
     ]),
     BrowserAnimationsModule

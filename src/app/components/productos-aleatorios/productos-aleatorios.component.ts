@@ -102,6 +102,7 @@ export class ProductosAleatoriosComponent implements OnInit {
               // console.log(this.all_products);
               // console.log(this.todproducts);
 
+
               
           route.queryParamMap.subscribe(params => {
             var n = this.arr.length;
