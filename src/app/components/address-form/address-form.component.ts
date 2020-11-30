@@ -130,8 +130,8 @@ export class AddressFormComponent implements OnInit {
         order.pedido = pedido;
         order.totalPayment = totalPayment;
         this.cartService.removeBag2(this.id, this.user);
-        this.orderService.create(order);
-        this.router.navigate(['/order-success']);
+        let key = this.orderService.create(order);
+        this.router.navigate(['/order-success/', key]);
       })
   }
 
@@ -157,8 +157,8 @@ export class AddressFormComponent implements OnInit {
         order.pedido = pedido;
         order.totalPayment = totalPayment;
         this.cartService.removeCart(this.user);
-        this.orderService.create(order);
-        this.router.navigate(['/order-success']);
+        let key = this.orderService.create(order);
+        this.router.navigate(['/order-success/', key]);
       })
   }
 

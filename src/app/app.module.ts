@@ -178,6 +178,10 @@ import { UserProfileComponent } from './screens/user-profile/user-profile.compon
         component: CheckOutComponent
       },
       {
+        path: 'order-success/:id',
+        component: OrderSuccessComponent
+      },
+      {
         path: 'order-success',
         component: OrderSuccessComponent
       },
