@@ -76,11 +76,24 @@
                             </a>
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
-                        <div class="material-box-icon">
+                    <li  class="nav-item dropdown">
+                        <div *ngIf="photo=='' || photo==undefined" class="material-box-icon">
                             <a class="navbar-brand dropdown-toggle" href="#" data-toggle="dropdown">
                                 <mat-icon matBadgeColor="accent">person_outline</mat-icon>
                                 Cuenta
+                            </a>
+                            <ul class="dropdown-menu">
+                                <a class="dropdown-item" routerLink="/wishlist">Wishlist</a>
+                                <a class="dropdown-item" routerLink="/tracking">Tracking</a>
+                                <a class="dropdown-item" routerLink="/user-profile">Administrar Perfil</a>
+                                <a class="dropdown-item" (click)="logout()" id="log">Cerrar sesion</a>
+                            </ul>
+                        </div>
+                        <div *ngIf="photo!='' && photo!=undefined" class="material-box-icon">
+                            <a class="navbar-brand dropdown-toggle" href="#" data-toggle="dropdown">
+                                <div class="box-photo">
+                                    <img  class="photoURL" src='{{photo}}'>
+                                </div>
                             </a>
                             <ul class="dropdown-menu">
                                 <a class="dropdown-item" routerLink="/wishlist">Wishlist</a>

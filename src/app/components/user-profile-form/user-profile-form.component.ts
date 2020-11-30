@@ -56,7 +56,8 @@ export class UserProfileFormComponent implements OnInit {
 
           // console.log(this.userService.get_data(this.user));
           this.data = await this.userService.get_data(this.user);
-          console.log(this.data);
+          // console.log(await this.data.nombre);
+          // console.log(this.data.nombre);
         }
       })
 
