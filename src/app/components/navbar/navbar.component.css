@@ -76,7 +76,7 @@ mat-icon {
 }
 
 .dropdown-menu.show {
-  margin-left: -135px;
+  margin-left: -185px;
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
 }
 
@@ -103,8 +103,8 @@ mat-icon {
 
 .box-photo{
 
-    width:60px;
-    height:60px;
+    width:45px;
+    height:45px;
     margin-left:-25px;
     margin-right:auto;
     margin-top: -18%;
