@@ -11,6 +11,9 @@ p{
 .category-text{
     color: #ff437b ;
 }
+.row.row-items{
+    background-image: url(https://i.gifer.com/2yqT.gif);
+}
 @media (min-width: 768px){
 
     .col-lg-la1{
