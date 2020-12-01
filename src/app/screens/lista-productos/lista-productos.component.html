@@ -5,7 +5,8 @@
         <category-menu [category]="category"></category-menu>
     </div>
     <div class="col">
-        <p class="text-success">{{category}}</p>
+        <p *ngIf="category; else allproducts" class="category-text">{{category}}</p>
+        <ng-template #allproducts><p class="category-text">todos los productos</p></ng-template>
         <div class="row row-items">
             <ng-container *ngFor="let p of filteredProducts; let i = index">
                 <div class="col">

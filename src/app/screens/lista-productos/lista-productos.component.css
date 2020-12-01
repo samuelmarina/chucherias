@@ -2,9 +2,14 @@
     width: 100%
 }
 p{
+    margin-top: 10px;
     font-size: 45px;
     margin-left: 10%;
     font-weight: bolder;
+    height: 45px;
+}
+.category-text{
+    color: #ff437b ;
 }
 @media (min-width: 768px){
 
@@ -37,6 +42,9 @@ p{
     .col{
         width: 100%;
     }
+    p{
+        font-size: 30px;
+       } 
 
 }
 
@@ -58,6 +66,7 @@ p{
    p{
     font-size: 25px;
     margin-left: 5%;
+    text-align: center;
    } 
 
 }
