@@ -1,22 +1,24 @@
 <div *ngIf="product.title" class="card">
     <a [routerLink]="['/producto', product.key]">
-    <img *ngIf="product.imageUrl" [src]="product.imageUrl" class="card-img-top" alt="{{product.title}}">
+        <img *ngIf="product.imageUrl" [src]="product.imageUrl" class="card-img-top" alt="{{product.title}}">
     </a>
     <hr>
     <div class="card-body">
         <div class="row" id="text">
-            <a [routerLink]="['/producto', product.key]"><h5 class="card-title">{{ product.title }}</h5></a>
+            <a [routerLink]="['/producto', product.key]">
+                <h5 class="card-title">{{ product.title }}</h5>
+            </a>
             <div *ngIf="showActions">
                 <mat-icon *ngIf="!isLiked" (click)="like(product)" aria-hidden="false">star_outline</mat-icon>
                 <mat-icon *ngIf="isLiked" (click)="like(product)" aria-hidden="false">star</mat-icon>
             </div>
         </div>
-        <p class="card-text">{{ product.price | currency:'USD':true }}</p> 
+        <p class="card-text">{{ product.price | currency:'USD':true }}</p>
     </div>
     <div *ngIf="showActions" class="card-footer">
 
-            
-        <button *ngIf="quantity === 0; else updateQuantity" (click)="addToBag(product)" class="btn btn-block">Add to
+
+        <button *ngIf="!comprar; else updateQuantity" (click)="onComprar()" class="btn btn-block">Add to
             Bag</button>
         <ng-template #updateQuantity>
             <div class="row no-gutters">
@@ -26,7 +28,7 @@
                     </button>
                 </div>
                 <div class="col text-center">
-                    {{quantity}} gr
+                    {{product.quantity}} gr
                 </div>
                 <div class="col-3">
                     <button class="btn btn-block" id="qtyBtn" (click)="addToBag(product)">
