@@ -27,11 +27,14 @@ export class RegresarATiendaComponent implements OnInit {
       this.page = "Chuchericheckout"
     }else if (this.urlActual.pathname == '/tracking'){
       this.page = "Chucheritracking"
+    }else if (this.urlActual.pathname == '/user-profile'){
+      this.page = "Chucheriperfil"
+    }else if (this.urlActual.pathname == '/admin'){
+      this.page = "Chucheriadmin"
     }else {
       this.page = "Chucheriproductos"
     }
 
-    
   }
 
 }
