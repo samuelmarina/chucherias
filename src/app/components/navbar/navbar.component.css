@@ -87,32 +87,38 @@ mat-icon {
 .dropdown-toggle {
   margin: 0;
 }
+#log:hover {
+  cursor: pointer;
+}
+.box-photo{
 
+  width:45px;
+  height:45px;
+  margin-left:-25px;
+  margin-right:auto;
+  margin-top: -18%;
+  
+}
+.photoURL{
+  width:100%;
+  height:100%;
+  border-radius: 70%;
+      
+}
 @media (max-width: 992px) {
   .dropdown-menu.show {
     margin-left: 0;
   }
-}
+  .box-photo{
 
-#log:hover {
-  cursor: pointer;
-}
-
-
-
-
-.box-photo{
-
-    width:45px;
-    height:45px;
-    margin-left:-25px;
-    margin-right:auto;
-    margin-top: -18%;
+    width:35px;
+    height:35px;
+    margin-left: -35px;
     
 }
-.photoURL{
-    width:100%;
-    height:100%;
-    border-radius: 70%;
-        
 }
+
+
+
+
+
