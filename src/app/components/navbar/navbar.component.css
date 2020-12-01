@@ -79,6 +79,9 @@ mat-icon {
   margin-left: -185px;
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
 }
+#drop-user{
+  margin-left: -145px;
+}
 
 .nav-item {
   margin-bottom: 5px;
