@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { Producto } from 'src/app/schemas/producto';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProductService } from 'src/app/services/product/product.service';
+import { RoleService } from 'src/app/services/role/role.service';
 
 @Component({
   selector: 'app-lista-productos',
@@ -15,15 +16,28 @@ export class ListaProductosComponent implements OnInit {
   filteredProducts = [];
   showActions: boolean;
   category: string;
-  
+  role:any;
   
 
   constructor(
     private auth: AuthService,
+    private roleService: RoleService,
     route: ActivatedRoute,
     private productService: ProductService) {
       auth.user$.subscribe(user => {
-        this.showActions = user ? true : false;
+        this.roleService.getRole(user.uid).valueChanges().subscribe(role => {
+          if(!role){
+            this.roleService.createRole(user.uid);
+            return this.role = "user";
+          }
+          this.role = role;
+          if(this.role == "admin"){
+            this.showActions = false
+          }else{
+            this.showActions = true
+          }
+        })
+        
       })
 
     this.productService.getAll().snapshotChanges().pipe(
