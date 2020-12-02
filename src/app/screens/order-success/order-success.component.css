@@ -248,7 +248,7 @@ table {
 	}
 }
 
-@media (min-width: 426px) and (max-width: 768px) {
+@media (min-width: 427px) and (max-width: 768px) {
 
     .box{
     display: table;
@@ -298,7 +298,7 @@ table {
 }
 
 
-@media (max-width: 425px) {
+@media (max-width: 426px) {
 
     .box{
     display: table;
