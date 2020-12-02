@@ -132,10 +132,15 @@ export class ProductosAleatoriosComponent implements OnInit {
                       prod['$key'] = productSnapshot.key;
                       // console.log(prod['title']);
                       // console.log(this.all_products[j].title);
-                      if (this.all_products[j]['title']==prod['title']) {
-                        // console.log('entra==>', prod['$key'], prod['title'])
-                        this.all_products[j]['key'] = prod['$key']; 
-                  
+                      try {
+                        
+                        if (this.all_products[j]['title']==prod['title']) {
+                          // console.log('entra==>', prod['$key'], prod['title'])
+                          this.all_products[j]['key'] = prod['$key']; 
+                    
+                        }
+                      } catch (error) {
+                        
                       }
                     } )
                   }) ; //ESTO APARENTEMENTE NO SERVIRA

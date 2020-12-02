@@ -27,6 +27,94 @@
         </div>
     </div>
     <div class="resumen">
-        <p class = "resumen-title">Resumen de compra</p>
+        <p  class = "resumen-title">Resumen de compra</p>
     </div>
+    
+    <div class="fondo-img-factura page container box-factura">
+        <div class="box-logo">
+            <span>
+                <img id="logo" src="../../../assets/logo.jpg" alt="chucherilogo">
+                <!-- <span class="title">Chucherilandia</span> -->
+                
+            </span>
+            
+        </div>
+        
+        <div class="box-title">
+            <!-- <span class="h"> -->
+                <h1 id='title'>Chucherilandia</h1>
+            <!-- </span> -->
+        </div>
+
+        <div class="box-datos">
+            <p>
+                <strong>Caracas, Miranda</strong>
+            </p>
+            <p>
+                <strong> 1162, Caracas</strong>
+            </p>
+        </div>
+
+
+        
+        <div class="container" id="title-factura"><h3><strong>Chucherifactura</strong></h3></div>
+            <p><strong>Fecha: {{lista2[0]}}</strong></p>
+            <p><strong>Factura ID:</strong> {{lista2[6]}}</p>
+            <p><strong>Titular:</strong> {{lista2[7]}}</p>
+            
+            <div class=" container table-box table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl">
+                <table class="table table-borderless table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Producto</th>
+                            <th scope="col">precio</th>
+                            <th scope="col">cantidad (gr)</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let item of all_products;let i = index">
+                        <tr >
+                            <!-- <th scope="row">{{i+1}}</th> -->
+                            <th scope="row">{{item.quantity/50}}</th>
+                            <td>{{item.title}}</td>
+                            <td>{{item.price}}</td>
+                            <td>{{item.quantity}}</td>
+                        </tr>
+                        
+                    </tbody>
+                    
+                </table>
+                <hr>
+                <table class="table table-borderless table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Total N° Productos</th>
+                            <th scope="col">Total a Pagar</th>
+                            <th scope="col">Total gr</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr >
+                            <!-- <th scope="row">{{i+1}}</th> -->
+                            <th scope="row">{{totalgr/50}}</th>
+                            <td>${{lista2[5]}}</td>
+                            <td>{{totalgr}}gr</td>
+                            
+                        </tr>
+                    
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <p><strong> Metodo de pago:</strong> {{lista2[1]}}</p>
+                <p><strong>Retiro del producto:</strong> {{lista2[3]}}</p>
+                <p><strong>Estado de la compra:</strong> {{lista2[4]}}</p>
+            </div>
+        
+        
+    </div>
+        
 </div>
+
+
