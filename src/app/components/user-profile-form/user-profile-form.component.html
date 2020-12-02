@@ -39,7 +39,7 @@
                         <input #addressing="ngModel" [(ngModel)]="data.apellido" name="addressing" type="text" class="form-control col-md-8"
                             placeholder="Apellido" value="{{data.apellido}}" required>
                         <div class="alert alert-danger" *ngIf="addressing.touched && addressing.invalid">
-                            El apellido es obligatoria
+                            El apellido es obligatorio
                         </div>
 
                     </div>
