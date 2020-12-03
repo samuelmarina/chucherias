@@ -4,13 +4,16 @@ import firebase from "firebase/app"
 import { stringify } from 'querystring';
 import { map } from 'rxjs/operators';
 import { Producto } from 'src/app/schemas/producto';
+import { OrderService} from '../order/order.service';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   constructor(
-    private db: AngularFireDatabase
+    private db: AngularFireDatabase,
+    private orderS:OrderService
   ) { }
 
   save(user: firebase.User) {
@@ -19,6 +22,23 @@ export class UserService {
       email: user.email
     });
   };
+
+  getAllOrders(user){
+
+    this.db.list("/users/" + user.uid +'/orders').snapshotChanges().pipe(
+      map(changes => changes.map(c => {
+
+        // console.log(c.payload.val());
+
+      }))
+    ).subscribe(c => {
+
+      c.map(k => {
+        // console.log(k);
+      });
+    })
+    this.orderS.getAll().valueChanges().subscribe(res=>{console.log(res)})
+  }
 
   update_data(user:firebase.User,name:string,apellido:string,imagen:string){
     this.db.object("/users/" + user.uid).update({
@@ -31,7 +51,7 @@ export class UserService {
 
   async get_user_photo(user:firebase.User){
     let photo;
-    console.log('hola');
+    // console.log('hola');
     this.db.list("/users/" + user.uid).snapshotChanges().pipe(
       map(changes => changes.map( c => {
         

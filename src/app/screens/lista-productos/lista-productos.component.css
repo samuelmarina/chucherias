@@ -2,9 +2,17 @@
     width: 100%
 }
 p{
+    margin-top: 20px;
     font-size: 45px;
     margin-left: 10%;
     font-weight: bolder;
+    height: 45px;
+}
+.category-text{
+    color: #ff437b ;
+}
+.row.row-items{
+    background-image: url(https://i.gifer.com/2yqT.gif);
 }
 @media (min-width: 768px){
 
@@ -37,6 +45,9 @@ p{
     .col{
         width: 100%;
     }
+    p{
+        font-size: 30px;
+       } 
 
 }
 
@@ -58,6 +69,7 @@ p{
    p{
     font-size: 25px;
     margin-left: 5%;
+    text-align: center;
    } 
 
 }

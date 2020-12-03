@@ -23,15 +23,18 @@ export class RegresarATiendaComponent implements OnInit {
         this.page = "Chucherideseos"
     } else if (this.urlActual.pathname == '/producto'){
       this.page = "Chucheriproductos"
-    }else if (this.urlActual.pathname == '/check-out'){
+    }else if (this.urlActual.pathname == '/check-out' || this.urlActual.pathname == '/order-success'){
       this.page = "Chuchericheckout"
     }else if (this.urlActual.pathname == '/tracking'){
       this.page = "Chucheritracking"
+    }else if (this.urlActual.pathname == '/user-profile'){
+      this.page = "Chucheriperfil"
+    }else if (this.urlActual.pathname == '/admin'){
+      this.page = "Chucheriadmin"
     }else {
       this.page = "Chucheriproductos"
     }
 
-    
   }
 
 }
