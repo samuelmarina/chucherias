@@ -88,9 +88,19 @@ export class UserService {
           let key = c.key;
           data[key] = c.payload.val();
 
-        }
-      }))
-    )
+          if (c.key == 'nombre' && (data['nombre'] == '' || data['nombre'] == ' ')) {
+            console.log(user.displayName);
+            // console.log(this.user.displayName.split(' ')[0]);
+            if (user.displayName.split(' ').length > 1) {
+              data['nombre'] = user.displayName.split(' ')[0];
+              data['apellido'] = (user.displayName.split(' ').slice(1, ((user.displayName.length) - 1))).toString();
+
+            } else {
+              data['nombre'] = user.displayName;
+              data['apellido'] = user.displayName;
+
+            }
+      }}})))
       .subscribe(c => {
 
         c.map(k => {
@@ -119,8 +129,52 @@ export class UserService {
     //   photoURL: this.db.object("/users/" + user.uid)
     // }
     // console.log(data);
+    
     return data
 
   }
+
+  async isThereUserName(user:firebase.User){
+    
+      // console.log(this.db.list("/users/" + user.uid + "email"));
+      let all_user_data = [];
+      let data = {
+        nombre: '',
+        apellido: '',
+        photo: '',
+        role: ''
+      };
+      let flag:boolean=true;
+      this.db.list("/users/" + user.uid).snapshotChanges().pipe(
+        map(changes => changes.map(c => {
+          // console.log(c.key);
+          if (c.key == 'nombre' || c.key == 'apellido' || c.key == 'photo' || c.key == 'role') {
+            // console.log('1234')
+            let key = c.key;
+            data[key] = c.payload.val();
+
+          }
+        }))
+      )
+        .subscribe(async c => {
+
+          c.map(async k => {
+            
+            // console.log(data.nombre);
+            if(await data.nombre=='' || await data.nombre==' '){
+              return  flag=false;
+            }else{
+              return flag=true;
+            }
+            
+          });
+        })
+
+      
+      // console.log(data);
+    return flag
+
+    }
+  
 
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { ActivatedRoute, Router } from '@angular/router';
-import { take } from 'rxjs/operators';
+import { UrlValidator } from 'ng2-validation';
+import { map, take } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { UserService } from 'src/app/services/user/user.service';
 
@@ -39,7 +41,8 @@ export class UserProfileFormComponent implements OnInit {
   constructor(private auth: AuthService,
     private router: Router,
     private route: ActivatedRoute,
-    private userService:UserService
+    private userService:UserService,
+    private db: AngularFireDatabase
    ) { 
      this.id = this.route.snapshot.paramMap.get('id');
       // console.log(this.route.snapshot.paramMap.get('name'));
@@ -56,15 +59,22 @@ export class UserProfileFormComponent implements OnInit {
 
           // console.log(this.userService.get_data(this.user));
           this.data = await this.userService.get_data(this.user);
+          
+          // console.log(this.userService.isThereUserName(this.user));
+            // console.log(this.user.name);
+            // this.data.nombre=
+          }
           // console.log(await this.data.nombre);
           // console.log(this.data.nombre);
-        }
-      })
+        });
+      
 
     // console.log(this.data);
 
-      
+    
    }
+   
+  
   imagenGmail(){
     this.data.photo=this.user.photoURL;
   }
@@ -97,6 +107,11 @@ export class UserProfileFormComponent implements OnInit {
   
   ngOnInit(): void {
     
+    
   }
+  
+ 
+
+
 
 }
