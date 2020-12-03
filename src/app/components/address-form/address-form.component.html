@@ -1,5 +1,3 @@
-
-
 <form #form="ngForm" (ngSubmit)="save(form.value)">
     <div class="container">
         <div class="form-row justify-content-start">
@@ -112,12 +110,23 @@
                         </div>
                     </div>
                 </div>
+                <div *ngIf="isPaypal">
+                    <paypal-buttons 
+                        [totalPayment]="totalPaymentAmount" 
+                        [form]="form.value"
+                        [currentRetiro]="currentRetiro"
+                        [currentPayment]="currentPayment"
+                        [user]="user"
+                        [id]="id"
+                    ></paypal-buttons>
+                </div>
             </div>
         </div>
     </div>
     <div class="container-btn">
         <div class="btn-box">
             <button type="submit" class="btn">Realizar Pago</button>
+            
         </div>
     </div>
 </form>

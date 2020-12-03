@@ -27,6 +27,7 @@ import { OrderFormComponent } from './screens/admin/order-form/order-form.compon
 import { ListaProductosComponent } from './screens/lista-productos/lista-productos.component';
 import { CategoryService } from './services/category/category.service';
 import { ProductService } from './services/product/product.service';
+import { NgxPayPalModule } from 'ngx-paypal'
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CategoryMenuComponent } from "./components/category-menu/category-menu.component";
@@ -77,6 +78,7 @@ import { RetiroService } from './services/retiro/retiro.service';
 import { RetirosFormComponent } from './screens/admin/retiros-form/retiros-form.component';
 import {UserProfileFormComponent} from './components/user-profile-form/user-profile-form.component';
 import { UserProfileComponent } from './screens/user-profile/user-profile.component';
+import { PaypalButtonsComponent } from './components/paypal-buttons/paypal-buttons.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -126,7 +128,8 @@ import { UserProfileComponent } from './screens/user-profile/user-profile.compon
     AdminRetirosComponent,
     RetirosFormComponent,
     UserProfileFormComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    PaypalButtonsComponent,
   ],
   imports: [
     BrowserModule,
@@ -137,7 +140,7 @@ import { UserProfileComponent } from './screens/user-profile/user-profile.compon
     MatTableModule,
     MatPaginatorModule,
     MatIconModule,
-     
+    NgxPayPalModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot([
