@@ -1,7 +1,5 @@
 <app-regresar-a-tienda></app-regresar-a-tienda>
-<!-- <td mat-cell *matCellDef="let element">
-    <p> {{orders[0]['status']}} </p>
-</td> -->
+
 <div class="fondo">
     <div class="mat-elevation-z8">
         <table mat-table [dataSource]="dataSource">
@@ -9,7 +7,6 @@
             <!-- Date Column -->
             <ng-container matColumnDef="Fecha">
                 <th mat-header-cell *matHeaderCellDef> Fecha</th>
-                <!-- <td mat-cell *matCellDef="let element"> {{orders[0]['date']}} </td> -->
                 <td mat-cell *matCellDef="let element"> {{element.date}} </td>
             </ng-container>
 
