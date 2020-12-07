@@ -1,0 +1,40 @@
+
+
+.container{
+    background-color: red;
+    width:75%;
+    display: table;
+}
+
+.card{
+    margin-top:4%;
+    margin-bottom:2%;
+}
+.box-card{
+    display:table-cell;
+}
+.box-status-p{
+    height: 100px;
+    display: table-cell;
+    
+    vertical-align: middle;
+}
+.box-status{
+    background-color:#FFC6FF;
+    display: table-cell;
+    height:100px;
+    width: 600px;
+    vertical-align: middle;
+    border-radius: 10px;
+
+}
+.status{
+    display: inline-block;
+    margin-left:8%;
+    font-size: 20px;
+    letter-spacing:1px;
+    font-weight: bold;
+}
+#actual-status{
+    color:#EA0DB9;
+}

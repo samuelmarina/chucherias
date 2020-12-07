@@ -75,6 +75,8 @@ import { CartCheckoutComponent } from './components/cart-checkout/cart-checkout.
 import { AdminRetirosComponent } from './screens/admin/admin-retiros/admin-retiros.component';
 import { RetiroService } from './services/retiro/retiro.service';
 import { RetirosFormComponent } from './screens/admin/retiros-form/retiros-form.component';
+import { CustomerTrackingListComponent } from './customer-tracking-list/customer-tracking-list.component';
+import { TrackingFormComponent } from './components/tracking-form/tracking-form.component';
 
 
 @NgModule({
@@ -124,7 +126,9 @@ import { RetirosFormComponent } from './screens/admin/retiros-form/retiros-form.
     ProductCartListComponent,
     CartCheckoutComponent,
     AdminRetirosComponent,
-    RetirosFormComponent
+    RetirosFormComponent,
+    CustomerTrackingListComponent,
+    TrackingFormComponent
   ],
   imports: [
     BrowserModule,
@@ -190,6 +194,10 @@ import { RetirosFormComponent } from './screens/admin/retiros-form/retiros-form.
       {
         path: 'admin/productos/nuevo',
         component: ProductFormComponent
+      },
+      {
+        path: 'tracking/:key',
+        component: CustomerTrackingListComponent
       },
       {
         path: 'admin/productos/:id',

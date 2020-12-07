@@ -1,0 +1,40 @@
+<app-regresar-a-tienda></app-regresar-a-tienda>
+<!-- <td mat-cell *matCellDef="let element">
+    <p> {{orders[0]['status']}} </p>
+</td> -->
+<div class="fondo">
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+
+            <!-- Date Column -->
+            <ng-container matColumnDef="Fecha">
+                <th mat-header-cell *matHeaderCellDef> Fecha</th>
+                <!-- <td mat-cell *matCellDef="let element"> {{orders[0]['date']}} </td> -->
+                <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+            </ng-container>
+
+            <!-- Status Column -->
+            <ng-container matColumnDef="Estado">
+                <th mat-header-cell *matHeaderCellDef> Estado </th>
+                <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+            </ng-container>
+
+            <!-- ORDER ID Column -->
+            <ng-container matColumnDef="Orden ID">
+                <th mat-header-cell *matHeaderCellDef> Weight </th>
+                <td mat-cell *matCellDef="let element"> {{element.key}} </td>
+            </ng-container>
+
+            <!-- CHECK ORDER Column -->
+            <ng-container matColumnDef="Chequear Orden">
+                <th mat-header-cell *matHeaderCellDef> Chequear Orden </th>
+                <td mat-cell *matCellDef="let element"><a [routerLink]="['/tracking/', element.key]" routerLinkActive="router-link-active" >Revisar</a> </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+</div>
