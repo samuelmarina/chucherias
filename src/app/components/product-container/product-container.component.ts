@@ -21,7 +21,6 @@ export class ProductContainerComponent implements OnInit {
   
   user;
   userQuantity: number = 0;
-
   title: string;
 
   constructor( private authService: AuthService,

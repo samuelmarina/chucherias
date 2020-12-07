@@ -18,7 +18,8 @@ export class OrderService {
 
   create(order){
     let key = this.db.list("/users/" + this.user.uid + "/orders").push({order}).key;
-    return this.db.list("/orders").set(key, {order});
+    this.db.list("/orders").set(key, {order});
+    return key;
   }
 
   getAll() {

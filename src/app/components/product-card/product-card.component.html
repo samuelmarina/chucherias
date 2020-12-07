@@ -16,8 +16,7 @@
     <div *ngIf="showActions" class="card-footer">
 
             
-        <button *ngIf="quantity === 0; else updateQuantity" (click)="addToBag(product)" class="btn btn-block">Add to
-            Bag</button>
+        <button *ngIf="quantity === 0; else updateQuantity" (click)="addToBag(product)" class="btn btn-block">Añadir a Bolsa</button>
         <ng-template #updateQuantity>
             <div class="row no-gutters">
                 <div class="col-3">

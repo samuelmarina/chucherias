@@ -1,0 +1,77 @@
+<form #form="ngForm" (ngSubmit)="save(form.value)">
+    <div class="container">
+        <div *ngIf="data.photo!=''" class="box-photo">
+            <img class="photoURL" src='{{data.photo}}'>
+        </div>
+        <div *ngIf="data.photo==''" class="box-photo">
+            <img class="photoURL" src='../../../assets/logoUsuario.png'>
+        </div>
+        <div class="box-mat-icon">
+            
+            <label class="disabled" for="role"><span class="material-icons">
+                supervised_user_circle
+            </span>
+            {{data.role}}
+        </label>
+        </div>
+        <div class="form-row justify-content-start">
+            <div class="col-md-12">
+                
+                <div>
+                    <br>
+                    <div class="form-inline">
+                        <!-- <div>
+                            <label for="name">Nombre Completo *</label>
+                        </div> -->
+                        <div class="box-mat-icon">
+                            <span class="material-icons">
+                                person  
+                            </span>
+                        </div>
+                        <input #name="ngModel" [(ngModel)]="data.nombre" name="name" id="name" type="text" class="form-control col-md-8"
+                            placeholder="Nombre" value="{{data.nombre}}" required>
+                            
+                        <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+                            El nombre es obligatorio
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-inline">
+                        <div class="box-mat-icon">
+                            <span class="material-icons">
+                                person  
+                            </span>
+                        </div>
+                        <input #addressing="ngModel" [(ngModel)]="data.apellido" name="addressing" type="text" class="form-control col-md-8"
+                            placeholder="Apellido" value="{{data.apellido}}" required>
+                        <div class="alert alert-danger" *ngIf="addressing.touched && addressing.invalid">
+                            El apellido es obligatorio
+                        </div>
+
+                    </div>
+                    <br>
+                
+                    
+                    <div  class="form-inline">
+                        <div class="box-mat-icon">
+                            <span class="material-icons">
+                                link
+                            </span>
+                        </div>
+                        <input #name="ngModel" [(ngModel)]="data.photo" name="photo" id="photo" type="text" class="form-control col-md-8"
+                            placeholder="Link" value="{{data.photo}}" >
+                        
+                        <button  type="button" id ="btn-imgGmail" class="btn btn-primary" (click)="imagenGmail()">Usar imagen de Gmail</button>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-btn">
+        <div class="btn-box">
+            <button id="btn-save" type="submit" class="btn">Guardar Cambios</button>
+        </div>
+    </div>
+</form>

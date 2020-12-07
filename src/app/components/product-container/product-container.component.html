@@ -12,7 +12,7 @@
         <hr>
         <div class="container">
         <p class="">Disponibilidad:</p>
-        <p class="available">{{product.quantity}}5000g por ahora</p>
+        <p class="available">{{product.quantity}}g</p>
         
         </div>
         <div  class="product-buttom">
@@ -44,5 +44,17 @@
             <a *ngIf="isLiked" (click)="like(product)"><mat-icon aria-hidden="false">star</mat-icon>Añadir a Wishlist</a>
             
         </div>
-    
+    </div>
+</div>
+    <div>
+        <hr>
+        <div class="description">
+            <div class="description-title">
+                Descripción
+            </div>
+            <div class="description-text">
+                {{product.description}}
+            </div>
+        </div>
+    </div>
 

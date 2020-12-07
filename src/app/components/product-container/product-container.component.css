@@ -30,8 +30,8 @@
   }
   hr {
     width: 80%; 
-    background-color: #ff9393db;
-    height: 2px;
+  border: 2px solid ;
+  border-radius: 10px;
   }
   
   button {
@@ -125,7 +125,39 @@
      display: flex;
      align-items: center;
  }
+ .description-title{
+    width: 30%;
+    font-size: xx-large;
+    color: #ff9393;
+    font-weight: bolder;
+    text-align: center;
+}
+.description-text{
+    width: 70%;
+    font-size: medium;
+    text-align: start;
+    font-weight: bold;
+}
+ .description{
+     display: flex;
+     margin: 40px;
+ }
  @media (min-width: 426px) and (max-width: 768px){
+    .description-title{
+        width: 100%;
+        font-size: x-large;
+        margin-bottom: 20px;
+
+    }
+    .description-text{
+        width: 100%;
+        font-size: medium;
+        text-align: center;
+    }
+     .description{
+         flex-direction: column;
+         margin: 25px;
+     }
      .title-text{
          font-size: 30px;
          margin: auto;
@@ -159,6 +191,21 @@
     }
  }
  @media (max-width: 425px){
+    .description-title{
+        width: 100%;
+        font-size: larger;
+        margin-bottom: 20px;
+
+    }
+    .description-text{
+        width: 100%;
+        font-size: small;
+        text-align: center;
+    }
+     .description{
+         flex-direction: column;
+         margin: 25px;
+     }
     .image-block{
         width: 50%;
     }

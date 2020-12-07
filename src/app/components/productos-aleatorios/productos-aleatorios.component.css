@@ -1,5 +1,17 @@
-
-
+.box{
+    margin-top: 40px;
+}
+.col.box-aleatory-products{
+    background-image: url(https://i.gifer.com/2yqT.gif);
+}
+p{
+    font-size: xx-large;
+    font-weight: bold;
+    color: #ff437b;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 45px;
+}
 @media (min-width: 768px){
 
     .box{
@@ -16,6 +28,7 @@
         margin-right:auto;
         
     }
+    
 
 }
 
@@ -36,6 +49,10 @@
         margin-right:auto;
         
     }
+    p{
+        font-size: x-large;
+        margin-bottom: 40px;
+    }
 
 }
 
@@ -54,6 +71,10 @@
         margin-left:auto;
         margin-right:auto;
     
+}
+p{
+    font-size: x-large;
+    margin-bottom: 40px;
 }
 
 }

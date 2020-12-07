@@ -32,7 +32,7 @@ export class TrackingFormComponent implements OnInit {
     private auth: AuthService) {
     this.auth.user$.subscribe(async user => {
       this.user = user;
-      await this.UserS.getAllOrders(user).snapshotChanges().subscribe(async c=>{
+      await this.UserS.getAllOrdersUser(user).snapshotChanges().subscribe(async c=>{
         // console.log(c[0].payload.val())
         // this.orders.push(c);
         await c.forEach(async order=>{

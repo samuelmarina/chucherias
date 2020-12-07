@@ -27,6 +27,7 @@ import { OrderFormComponent } from './screens/admin/order-form/order-form.compon
 import { ListaProductosComponent } from './screens/lista-productos/lista-productos.component';
 import { CategoryService } from './services/category/category.service';
 import { ProductService } from './services/product/product.service';
+import { NgxPayPalModule } from 'ngx-paypal'
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CategoryMenuComponent } from "./components/category-menu/category-menu.component";
@@ -78,6 +79,9 @@ import { RetirosFormComponent } from './screens/admin/retiros-form/retiros-form.
 import { CustomerTrackingListComponent } from './customer-tracking-list/customer-tracking-list.component';
 import { TrackingFormComponent } from './components/tracking-form/tracking-form.component';
 
+import {UserProfileFormComponent} from './components/user-profile-form/user-profile-form.component';
+import { UserProfileComponent } from './screens/user-profile/user-profile.component';
+import { PaypalButtonsComponent } from './components/paypal-buttons/paypal-buttons.component';
 
 @NgModule({
   declarations: [
@@ -128,7 +132,10 @@ import { TrackingFormComponent } from './components/tracking-form/tracking-form.
     AdminRetirosComponent,
     RetirosFormComponent,
     CustomerTrackingListComponent,
-    TrackingFormComponent
+    TrackingFormComponent,
+    UserProfileFormComponent,
+    UserProfileComponent,
+    PaypalButtonsComponent,
   ],
   imports: [
     BrowserModule,
@@ -139,7 +146,7 @@ import { TrackingFormComponent } from './components/tracking-form/tracking-form.
     MatTableModule,
     MatPaginatorModule,
     MatIconModule,
-     
+    NgxPayPalModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot([
@@ -178,6 +185,10 @@ import { TrackingFormComponent } from './components/tracking-form/tracking-form.
       {
         path: 'check-out',
         component: CheckOutComponent
+      },
+      {
+        path: 'order-success/:id',
+        component: OrderSuccessComponent
       },
       {
         path: 'order-success',
@@ -250,6 +261,10 @@ import { TrackingFormComponent } from './components/tracking-form/tracking-form.
       {
         path: 'admin/retiros',
         component: AdminRetirosComponent
+      },
+      {
+        path: 'user-profile',
+        component: UserProfileComponent
       },
     ]),
     BrowserAnimationsModule

@@ -36,6 +36,7 @@ export class CarritoComponent implements OnInit {
         })
 
         this.cartService.getCart(this.user).valueChanges().subscribe(cart => {
+          this.totalPrice = 0;
           if(!cart) return;
           let allBags = [];
           for(let bagId in cart.bags){

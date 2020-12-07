@@ -37,6 +37,18 @@ a{
   max-width: 100%;
   padding: 0;
 }
+.carouseles{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.carousel-one{
+  width: 40%;
+}
+.carousel-two{
+  width: 40%;
+}
 
 @media (min-width: 1000px) {
   .titulo {

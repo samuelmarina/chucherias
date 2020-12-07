@@ -20,4 +20,7 @@ hr{
         80%  {border-color: #FFADAD;}
         100% {border-color: #FFC6FF;;}
     }
+div{
+    font-family: "Mukta", sans-serif;
+}
     
