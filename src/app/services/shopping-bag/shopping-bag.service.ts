@@ -119,7 +119,8 @@ export class ShoppingBagService {
     return product.quantity > 0;
   }
   async addToBag(product: Producto, user: firebase.User) {
-    let flag:boolean;
+    
+
     try {
       await this.createOrUpdateBag(user, "add");
       let price = this.getPrice(product);
@@ -136,6 +137,18 @@ export class ShoppingBagService {
           //ACTUALIZAR TODO
           // product.quantity -= await 50;
           // this.db.object("/products/" + product.key).update(product);
+
+          //ACTUALIZAR TODO 2
+          // product.quantity -= await 50;
+          // let prod = this.db.object("/products/" + product.key);
+          // prod.valueChanges().pipe(take(1))
+          //   .subscribe(x => {
+          //     prod.update({
+          //       quantity: x['quantity'] - 50
+          //     }).then(() => { return true })
+          //   });
+          
+
 
           this.db.object("/users/" + user.uid + "/shopping-bags/items/" + price + "/bags/" + bagKey + "/products/" +
             product.key)
@@ -155,18 +168,17 @@ export class ShoppingBagService {
               }).then(() => { return true })
             })
 
-          // await this.db.object("/products/" + product.key).snapshotChanges().subscribe(async c => {
-          //   // console.log(c.payload.val()['quantity']) IMPORTANTE
-          //   // if (c.payload.val()['quantity']=='quantity'){
-          //   // console.log('cantidad==>',c.payload.val())
-          //   // }
-          // });
+          await this.db.object("/products/" + product.key).snapshotChanges().subscribe(async c => {
+            // console.log(c.payload.val()['quantity']) IMPORTANTE
+            // if (c.payload.val()['quantity']=='quantity'){
+            // console.log('cantidad==>',c.payload.val())
+            // }
+          });
 
           
           //ACTUALIZAR PRODUCTO
-          product.quantity -= await 50;
-          await this.db.object("/products/" + product.key).update(product);
-
+          // product.quantity -= await 50;
+          // await this.db.object("/products/" + product.key).update(product);
 
           if (await this.isProductAdded(ref)) {
             ref.update({
@@ -218,8 +230,8 @@ export class ShoppingBagService {
                   deleteOnce++; 
                   
                   //ACTUALIZAR PRODUCTO 
-                  product.quantity+=await 50; 
-                  await this.db.object("/products/" + product.key).update(product); 
+                  // product.quantity+=await 50; 
+                  // await this.db.object("/products/" + product.key).update(product); 
 
 
                   let productoQty = await item[0].payload.val()['products'][product.key]['quantity']; 
