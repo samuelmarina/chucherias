@@ -1,0 +1,126 @@
+<app-regresar-a-tienda></app-regresar-a-tienda>
+
+
+<div class="margin">
+    <div class="box">
+        <div class="box-icon">
+            <span class="person-icon material-icons">
+                list_alt
+            </span>
+        </div>
+        <div class="">
+            <div class="text-1">
+
+                <p id="t1">
+                    ESTADO DE TU CHUCHERICOMPRA:
+                </p>
+                <p id='t0'>
+                    {{order.status | uppercase}}
+                </p>
+
+            </div>
+
+            <div class="text-2">
+                <p id="t2">
+
+                    Estimado Chuchericliente, si tu Chucheriorden ha sido cancelada <br>
+                    por favor, comuniquese a la brevedad con nuestros proveedores, <br>
+                    Gracias por su tiempo!
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="resumen">
+        <p class="resumen-title">Resumen de compra</p>
+    </div>
+
+    <div class="fondo-img-factura page container box-factura">
+        <div class="box-logo">
+            <span>
+                <img id="logo" src="../../../assets/logo.jpg" alt="chucherilogo">
+                <!-- <span class="title">Chucherilandia</span> -->
+
+            </span>
+
+        </div>
+
+        <div class="box-title">
+            <!-- <span class="h"> -->
+            <h1 id='title'>Chucherilandia</h1>
+            <!-- </span> -->
+        </div>
+
+        <div class="box-datos">
+            <p>
+                <strong>Caracas, Miranda</strong>
+            </p>
+            <p>
+                <strong> 1162, Caracas</strong>
+            </p>
+        </div>
+
+
+
+        <div class="container" id="title-factura">
+            <h3><strong>Chucherifactura</strong></h3>
+        </div>
+        <p><strong>Fecha: {{order.date}}</strong></p>
+        <p><strong>Factura ID:</strong> {{orderID}}</p>
+        <p><strong>Titular:</strong> {{order.userName}}</p>
+
+        <div
+            class=" container table-box table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl">
+            <table class="table table-borderless table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Producto</th>
+                        <th scope="col">precio</th>
+                        <th scope="col">cantidad (gr)</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let item of order.pedido;let i = index">
+                    <tr>
+                        <!-- <th scope="row">{{i+1}}</th> -->
+                        <th scope="row">{{item.quantity/50}}</th>
+                        <td>{{item.title}}</td>
+                        <td>{{item.price}}</td>
+                        <td>{{item.quantity}}</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+            <hr>
+            <table class="table table-borderless table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Total N° Productos</th>
+                        <th scope="col">Total a Pagar</th>
+                        
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">{{nPedidos/50}}</th>
+                        <td>${{order.totalPayment}}</td>
+                        
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <p><strong> Metodo de pago:</strong> {{order.paymentMethod}}</p>
+            <p><strong>Retiro del producto:</strong> {{order.retiro}}</p>
+            <p><strong>Estado de la compra:</strong> {{order.status}}</p> 
+        </div>
+
+
+    </div>
+
+</div>

@@ -21,7 +21,24 @@ export class UserService {
       name: user.displayName,
       email: user.email
     });
+
+    
   };
+
+
+  getOrderByID(user:firebase.User,orderID:string){
+    return this.db.list("/users/" + user.uid + "/orders/"+orderID);
+  }
+  getOrderByID2(user: firebase.User, orderID: string) {
+    return this.db.list("/users/" + user.uid + "/orders/" + orderID+'/order');
+  }
+  getAllOrdersUser(user:firebase.User) {
+    return this.db.list("/users/" + user.uid+ "/orders");
+  }
+  getNPedidosInOrder(user: firebase.User, orderID: string) {
+    return this.db.list("/users/" + user.uid + "/orders/" + orderID + '/order/pedido');
+
+  }
 
   getAllOrders(user){
 

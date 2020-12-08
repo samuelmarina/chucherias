@@ -76,9 +76,13 @@ import { CartCheckoutComponent } from './components/cart-checkout/cart-checkout.
 import { AdminRetirosComponent } from './screens/admin/admin-retiros/admin-retiros.component';
 import { RetiroService } from './services/retiro/retiro.service';
 import { RetirosFormComponent } from './screens/admin/retiros-form/retiros-form.component';
+import { CustomerTrackingListComponent } from './customer-tracking-list/customer-tracking-list.component';
+import { TrackingFormComponent } from './components/tracking-form/tracking-form.component';
+
 import {UserProfileFormComponent} from './components/user-profile-form/user-profile-form.component';
 import { UserProfileComponent } from './screens/user-profile/user-profile.component';
 import { PaypalButtonsComponent } from './components/paypal-buttons/paypal-buttons.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -127,6 +131,8 @@ import { PaypalButtonsComponent } from './components/paypal-buttons/paypal-butto
     CartCheckoutComponent,
     AdminRetirosComponent,
     RetirosFormComponent,
+    CustomerTrackingListComponent,
+    TrackingFormComponent,
     UserProfileFormComponent,
     UserProfileComponent,
     PaypalButtonsComponent,
@@ -199,6 +205,10 @@ import { PaypalButtonsComponent } from './components/paypal-buttons/paypal-butto
       {
         path: 'admin/productos/nuevo',
         component: ProductFormComponent
+      },
+      {
+        path: 'tracking/:key',
+        component: CustomerTrackingListComponent
       },
       {
         path: 'admin/productos/:id',
