@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../screens/lista-productos/lista-productos.component';
-import { AuthService } from '../services/auth/auth.service';
-import { ProductService } from '../services/product/product.service';
-import { UserService } from '../services/user/user.service';
+import { Product } from '../lista-productos/lista-productos.component';
+import { AuthService } from '../../services/auth/auth.service';
+import { ProductService } from '../../services/product/product.service';
+import { UserService } from '../../services/user/user.service';
 import { Input } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { ActivatedRoute, Router } from '@angular/router';
