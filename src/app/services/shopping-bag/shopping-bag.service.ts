@@ -119,6 +119,7 @@ export class ShoppingBagService {
     return product.quantity > 0;
   }
   async addToBag(product: Producto, user: firebase.User) {
+    let flag:boolean;
     try {
       await this.createOrUpdateBag(user, "add");
       let price = this.getPrice(product);
@@ -154,17 +155,18 @@ export class ShoppingBagService {
               }).then(() => { return true })
             })
 
-          await this.db.object("/products/" + product.key).snapshotChanges().subscribe(async c => {
-            // console.log(c.payload.val()['quantity']) IMPORTANTE
-            // if (c.payload.val()['quantity']=='quantity'){
-            // console.log('cantidad==>',c.payload.val())
-            // }
-          });
+          // await this.db.object("/products/" + product.key).snapshotChanges().subscribe(async c => {
+          //   // console.log(c.payload.val()['quantity']) IMPORTANTE
+          //   // if (c.payload.val()['quantity']=='quantity'){
+          //   // console.log('cantidad==>',c.payload.val())
+          //   // }
+          // });
 
           
           //ACTUALIZAR PRODUCTO
-          // product.quantity -= await 50;
-          // await this.db.object("/products/" + product.key).update(product);
+          product.quantity -= await 50;
+          await this.db.object("/products/" + product.key).update(product);
+
 
           if (await this.isProductAdded(ref)) {
             ref.update({
@@ -216,8 +218,8 @@ export class ShoppingBagService {
                   deleteOnce++; 
                   
                   //ACTUALIZAR PRODUCTO 
-                  // product.quantity+=await 50; 
-                  // await this.db.object("/products/" + product.key).update(product); 
+                  product.quantity+=await 50; 
+                  await this.db.object("/products/" + product.key).update(product); 
 
 
                   let productoQty = await item[0].payload.val()['products'][product.key]['quantity']; 

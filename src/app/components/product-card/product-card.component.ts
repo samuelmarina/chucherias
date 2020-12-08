@@ -19,7 +19,7 @@ export class ProductCardComponent implements OnInit {
   AvailableForMore;
   AvailableForLess;
   comprar: boolean = false;
-  contador = timer(1000);
+  // contador = timer(1000);
   constructor(
     private authService: AuthService,
     private bagService: ShoppingBagService,
