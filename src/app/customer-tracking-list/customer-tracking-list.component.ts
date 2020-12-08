@@ -17,7 +17,7 @@ export class CustomerTrackingListComponent implements OnInit {
               private UserS:UserService
   ) {
     this.orderID = window.location.href.split('/')[window.location.href.split('/').length-1];
-    console.log(this.orderID);
+    // console.log(this.orderID);
     
     this.auth.user$.subscribe(async user => {
       this.user = user;
