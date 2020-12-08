@@ -19,7 +19,16 @@ export class CustomerTrackingListComponent implements OnInit {
   orderID;
   user;
   orders=[];
-  order={};
+  order={
+    date:'',
+    paymentMethod: "",
+    pedido: [],
+    retiro: "",
+    status: "",
+    totalPayment: 0,
+    userId: "",
+    userName:''
+  };
   
 
 
