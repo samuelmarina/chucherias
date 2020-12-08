@@ -58,7 +58,7 @@ export class CustomerTrackingListComponent implements OnInit {
               ) {
                 
     this.orderID = window.location.href.split('/')[window.location.href.split('/').length-1];
-    console.log(this.orderID);
+    // console.log(this.orderID);
     
     this.auth.user$.subscribe(async user => {
       this.user = user;
@@ -76,7 +76,7 @@ export class CustomerTrackingListComponent implements OnInit {
         })
       });
       
-      console.log(this.nPedidos/50);
+      // console.log(this.nPedidos/50);
       // this.UserS.getNPedidosInOrder(user, this.orderID).snapshotChanges().subscribe(c=>{
       //   // console.log(c.length);
       //   this.nPedidos=c.length;
