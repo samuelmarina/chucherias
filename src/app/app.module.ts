@@ -83,6 +83,9 @@ import {UserProfileFormComponent} from './components/user-profile-form/user-prof
 import { UserProfileComponent } from './screens/user-profile/user-profile.component';
 import { PaypalButtonsComponent } from './components/paypal-buttons/paypal-buttons.component';
 
+import {AuthGuard} from './services/guards/auth.guard';
+import {AuthAdminGuard} from './services/guards/auth-admin.guard';
+import {AuthSharedGuard} from './services/guards/auth-shared.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -156,19 +159,23 @@ import { PaypalButtonsComponent } from './components/paypal-buttons/paypal-butto
       },
       {
         path: 'bolsa',
-        component: BolsaComponent
+        component: BolsaComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'carrito',
-        component: CarritoComponent
+        component: CarritoComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: 'wishlist',
-        component: WishListComponent
+        component: WishListComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'tracking',
-        component: TrackingComponent
+        component: TrackingComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'about',
@@ -180,19 +187,23 @@ import { PaypalButtonsComponent } from './components/paypal-buttons/paypal-butto
       },
       {
         path: 'check-out/:id',
-        component: CheckOutComponent
+        component: CheckOutComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'check-out',
-        component: CheckOutComponent
+        component: CheckOutComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'order-success/:id',
-        component: OrderSuccessComponent
+        component: OrderSuccessComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'order-success',
-        component: OrderSuccessComponent
+        component: OrderSuccessComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'producto/:productid',
@@ -204,67 +215,83 @@ import { PaypalButtonsComponent } from './components/paypal-buttons/paypal-butto
       },
       {
         path: 'admin/productos/nuevo',
-        component: ProductFormComponent
+        component: ProductFormComponent,
+        canActivate: [AuthAdminGuard]
       },
       {
         path: 'tracking/:key',
-        component: CustomerTrackingListComponent
+        component: CustomerTrackingListComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/productos/:id',
-        component: ProductFormComponent
+        component: ProductFormComponent,
+        canActivate: [AuthAdminGuard]
       },
       {
         path: 'admin/productos',
-        component: AdminProductosComponent
+        component: AdminProductosComponent,
+        canActivate: [AuthAdminGuard]
       },
       {
         path: 'admin/ordenes/:id',
-        component: OrderFormComponent
+        component: OrderFormComponent,
+        canActivate: [AuthAdminGuard]
       },
       {
         path: 'admin/ordenes',
-        component: AdminOrdenesComponent
+        component: AdminOrdenesComponent,
+        canActivate: [AuthAdminGuard]
       },
       {
         path: 'admin/categories/nuevo',
-        component: CategoryFormComponent
+        component: CategoryFormComponent,
+        canActivate: [AuthAdminGuard]
       },
       {
         path: 'admin/categories/:id',
-        component: CategoryFormComponent
+        component: CategoryFormComponent,
+        canActivate: [AuthAdminGuard]
       },
       {
         path: 'admin/categories',
-        component: AdminCategoriesComponent
+        component: AdminCategoriesComponent,
+        canActivate: [AuthAdminGuard]
       },
       {
         path: 'admin/payments/nuevo',
-        component: PaymentFormComponent
+        component: PaymentFormComponent,
+        canActivate: [AuthAdminGuard]
       },
       {
         path: 'admin/payments/:id',
-        component: PaymentFormComponent
+        component: PaymentFormComponent,
+        canActivate: [AuthAdminGuard]
       },
       {
         path: 'admin/payments',
-        component: AdminPaymentsComponent
+        component: AdminPaymentsComponent,
+        canActivate: [AuthAdminGuard]
       },
       {
         path: 'admin/retiros/nuevo',
-        component: RetirosFormComponent
+        component: RetirosFormComponent,
+        canActivate: [AuthAdminGuard]
       },
       {
         path: 'admin/retiros/:id',
-        component: RetirosFormComponent
+        component: RetirosFormComponent,
+        canActivate: [AuthAdminGuard]
       },
       {
         path: 'admin/retiros',
-        component: AdminRetirosComponent
+        component: AdminRetirosComponent,
+        canActivate: [AuthAdminGuard]
       },
       {
         path: 'user-profile',
-        component: UserProfileComponent
+        component: UserProfileComponent,
+        canActivate: [AuthSharedGuard]           
       },
     ]),
     BrowserAnimationsModule
