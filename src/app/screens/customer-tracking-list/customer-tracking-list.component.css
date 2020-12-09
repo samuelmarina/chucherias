@@ -105,7 +105,7 @@
 }
 
 .fondo-img-factura{
-    background-image: url('../../assets/cookie-transparent.png') ;
+    background-image: url('../../../assets/cookie-transparent.png') ;
     /* opacity:0.3; */
     background-repeat: no-repeat;
     background-color: rgba(255, 255, 255, 0.829);
