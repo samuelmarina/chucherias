@@ -6,4 +6,10 @@
     transform:rotate(43deg);
     /* margin-left: -100px; */
 }
-
+@media (max-width: 992px) {
+    #logo{
+        height:40px;
+        width:40px;
+        margin-right: 5px;
+  }
+  }
