@@ -16,6 +16,7 @@ import { WishListService } from 'src/app/services/WishList/wish-list.service';
 })
 export class ProductContainerComponent implements OnInit {
   @Input ('product') product;
+  @Input ('showActions') showActions;
   isLiked: boolean;
   
   

@@ -14,8 +14,9 @@
         <p class="">Disponibilidad:</p>
         <p class="available">{{product.quantity}}g</p>
         
+
         </div>
-        <div  class="product-buttom">
+        <div  *ngIf="showActions" class="product-buttom">
 
             
             <button *ngIf="userQuantity === 0; else updateQuantity" (click)="addToBag(product)" class="btn btn-block">Agregar a Bolsa</button>
@@ -39,7 +40,7 @@
                 </div>
             </ng-template>
         </div>
-        <div class="like-buttom">
+        <div *ngIf="showActions" class="like-buttom">
             <a *ngIf="!isLiked" (click)="like(product)"><mat-icon aria-hidden="false">star_outline</mat-icon> Añadir a Wishlist</a>
             <a *ngIf="isLiked" (click)="like(product)"><mat-icon aria-hidden="false">star</mat-icon>Añadir a Wishlist</a>
             

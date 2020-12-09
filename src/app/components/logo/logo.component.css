@@ -1,7 +1,9 @@
 #logo{
     height:60px;
-    width:70px;
+    width:60px;
     margin-top: -35%;
+    margin-right: 10px;
+    transform:rotate(43deg);
     /* margin-left: -100px; */
 }
 
