@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { ShoppingBagService } from 'src/app/services/shopping-bag/shopping-bag.service';
 import {WishListService} from 'src/app/services/WishList/wish-list.service';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { ProductService } from 'src/app/services/product/product.service';
 @Component({
   selector: 'product-card',
   templateUrl: './product-card.component.html',
@@ -14,11 +15,13 @@ export class ProductCardComponent implements OnInit {
   user;
   isLiked: boolean;
   quantity = 0;
+  blockAddBtn = false;
 
   constructor(
     private authService: AuthService,
     private bagService: ShoppingBagService,
     private wLService: WishListService,
+    private productService: ProductService
   ) { 
     authService.user$.subscribe(async user => {
       if(user){
@@ -41,14 +44,18 @@ export class ProductCardComponent implements OnInit {
 
  
 
-  addToBag(product){
+  async addToBag(product){
     this.bagService.addToBag(product, this.user);
     this.quantity += 50;
+    let canAddMore = await this.productService.updateQuantity(product, "add");
+    if(!canAddMore) this.blockAddBtn = true;
   }
 
   removeFromBag(product){
     this.bagService.removeFromBag(product, this.user);
     this.quantity -= 50;
+    this.productService.updateQuantity(product, "remove");
+    this.blockAddBtn = false;
   }
 
   addToWL(product) {
