@@ -4,9 +4,10 @@
 
 #titulo {
   font-size: 30px;
+  font-weight: 600;
   line-height: 30px;
   margin-top: 10px;
-  color: black;
+  color: rgba(65, 65, 65, 1);
   margin-left: -10%;
 }
 
