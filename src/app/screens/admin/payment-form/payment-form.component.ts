@@ -33,6 +33,7 @@ export class PaymentFormComponent {
   }
 
   save(form) {
+    if(form.name === "") return alert("Error: tiene que introducir un nombre al método de pago");
     if(this.id){
       this.paymentService.update(this.id, form);
     }
