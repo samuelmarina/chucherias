@@ -69,3 +69,19 @@ a{
     line-height: 20px;
   }
 }
+@media (max-width: 425px) {
+  .carouseles{
+    flex-direction: column;
+    align-items: center
+  }
+  .carousel-one{
+    margin-bottom: 10px;
+    width: 80%;
+    height: auto;
+  }
+  .carousel-two{
+    margin-bottom: 10px;
+    width: 80%;
+    height: auto;
+  }
+}
