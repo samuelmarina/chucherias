@@ -18,7 +18,7 @@ export class ProductContainerComponent implements OnInit {
   @Input ('product') product;
   @Input ('showActions') showActions;
   isLiked: boolean;
-  
+  blockAddBtn = false;
   
   user;
   userQuantity: number = 0;
@@ -26,6 +26,7 @@ export class ProductContainerComponent implements OnInit {
 
   constructor( private authService: AuthService,
     private bagService: ShoppingBagService,
+    private productService: ProductService,
     private wLService: WishListService ) {
       
 
@@ -44,14 +45,19 @@ export class ProductContainerComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  addToBag(product){
+
+  async addToBag(product){
     this.bagService.addToBag(product, this.user);
     this.userQuantity += 50;
+    let canAddMore = await this.productService.updateQuantity(product, "add");
+    if(!canAddMore) this.blockAddBtn = true;
   }
 
   removeFromBag(product){
     this.bagService.removeFromBag(product, this.user);
     this.userQuantity -= 50;
+    this.productService.updateQuantity(product, "remove");
+    this.blockAddBtn = false;
   }
   addToWL(product) {
     this.wLService.addToWL(product, this.user);
