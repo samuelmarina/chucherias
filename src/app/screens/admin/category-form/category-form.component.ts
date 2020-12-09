@@ -36,6 +36,7 @@ export class CategoryFormComponent implements OnInit {
   }
 
   save(form){
+    if(form.name === "") return alert("Error: tiene que introducir un nombre a la categoría");
     if(this.id){
       this.categoryService.update(this.id, form);
     }
