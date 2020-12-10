@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AuthService } from '../auth/auth.service';
+import firebase from "firebase/app"
 
 @Injectable({
   providedIn: 'root'
@@ -30,8 +31,17 @@ export class OrderService {
     return this.db.object("/orders/" + orderId);
   }
 
-  update(orderId, order) {
-    this.db.object("/users/" + this.user.uid + "/orders/" + orderId + "/order").update(order);
+  async update(orderId, order) {
+    let userId = await this.getOrderOwner(orderId);
+    this.db.object("/users/" + userId + "/orders/" + orderId + "/order").update(order);
     return this.db.object("/orders/" + orderId + "/order").update(order);
+  }
+
+  async getOrderOwner(orderId) {
+    let userId;
+    await firebase.database().ref("/orders/" + orderId + "/order/userId").once("value").then(res => {
+      userId = res.val();
+    });
+    return userId;
   }
 }
