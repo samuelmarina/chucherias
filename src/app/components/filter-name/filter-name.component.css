@@ -1,58 +1,61 @@
 .sticky-top {
   top: 20px;
 }
-.list-group-item{
+.list-group-item {
   border-radius: 0 10px 10px 0px;
   border-color: #ffadad;
-  background-image: -webkit-linear-gradient(45deg, #ff437b 50%, transparent 50%);
+  background-image: -webkit-linear-gradient(
+    45deg,
+    #ff437b 50%,
+    transparent 50%
+  );
   background-image: linear-gradient(45deg, #ff437b 50%, transparent 50%);
   background-position: 100%;
   background-size: 400%;
   -webkit-transition: background 200ms ease-in-out;
   transition: background 200ms ease-in-out;
-  
 }
-.list-group-item:hover{
+.list-group-item:hover {
   background-position: 0;
   color: white;
 }
-.list-group{
-    display:inline-flex;
-    width: 100%;
+.list-group {
+  display: inline-flex;
+  width: 100%;
 }
-#precio{
-    width: 20%;
-    margin-left: auto;
-    margin-right: auto;
+#precio {
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
 }
-#btn-search-name{
-    width: 45px;
-    display: inline-flex;
+#btn-search-name {
+  width: 45px;
+  display: inline-flex;
 }
-#icon-search{
-    font-size:20px;
-    margin-top:2%;
-    display: inline-flex;
-    height: 10px;
+#icon-search {
+  font-size: 20px;
+  margin-top: 2%;
+  display: inline-flex;
+  height: 10px;
 }
-#nav-search{
-    display:inline-flex;
-    width: 60%;
-    margin-bottom: 10%;
+#nav-search {
+  display: inline-flex;
+  width: 60%;
+  margin-bottom: 10%;
 }
-input{
-    height: 50px;
-    width: 100%;
-    /* display: inline-block; */
-    display: inline-flex;
+input {
+  height: 50px;
+  width: 100%;
+  /* display: inline-block; */
+  display: inline-flex;
 }
-.btn-primary{
-    background-color: #ff437b;
-    border-color: #ff437b;
-    border-color: black;
-    border-width: 2px;
+.btn-primary {
+  background-color: #ff437b;
+  border-color: #ff437b;
+  border-color: black;
+  border-width: 2px;
 }
-.active{
+.active {
   background-color: #ffadad;
   color: white;
   font-weight: 550;
@@ -62,40 +65,36 @@ input{
   width: 105%;
   font-size: 105%;
 }
-.active:hover{
+.active:hover {
   cursor: default;
   background-position: 100%;
 }
 
-    
-#nav-search{
-        display:inline-flex;
-        width: 90%;
-    }
-
-@media (max-width: 426px){
-    
-    #btn-search-name{
-    width: 20%;
-    display: inline-flex;
-    }
-    #nav-search{
-        display:inline-flex;
-        width: 120%;
-    }
-
-    .list-group{
-        /* background-color:red; */
-        margin-left: auto;
-        margin-right: auto;
-    }
-    #box{
-        width: 90%;
-        /* margin-left: 10%; */
-        /* background-color: red; */
-        margin-left: auto;
-        margin-right: auto;
-    }
-
+#nav-search {
+  display: inline-flex;
+  width: 90%;
 }
 
+@media (max-width: 426px) {
+  #btn-search-name {
+    width: 20%;
+    display: inline-flex;
+  }
+  #nav-search {
+    display: inline-flex;
+    width: 120%;
+  }
+
+  .list-group {
+    /* background-color:red; */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #box {
+    width: 90%;
+    /* margin-left: 10%; */
+    /* background-color: red; */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
