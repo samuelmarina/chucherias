@@ -89,6 +89,7 @@ import {AuthSharedGuard} from './services/guards/auth-shared.guard';
 import { FilterPriceComponent } from './components/filter-price/filter-price.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { FilterNameComponent } from './components/filter-name/filter-name.component';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -157,8 +158,10 @@ import { FilterNameComponent } from './components/filter-name/filter-name.compon
     MatIconModule,
     NgxPayPalModule,
     ReactiveFormsModule,
+    AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebase),
-    RouterModule.forRoot([
+    RouterModule.forRoot
+    ([
       {
         path: '',
         component: HomeComponent

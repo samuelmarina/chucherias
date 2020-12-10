@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { AngularFireStorage } from '@angular/fire/storage';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize, map, take } from 'rxjs/operators';
@@ -35,7 +35,7 @@ export class ProductFormComponent {
     private categoryService: CategoryService, 
     private route: ActivatedRoute,
     private productService: ProductService,
-    // private storage: AngularFireStorage
+    private storage: AngularFireStorage
     ) { 
     this.categories$ = categoryService.getCategories().snapshotChanges().pipe(
       map(changes => changes.map(c => ({key: c.payload.key, name: c.payload.val()})))
@@ -82,24 +82,24 @@ export class ProductFormComponent {
     }
   }
 
-  // handleImage(event:any):void{
-  //   this.image = event.target.files[0];
-  //   console.log('IMG: ', this.image);
-  //   this.filePath = `images/${this.image.name}`;
-  //   const fileRef = this.storage.ref(this.filePath);
-  //   const task = this.storage.upload(this.filePath, this.image);
+  handleImage(event:any):void{
+    this.image = event.target.files[0];
+    console.log('IMG: ', this.image);
+    this.filePath = `images/${this.image.name}`;
+    const fileRef = this.storage.ref(this.filePath);
+    const task = this.storage.upload(this.filePath, this.image);
     
-  //   task.snapshotChanges().pipe(
-  //     finalize(()=>{
-  //       fileRef.getDownloadURL().subscribe( urlImage =>{
-  //         this.downloadUrl = urlImage;
-  //         console.log('URL IMAGE: ', this.downloadUrl);
-  //         document.getElementById("imageUrl").innerHTML = this.downloadUrl
-  //       })
-  //     })
-  //   ).subscribe();
+    task.snapshotChanges().pipe(
+      finalize(()=>{
+        fileRef.getDownloadURL().subscribe( urlImage =>{
+          this.downloadUrl = urlImage;
+          console.log('URL IMAGE: ', this.downloadUrl);
+          document.getElementById("imageUrl").innerHTML = this.downloadUrl
+        })
+      })
+    ).subscribe();
     
       
-  // }
+  }
 
 }
