@@ -1,87 +1,76 @@
-.row{
-    width: 100%
+.row {
+  width: 100%;
 }
-p{
-    margin-top: 20px;
-    font-size: 45px;
-    margin-left: 10%;
-    font-weight: bolder;
-    height: 45px;
-    line-height: 40px;
-    margin-bottom: 45px;
+p {
+  margin-top: 20px;
+  font-size: 45px;
+  margin-left: 10%;
+  font-weight: bolder;
+  height: 45px;
+  line-height: 40px;
+  margin-bottom: 45px;
 }
-.category-text{
-    color: #ff437b ;
+.category-text {
+  color: #ff437b;
 }
-.row.row-items{
-    background-image: url(https://i.gifer.com/2yqT.gif);
+.row.row-items {
+  background-image: url(https://i.gifer.com/2yqT.gif);
 }
-@media (min-width: 768px){
-
-    .col-lg-la1{
-        height:70%;
-        width:70%; 
-        margin-left:auto;
-        margin-right:auto;
-        
-    }
-    .row-items{
-        padding-left: 10%;
-    }
-    p{
-        width: 40%;
-        margin-left: auto;
-        margin-right: auto;
-        font-size: 30px;
-    }
-
+@media (min-width: 768px) {
+  .col-lg-la1 {
+    height: 70%;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .row-items {
+    padding-left: 10%;
+  }
+  p {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 30px;
+  }
 }
 
-
-
-@media(min-width: 427px) and (max-width: 768px){
-
-    .col-md-la1{
-        height:70%;
-        width:85%; 
-        margin-left:auto;
-        margin-right:auto;
-        
-    }
-    .col-3{
-        min-width: 125px;
-    }
-    .col{
-        width: 100%;
-    }
-    p{
-        font-size: 20px;
-       } 
-
+@media (min-width: 427px) and (max-width: 768px) {
+  .col-md-la1 {
+    height: 70%;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .col-3 {
+    min-width: 125px;
+  }
+  .col {
+    width: 100%;
+  }
+  p {
+    font-size: 20px;
+  }
 }
 
-
-@media (max-width: 426px){
-    /* p{
+@media (max-width: 426px) {
+  /* p{
         font-size:14px;
     } */
-    .col-sm-la1{
-        height:70%;
-        width:100%; 
-        margin-left:auto;
-        margin-right:auto;
-    
-}
-.col{
+  .col-sm-la1 {
+    height: 70%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .col {
     width: 5;
     padding-left: 20%;
     padding-right: 0;
-}
-   p{
+  }
+  p {
     font-size: 25px;
     margin-left: 5%;
     text-align: center;
     line-height: 25px;
-   } 
-
+  }
 }
