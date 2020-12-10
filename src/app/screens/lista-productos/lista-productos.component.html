@@ -2,8 +2,28 @@
 <div class="background">
 
 <div class="row">
-    <div class="col-3">
+    <div class="col-6">
+        <p>Filtro por Categorias</p>
         <category-menu [category]="category"></category-menu>
+    </div>
+    <div class="col-6">
+        <p>Filtro por precios</p>
+        <!-- <div class="sticky-top">
+            <div class="list-group">
+                <a   class="list-group-item list-group-item-action" (click)='more()'>
+                    +
+                </a>
+                <a  class="list-group-item list-group-item-action">
+                    <input class="list-group-item list-group-item-action" type="number" value="{{quantity}}" name="filterByPrice" id="filterByPrice" for="filterByPrice">$
+                    
+                </a>
+                <a  class="list-group-item list-group-item-action" (click)='less()'>
+                    -
+                </a>
+                <a (click)="save()" class="list-group-item list-group-item-action">Buscar</a>
+            </div>
+        </div> -->
+        <app-filter-price [filteredProducts]="filteredProducts"></app-filter-price>
     </div>
     <div class="col">
         <p *ngIf="category; else allproducts" class="category-text">{{category}}</p>
