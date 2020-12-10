@@ -65,6 +65,9 @@ input {
   width: 105%;
   font-size: 105%;
 }
+.list-group-item-action{
+  min-width: 100px;
+}
 .active:hover {
   cursor: default;
   background-position: 100%;
