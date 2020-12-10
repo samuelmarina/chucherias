@@ -93,8 +93,7 @@ export class ProductFormComponent {
       finalize(()=>{
         fileRef.getDownloadURL().subscribe( urlImage =>{
           this.downloadUrl = urlImage;
-          console.log('URL IMAGE: ', this.downloadUrl);
-          document.getElementById("imageUrl").innerHTML = this.downloadUrl
+          this.product.imageUrl = this.downloadUrl;
         })
       })
     ).subscribe();
