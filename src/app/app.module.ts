@@ -86,7 +86,9 @@ import { PaypalButtonsComponent } from './components/paypal-buttons/paypal-butto
 import {AuthGuard} from './services/guards/auth.guard';
 import {AuthAdminGuard} from './services/guards/auth-admin.guard';
 import {AuthSharedGuard} from './services/guards/auth-shared.guard';
+import { FilterPriceComponent } from './components/filter-price/filter-price.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -140,6 +142,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     UserProfileFormComponent,
     UserProfileComponent,
     PaypalButtonsComponent,
+    FilterPriceComponent,
   ],
   imports: [
     BrowserModule,

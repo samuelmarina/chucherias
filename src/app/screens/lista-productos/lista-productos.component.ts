@@ -5,6 +5,7 @@ import { Producto } from 'src/app/schemas/producto';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProductService } from 'src/app/services/product/product.service';
 import { RoleService } from 'src/app/services/role/role.service';
+import {DOCUMENT} from '@angular/common';
 
 @Component({
   selector: 'app-lista-productos',
@@ -17,12 +18,13 @@ export class ListaProductosComponent implements OnInit {
   showActions: boolean;
   category: string;
   role:any;
+  quantity=0;  
+  price;
   
-
   constructor(
     private auth: AuthService,
     private roleService: RoleService,
-    route: ActivatedRoute,
+    private route: ActivatedRoute,
     private productService: ProductService) {
       auth.user$.subscribe(user => {
         this.roleService.getRole(user.uid).valueChanges().subscribe(role => {
@@ -58,10 +60,17 @@ export class ListaProductosComponent implements OnInit {
         this.products.filter(p => p['category'] === this.category) :
         this.products;
         console.log(this.filteredProducts);
-        
+
+        console.log(params.get('category'));
+        console.log(params.get('precio'));
+
+        this.price = params.get('precio');
+        this.filteredProducts = this.price ?
+          this.filteredProducts.filter(p => p['price'] === parseFloat(this.price)) :
+          this.filteredProducts;
+        console.log(this.filteredProducts);
       }
       )
-
     });
     
   }
@@ -71,9 +80,57 @@ export class ListaProductosComponent implements OnInit {
     
   }
   
-  
+  more(){
+    this.quantity+=1;
+  } 
+
+  less(){
+    if(this.quantity>0){
+      this.quantity-=1;
+    }
+  }
+
+
+  save(){
+    // let data=document.getElementById("filterByPrice").value;
+    this.products=[];
+    // console.log(data);
+    this.productService.getAll().snapshotChanges().pipe(
+      map(changes => changes.map(c => c))
+    )
+      .subscribe(c => {
+        c.map(k => {
+          if (k.payload.val()['quantity'] > 0) {
+            this.products.push({
+              key: k.key,
+              ...k.payload.val() as any
+            } as Producto)
+          }
+        })
+        this.route.queryParamMap.subscribe(params => {
+          this.category = params.get('category');
+          
+          this.filteredProducts = this.category ?
+            this.products.filter(p => p['category'] === this.category) :
+            this.products;
+
+          // this.filteredProducts = this.filteredProducts.filter(p => p['price'] === parseFloat(data));
+          console.log(this.filteredProducts);
+
+        }
+        )
+
+    // this.filteredProducts=this.filteredProducts.filter(p=>p['price']===parseInt(data));
+    
+  }
+
+
+)}
 
 }
+
+
+
 
   
 

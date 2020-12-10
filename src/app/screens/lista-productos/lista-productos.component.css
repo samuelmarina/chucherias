@@ -30,7 +30,7 @@ p{
 }
 
 
-@media(min-width: 426px) and (max-width: 768px){
+@media(min-width: 427px) and (max-width: 768px){
 
     .col-md-la1{
         height:70%;
@@ -52,8 +52,10 @@ p{
 }
 
 
-@media (max-width: 425px){
-    
+@media (max-width: 426px){
+    p{
+        font-size:14px;
+    }
     .col-sm-la1{
         height:70%;
         width:100%; 

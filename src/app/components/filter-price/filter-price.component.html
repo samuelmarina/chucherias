@@ -1,0 +1,15 @@
+
+<div class="sticky-top">
+    <div class="list-group">
+        <p class="list-group-item-action">Ingrese el precio del producto:</p>
+        <a class=" list-group-item-action">
+            <button class="btn btn-primary" (click)="more()">+</button>
+            <input [(ngModel)]="price" class="list-group-item-action" type="number" value="{{price}}"
+                name="filterByPrice" id="filterByPrice" for="filterByPrice">
+            <button class="btn btn-primary" (click)="less()">-</button>
+            <br>
+            <p id="precio">${{price}}</p>
+        </a>
+        <a  routerLink="/lista-productos/" [queryParams]="{precio: price}" class="list-group-item list-group-item-action">Buscar producto</a>
+    </div>
+</div>
