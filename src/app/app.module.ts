@@ -87,6 +87,8 @@ import {AuthGuard} from './services/guards/auth.guard';
 import {AuthAdminGuard} from './services/guards/auth-admin.guard';
 import {AuthSharedGuard} from './services/guards/auth-shared.guard';
 import { FilterPriceComponent } from './components/filter-price/filter-price.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -296,7 +298,8 @@ import { FilterPriceComponent } from './components/filter-price/filter-price.com
         canActivate: [AuthSharedGuard]           
       },
     ]),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     CategoryService,

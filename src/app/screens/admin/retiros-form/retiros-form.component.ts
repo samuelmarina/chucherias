@@ -36,6 +36,7 @@ export class RetirosFormComponent implements OnInit {
   }
 
   save(form){
+    if(form.name === "") return alert("Error: tiene que introducir un nombre al método de retiro");
     if(this.id){
       this.retiroService.update(this.id, form);
     }

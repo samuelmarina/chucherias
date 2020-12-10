@@ -45,6 +45,18 @@ export class ProductFormComponent {
   }
 
   save(product) {
+    for (let prod in product){
+      if(product[prod] === "") return alert("Error: verifique haber rellanado todos los campos");
+      switch (prod) {
+        case 'price':
+          if(product[prod] <= 0) return alert("Error: el precio no puede ser inferior a cero");
+          break;
+        case 'quantity':
+          if(product[prod] <= 0) return alert("Error: la cantidad no puede ser inferior a cero");
+        default:
+          break;
+      }
+    }
     if(this.id){
       this.productService.update(this.id, product);
     }

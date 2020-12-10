@@ -46,6 +46,26 @@ export class ProductService {
 
   }
 
+  async updateQuantity(product, type: string){
+    let amount = await this.isEnoughProduct(product);
+    if(type === 'remove'){
+      return firebase.database().ref("/products/" + product['key']).update({quantity: amount + 50});
+    }
+    firebase.database().ref("/products/" + product['key']).update({quantity: amount - 50});
+      
+    return amount === 50 ? false : true;
+  }
+
+  private async isEnoughProduct(product){
+    let amount;
+    let ref = firebase.database().ref("/products/" + product['key'] + "/quantity");
+    await ref.once("value").then(res => {
+      amount = res.val();
+    })
+
+    return amount;
+  }
+
   private async updateTotalQty(refTotalQty: firebase.database.Reference, qtyToRemove: number, userId: string, productKey: string){
     let totalQty;
     await refTotalQty.once("value").then(res => {

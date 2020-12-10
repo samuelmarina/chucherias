@@ -27,7 +27,7 @@
                     </div>
                     <div class="buttoms">
                         <div class="col-3">
-                            <button class="btn btn-block" id="qtyBtn" (click)="addToBag(product)">
+                            <button class="btn btn-block" id="qtyBtn" (click)="addToBag(product)" [disabled]="blockAddBtn">
                                 +
                             </button>
                         </div>
