@@ -10,6 +10,8 @@
             <br>
             <p id="precio">${{price}}</p>
         </a>
-        <a  routerLink="/lista-productos/" [queryParams]="{precio: price}" class="list-group-item list-group-item-action">Buscar producto</a>
+        <a *ngIf="price!='0'" routerLink="/lista-productos/" [queryParams]="{precio: price}" class="list-group-item list-group-item-action">Buscar producto</a>
+        <a *ngIf="price=='0'" routerLink="/lista-productos/" class="list-group-item list-group-item-action">Buscar
+            producto</a>
     </div>
 </div>
