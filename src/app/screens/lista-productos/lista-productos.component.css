@@ -7,6 +7,8 @@ p{
     margin-left: 10%;
     font-weight: bolder;
     height: 45px;
+    line-height: 40px;
+    margin-bottom: 45px;
 }
 .category-text{
     color: #ff437b ;
@@ -25,6 +27,12 @@ p{
     }
     .row-items{
         padding-left: 10%;
+    }
+    p{
+        width: 40%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 30px;
     }
 
 }
@@ -46,16 +54,16 @@ p{
         width: 100%;
     }
     p{
-        font-size: 30px;
+        font-size: 20px;
        } 
 
 }
 
 
 @media (max-width: 426px){
-    p{
+    /* p{
         font-size:14px;
-    }
+    } */
     .col-sm-la1{
         height:70%;
         width:100%; 
@@ -72,6 +80,7 @@ p{
     font-size: 25px;
     margin-left: 5%;
     text-align: center;
+    line-height: 25px;
    } 
 
 }
