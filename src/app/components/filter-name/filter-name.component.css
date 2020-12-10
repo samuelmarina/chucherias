@@ -26,7 +26,7 @@
     margin-right: auto;
 }
 #btn-search-name{
-    width: 15%;
+    width: 45px;
     display: inline-flex;
 }
 #icon-search{
@@ -38,6 +38,7 @@
 #nav-search{
     display:inline-flex;
     width: 60%;
+    margin-bottom: 10%;
 }
 input{
     height: 50px;
@@ -65,6 +66,13 @@ input{
   cursor: default;
   background-position: 100%;
 }
+
+    
+#nav-search{
+        display:inline-flex;
+        width: 90%;
+    }
+
 @media (max-width: 426px){
     
     #btn-search-name{
@@ -78,11 +86,16 @@ input{
 
     .list-group{
         /* background-color:red; */
-        /* margin-left: auto; */
+        margin-left: auto;
+        margin-right: auto;
     }
     #box{
-        display: flex;
+        width: 90%;
         /* margin-left: 10%; */
+        /* background-color: red; */
+        margin-left: auto;
+        margin-right: auto;
     }
 
 }
+
