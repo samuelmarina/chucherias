@@ -88,6 +88,7 @@ import {AuthAdminGuard} from './services/guards/auth-admin.guard';
 import {AuthSharedGuard} from './services/guards/auth-shared.guard';
 import { FilterPriceComponent } from './components/filter-price/filter-price.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { FilterNameComponent } from './components/filter-name/filter-name.component';
 
 @NgModule({
   declarations: [
@@ -143,6 +144,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     UserProfileComponent,
     PaypalButtonsComponent,
     FilterPriceComponent,
+    FilterNameComponent,
   ],
   imports: [
     BrowserModule,

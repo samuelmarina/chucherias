@@ -20,6 +20,8 @@ export class ListaProductosComponent implements OnInit {
   role:any;
   quantity=0;  
   price;
+  productName: string;
+  productsbyname=[];
   
   constructor(
     private auth: AuthService,
@@ -69,6 +71,24 @@ export class ListaProductosComponent implements OnInit {
           this.filteredProducts.filter(p => p['price'] === parseFloat(this.price)) :
           this.filteredProducts;
         console.log(this.filteredProducts);
+
+        this.productName = params.get('nombre');
+        // this.filteredProducts = this.productName ?
+          // this.filteredProducts.filter(p => p['title'] === this.productName.toString()) :
+          // this.filteredProducts;
+        console.log(this.filteredProducts);
+        if(this.productName!='' && this.productName!=null){
+          this.productsbyname=[];
+          for (let index = 0; index < this.filteredProducts.length; index++) {
+            if (this.filteredProducts[index]['title'].toLowerCase().indexOf(this.productName.toLowerCase()) > -1) {
+              this.productsbyname.push((this.filteredProducts[index]));
+            }
+
+          }
+          this.filteredProducts = this.productsbyname;
+
+        }
+         
       }
       )
     });
